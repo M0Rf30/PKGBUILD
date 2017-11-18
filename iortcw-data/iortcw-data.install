@@ -1,0 +1,14 @@
+
+post_install() {
+    echo ">>> Follow the wolf-data package instructions"
+}
+
+post_upgrade() {
+    post_install $1
+}
+
+post_remove() {
+    echo ">>> To complete the uninstallation remove the RtCW data directory:"
+    echo ">>>    rm -r /opt/iortcw-data/"
+    echo ">>>"
+}

@@ -1,0 +1,14 @@
+[Unit]
+Description=CoovaChilli captive portal
+After=network.target
+
+[Service]
+Type=forking
+User=root
+ExecStartPre=/usr/bin/modprobe tun
+ExecStartPre=/usr/bin/echo 1 > /proc/sys/net/ipv4/ip_forward
+ExecStart=/usr/bin/chilli
+
+[Install]
+WantedBy=multi-user.target
+

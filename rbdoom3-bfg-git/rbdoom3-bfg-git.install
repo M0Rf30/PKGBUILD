@@ -1,0 +1,21 @@
+post_install() {
+    echo "==> "
+    echo "==> Game files need to be copied from the win32 steam pack "
+    echo "==> to your base/ directory"
+    echo "==> by default, /usr/share/games/doom3bfg/base "
+    echo "==> "
+    echo "==> Your own doom3bfg directory now should look like:"
+    echo "==>	/usr/share/games/doom3bfg/"
+    echo "	 ->	RBDoom3BFG"
+    echo "	 ->	base/"
+    echo "		 ->	classicmusic/"
+    echo "		 ->	_common.crc"
+    echo "		 ->	etc"
+    echo "==> "
+    echo "==> Start the game with the command: rbdoom3 "
+}
+
+post_remove() {
+    echo "==> To completely remove RBDoom3BFG, you will need to manually remove"
+    echo "==>   /opt/rbdoom3/ as root"
+}

@@ -1,0 +1,14 @@
+pkgbase = eselect-git
+	pkgdesc = Gentoo's multi-purpose configuration and management tool
+	pkgver = 800.b88d19c
+	pkgrel = 1
+	url = http://www.gentoo.org/proj/en/eselect/
+	arch = i686
+	arch = x86_64
+	license = GPL
+	makedepends = git
+	source = eselect::git://anongit.gentoo.org/proj/eselect.git
+	md5sums = SKIP
+
+pkgname = eselect-git
+
