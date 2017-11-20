@@ -4,7 +4,7 @@ pkgbase = simonpi-git
 	pkgdesc = A quick & dirty script to emulate Raspberry PI family devices on your laptop
 	pkgver = 54.1111d39
 	pkgrel = 1
-	url = https://github.com/roberfoster/simonpi
+	url = https://github.com/M0Rf30/simonpi
 	arch = any
 	license = GPL
 	makedepends = git
@@ -22,7 +22,7 @@ pkgbase = simonpi-git
 	depends = sudo
 	depends = util-linux
 	depends = wget
-	source = simonpi::git+https://github.com/roberfoster/simonpi.git
+	source = simonpi::git+https://github.com/M0Rf30/simonpi.git
 	md5sums = SKIP
 
 pkgname = simonpi-git

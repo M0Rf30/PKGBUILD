@@ -9,11 +9,16 @@ url="http://www.capanalysis.net/"
 license=('GPL')
 depends=('glibc' 'libpcap' 'libpqxx' 'sqlite' 'openssl' 'zlib' 'wireshark-cli' 'apache' 'php-apache' 'php-sqlite' 'php-pgsql' 'postgresql' 'ndpi')
 makedepends=('xxd')
-source=('capanalysis::git+https://github.com/roberfoster/CapAnalysis.git'
-	'xplico::git+https://github.com/roberfoster/xplico.git'
+source=('capanalysis::git+https://github.com/xplico/CapAnalysis.git'
+	'xplico::git+https://github.com/xplico/xplico.git'
 	capanalysis.service
 	capana.conf)
 install=capanalysis.install
+
+pkgver() {
+  cd capanalysis
+  echo $(git describe --tags --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g')
+}
 
 prepare() {
     cd $srcdir
@@ -25,18 +30,13 @@ prepare() {
     make pkgbin
     make
 }
+
 package() {
     cd capanalysis
     make INSTALL_DIR=$pkgdir/opt/capanalysis install
     mkdir -p $pkgdir/etc/httpd/conf/extra
     cp ../capana.conf $pkgdir/etc/httpd/conf/extra/httpd-capana.conf
     install -Dm644 ../capanalysis.service "${pkgdir}"/usr/lib/systemd/system/capanalysis.service
-
-}
-
-pkgver() {
-  cd capanalysis
-  echo $(git describe --tags --long | sed 's/\([^-]*-g\)/r\1/;s/-/./g')
 }
 
 md5sums=('SKIP'

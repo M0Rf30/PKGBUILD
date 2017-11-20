@@ -10,7 +10,7 @@ license=('custom')
 depends=('love')
 source=(${pkgname}.sh
         ${pkgname}.desktop
-        https://github.com/roberfoster/trosh/archive/$pkgver.tar.gz)
+        https://github.com/M0Rf30/trosh/archive/$pkgver.tar.gz)
 
 package() {
 	cd $srcdir/$pkgname-$pkgver
