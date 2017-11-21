@@ -1,0 +1,11 @@
+[Unit]
+Description=Lenovo Yoga polling
+After=iio-sensor-proxy.service
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/polling
+
+[Install]
+WantedBy=multi-user.target
+
