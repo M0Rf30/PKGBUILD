@@ -3,7 +3,7 @@
 
 pkgbase=python-sounddevice
 pkgname=(python-sounddevice python2-sounddevice)
-pkgver=0.3.9
+pkgver=0.3.10
 pkgrel=1
 pkgdesc='Play and Record Sound with Python'
 url='http://python-sounddevice.rtfd.io/'
@@ -33,4 +33,4 @@ package_python2-sounddevice() {
   python2 setup.py install --prefix=/usr --root="$pkgdir" --optimize=1
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
-md5sums=('29cccfce73e87646be79f11585bb5ffe')
+md5sums=('68241ab340f3eab29d1162613396e8ac')
