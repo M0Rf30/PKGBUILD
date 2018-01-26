@@ -21,20 +21,10 @@ provides=('porntime')
 conflicts=('porntime')
 options=('!strip')
 install="porntime.install"
-md5sums=('309ed5f0d93e87ff0f33f7368749e079'
-         '69d7b9c45f83c399b1c68e85c2921a9a'
-         'eda173affdfd1630ff6a0bfa566bc1de'
-         '886a43e17c69dd434b2bbb243fefee75')
 
-_platform=X64
-
-if [ "$CARCH" = 'i686' ]; then
-  _platform=X32
-  md5sums[0]='90f72d88bef9758b5ba09b05c3e45e49'
-fi
-
-source=("http://porntime.ws/PornTime${_platform}.tar.gz"
-        "icon.png"
+source_i686=("http://porntime.ws/PornTimeX32.tar.gz")
+source_x86_64=("http://porntime.ws/PornTimeX64.tar.gz")
+source=("icon.png"
         "porntime.install"
         "porntime.desktop")
 
@@ -61,3 +51,8 @@ package() {
   install -Dm644 "${srcdir}/icon.png" "${pkgdir}/usr/share/pixmaps/porntime.png"
 }
 
+md5sums=('69d7b9c45f83c399b1c68e85c2921a9a'
+         'eda173affdfd1630ff6a0bfa566bc1de'
+         '886a43e17c69dd434b2bbb243fefee75')
+md5sums_x86_64=('3f67821d7bfc80bd8bb858bc92f5425b')
+md5sums_i686=('7dc74d8e04b62925a54c14b29d8b1f3d')
