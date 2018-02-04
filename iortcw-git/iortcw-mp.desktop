@@ -1,0 +1,11 @@
+#!/usr/bin/env xdg-open
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=ioRTCW MP
+Comment=Return To Castle Wolfenstein (Multi Player)
+Exec=/usr/bin/iortcw-mp
+Icon=iortcw
+Terminal=false
+Categories=Game
+
