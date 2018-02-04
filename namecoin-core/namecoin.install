@@ -2,26 +2,26 @@ _bc_user=namecoin
 _bc_group=namecoin
 
 post_install() {
-  _mkuser
-  # disable Copy-On-Write (btrfs directories only)
-  for _dir in /srv/namecoin; do
-    _is_btrfs "$_dir" && _disable_cow "$_dir"
-  done
-  mkdir -p /srv/namecoin
-  chown -R $_bc_user:$_bc_group /etc/namecoin /srv/namecoin
-  printf "%b\n" "$namecoin"
+	_mkuser
+	# disable Copy-On-Write (btrfs directories only)
+	for _dir in /srv/namecoin; do
+		_is_btrfs "$_dir" && _disable_cow "$_dir"
+	done
+	mkdir -p /srv/namecoin
+	chown -R $_bc_user:$_bc_group /etc/namecoin /srv/namecoin
+	printf "%b\n" "$namecoin"
 }
 
 post_upgrade() {
-  _mkuser
-  mkdir -p /srv/namecoin
-  chown -R $_bc_user:$_bc_group /etc/namecoin /srv/namecoin
-  printf "%b\n" "$namecoin"
+	_mkuser
+	mkdir -p /srv/namecoin
+	chown -R $_bc_user:$_bc_group /etc/namecoin /srv/namecoin
+	printf "%b\n" "$namecoin"
 }
 
 post_remove() {
-  _rmuser
-  rm -rf /srv/namecoin
+	_rmuser
+	rm -rf /srv/namecoin
 }
 
 
@@ -30,18 +30,18 @@ post_remove() {
 # ------------------------------------------------------------------------------
 
 _mkuser() {
-  getent passwd $_bc_user &>/dev/null || {
-    echo -n "Creating namecoin user... "
-    grep -E "^$_bc_group:" /etc/group >/dev/null || groupadd $_bc_group
-    useradd -m -d /etc/namecoin -g $_bc_group -s /usr/bin/nologin $_bc_user 2>/dev/null
-    echo "done"
-  }
+	getent passwd $_bc_user &>/dev/null || {
+		echo -n "Creating namecoin user... "
+		grep -E "^$_bc_group:" /etc/group >/dev/null || groupadd $_bc_group
+		useradd -m -d /etc/namecoin -g $_bc_group -s /usr/bin/nologin $_bc_user 2>/dev/null
+		echo "done"
+	}
 }
 
 _rmuser() {
-  echo -n "Removing namecoin user... "
-  userdel -rf $_bc_user 2>/dev/null
-  echo "done"
+	echo -n "Removing namecoin user... "
+	userdel -rf $_bc_user 2>/dev/null
+	echo "done"
 }
 
 
@@ -52,43 +52,43 @@ _rmuser() {
 
 # check if dir is btrfs
 _is_btrfs() {
-  if [[ $(findmnt --target $1 --output FSTYPE --noheadings) == 'btrfs' ]]; then
-    return 0
-  else
-    return 1
-  fi
+	if [[ $(findmnt --target $1 --output FSTYPE --noheadings) == 'btrfs' ]]; then
+		return 0
+	else
+		return 1
+	fi
 }
 
 # disable btrfs CoW
 _chattrify() {
-  # original dir, with trailing slash stripped if it exists
-  _orig_dir=$( echo "$1" | sed 's@/$@@' )
+	# original dir, with trailing slash stripped if it exists
+	_orig_dir=$( echo "$1" | sed 's@/$@@' )
 
-  # if original dir exists, back it up
-  [[ -d "$1" ]] && mv "$1" "${_orig_dir}"_old
+	# if original dir exists, back it up
+	[[ -d "$1" ]] && mv "$1" "${_orig_dir}"_old
 
-  # re-make original dir
-  mkdir -p "$1"
+	# re-make original dir
+	mkdir -p "$1"
 
-  # set permissions on re-made dir
-  chmod "$2" "$1"
+	# set permissions on re-made dir
+	chmod "$2" "$1"
 
-  # disable btrfs CoW on re-made dir
-  chattr +C "$1"
+	# disable btrfs CoW on re-made dir
+	chattr +C "$1"
 
-  # recursive copy to restore backed up dir while maintaining disabled CoW
-  [[ -d "${_orig_dir}"_old ]] \
-    && find "${_orig_dir}"_old -mindepth 1 -maxdepth 1 -exec cp -R '{}' "$1" \;
+	# recursive copy to restore backed up dir while maintaining disabled CoW
+	[[ -d "${_orig_dir}"_old ]] \
+		&& find "${_orig_dir}"_old -mindepth 1 -maxdepth 1 -exec cp -R '{}' "$1" \;
 
-  # set ownership on re-made dir
-  chown -R $3:$4 "$1"
+	# set ownership on re-made dir
+	chown -R $3:$4 "$1"
 
-  # purge backed up dir
-  [[ -d "${_orig_dir}"_old ]] && rm -rf "${_orig_dir}"_old
+	# purge backed up dir
+	[[ -d "${_orig_dir}"_old ]] && rm -rf "${_orig_dir}"_old
 }
 
 _disable_cow() {
-  _chattrify "$1" "700" "$_bc_user" "$_bc_group"
+	_chattrify "$1" "700" "$_bc_user" "$_bc_group"
 }
 
 

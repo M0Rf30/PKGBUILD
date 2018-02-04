@@ -16,37 +16,37 @@
 # This function usually doesn't get called directly but by
 # _unreal_(copy|install|move)_files with "command" already filled in.
 _unreal_handle_files() {
-    local dir
+	local dir
 
-    while read stdin; do
-        find -- "$2" -regextype posix-egrep \
-                -iname "$(basename -- "${stdin}")" -a ! -iregex "$4" \
-                -print | while read file
-        do
-            $1 "${file}" "$3/${stdin}" || return 1
-        done
-    done
+	while read stdin; do
+		find -- "$2" -regextype posix-egrep \
+			-iname "$(basename -- "${stdin}")" -a ! -iregex "$4" \
+			-print | while read file
+		do
+			$1 "${file}" "$3/${stdin}" || return 1
+		done
+	done
 }
 
 # Usage: _unreal_copy_files from_dir to_dir ignore_regexp < file_list
 #
 # Calls _unreal_handle_files with "cp" as command.
 _unreal_copy_files() {
-    _unreal_handle_files "cp --force --" "$@" || return 1
+	_unreal_handle_files "cp --force --" "$@" || return 1
 }
 
 # Usage: _unreal_install_files from_dir to_dir ignore_regexp < file_list
 #
 # Basically calls _unreal_handle_files with "install" as command.
 _unreal_install_files() {
-    _unreal_handle_files "install --mode=644 -D --" "$@" || return 1
+	_unreal_handle_files "install --mode=644 -D --" "$@" || return 1
 }
 
 # Usage: _unreal_move_files from_dir to_dir ignore_regexp < file_list
 #
 # Just calls _unreal_handle_files with "mv" as command.
 _unreal_move_files() {
-    _unreal_handle_files "mv --force --" "$@" || return 1
+	_unreal_handle_files "mv --force --" "$@" || return 1
 }
 
 # Usage: _unreal_decompress_files from_dir to_dir ingore_regex < file_list
@@ -60,14 +60,14 @@ _unreal_move_files() {
 # want to apply the same "file_list" (minus the .uz ending) to
 # _unreal_move_files to correct the location.
 _unreal_decompress_files() {
-    while read stdin; do
-        find -- "$1" -regextype posix-egrep \
-                -iname "$(basename -- "${stdin}")" -a ! -iregex "$3" \
-                -print | while read file
-        do
-            "$2/ucc" decompress "${file}" -nohomedir || return 1
-        done
-    done
+	while read stdin; do
+		find -- "$1" -regextype posix-egrep \
+			-iname "$(basename -- "${stdin}")" -a ! -iregex "$3" \
+			-print | while read file
+		do
+			"$2/ucc" decompress "${file}" -nohomedir || return 1
+		done
+	done
 }
 
 # Usage: _unreal_loki_patcher continue_on_fail from_dir to_dir ignore_regex
@@ -84,38 +84,38 @@ _unreal_decompress_files() {
 # _unreal_fail_{fast,safe}_patcher with "continue_on_fail" already
 # filled in.
 _unreal_loki_patcher() {
-    local dest
-    cd "$2"
-    mkdir -p xdelta.tmp
+	local dest
+	cd "$2"
+	mkdir -p xdelta.tmp
 
-    find . -regextype posix-egrep \
-        -type f -a ! -iregex ".*/xdelta.tmp/.*" -a ! -iregex "$4" \
-        -print | while read file
-    do
-        case "$(file -b -- "${file}")" in
-            (*XDelta*)
-                dest="$(echo "${file}" | sed 's/\.0$//')"
-                xdelta patch -- "${file}" "$3/${dest}" \
-                        "xdelta.tmp/$(basename -- "${dest}")" \
-                        && install --mode=644 -D -- \
-                        "xdelta.tmp/$(basename -- "${dest}")" "$3/${dest}" \
-                        || "$1" || return 1
-                ;;
-            (*gzip*)
-                gzip --decompress --stdout -- "${file}" > "$3/${file}" \
-                        || "$1" || return 1
-                ;;
-            (*executable*)
-                install --mode=755 -D -- "${file}" "$3/${file}" \
-                        || "$1" || return 1
-                ;;
-            (*)
-                install --mode=644 -D -- "${file}" "$3/${file}" \
-                        || "$1" || return 1
-                ;;
-        esac
-    done
-    cd - > /dev/null
+	find . -regextype posix-egrep \
+		-type f -a ! -iregex ".*/xdelta.tmp/.*" -a ! -iregex "$4" \
+		-print | while read file
+	do
+		case "$(file -b -- "${file}")" in
+				(*XDelta*)
+				dest="$(echo "${file}" | sed 's/\.0$//')"
+				xdelta patch -- "${file}" "$3/${dest}" \
+					"xdelta.tmp/$(basename -- "${dest}")" \
+					&& install --mode=644 -D -- \
+					"xdelta.tmp/$(basename -- "${dest}")" "$3/${dest}" \
+					|| "$1" || return 1
+				;;
+				(*gzip*)
+				gzip --decompress --stdout -- "${file}" > "$3/${file}" \
+					|| "$1" || return 1
+				;;
+				(*executable*)
+				install --mode=755 -D -- "${file}" "$3/${file}" \
+					|| "$1" || return 1
+				;;
+				(*)
+				install --mode=644 -D -- "${file}" "$3/${file}" \
+					|| "$1" || return 1
+				;;
+		esac
+	done
+	cd - > /dev/null
 }
 
 # Usage: _unreal_fail_safe_patcher from_dir to_dir ignore_regex
@@ -123,7 +123,7 @@ _unreal_loki_patcher() {
 # Tries to apply the patches found in "form_dir" to "to_dir", but
 # doesn't exit if a single patch doesn't apply.
 _unreal_fail_safe_patcher() {
-    _unreal_loki_patcher "true" "$@" || return 1
+	_unreal_loki_patcher "true" "$@" || return 1
 }
 
 # Usage: _unreal_fail_fast_patcher from_dir to_dir ignore_regex
@@ -131,6 +131,6 @@ _unreal_fail_safe_patcher() {
 # Like _unreal_fail_safe_patcher, but exits if only a single patch
 # couldn't be applied successfully.
 _unreal_fail_fast_patcher() {
-    _unreal_loki_patcher "false" "$@" || return 1
+	_unreal_loki_patcher "false" "$@" || return 1
 }
 

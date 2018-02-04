@@ -15,18 +15,18 @@ videodir="$(sed -ne 's/^\s*VDR_OPTIONS\s*=.*\(-v\s\+\|--video\(=\|\s\+\)\)\([^[:
 to="$videodir/$1"
 what="$2"
 if [ -z "$what" ] ; then
-    echo "Usage: $0 TO-DIR WHAT"
-    exit 1
+	echo "Usage: $0 TO-DIR WHAT"
+	exit 1
 fi
 
 mkdir -p "$to"
 dir="$(dirname $what)"
 todir="$to/$(basename $dir)"
 if [ -d "$todir" ] ; then
-    mv -v "$what" "$todir"
-    rmdir -v "$dir"
+	mv -v "$what" "$todir"
+	rmdir -v "$dir"
 else
-    mv -v "$dir" "$to"
+	mv -v "$dir" "$to"
 fi
 
 touch "$videodir/.update"

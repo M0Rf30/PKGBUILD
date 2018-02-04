@@ -10,13 +10,13 @@ else
 fi
 
 if [ "$SCRIPT_DIR" == "bin" ]; then
-# Xash3D SDL is installed in system, so run it from lib/xash3d/ directory with Steam HL basedir if XASH3D_BASEDIR is not set
+	# Xash3D SDL is installed in system, so run it from lib/xash3d/ directory with Steam HL basedir if XASH3D_BASEDIR is not set
 	if [ -z "$XASH3D_BASEDIR" ]; then
 		export XASH3D_BASEDIR="$HOME/.steam/steam/steamapps/common/Half-Life/"
 	fi
 	echo "Xash3D SDL is installed in system."
 fi
-        GAMEROOT=/usr/lib/xash3d
+GAMEROOT=/usr/lib/xash3d
 
 
 #determine platform
