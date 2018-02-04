@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
-# Contributor: Tobias Luther <tobias [at] tonstrom [dot] de> 
-# Contributor: GraveDigger 
+# Contributor: Tobias Luther <tobias [at] tonstrom [dot] de>
+# Contributor: GraveDigger
 # Contributor: Gaetan Bisson <bisson@archlinux.org>
 
 pkgname=idjc
@@ -35,20 +35,20 @@ install=${pkgname}.install
 source=("http://downloads.sourceforge.net/${pkgname}/${pkgname}-${pkgver}.tar.gz")
 
 build() {
-   cd "${srcdir}/${pkgname}-${pkgver}"
+	cd "${srcdir}/${pkgname}-${pkgver}"
 
-   export PYTHON=/usr/bin/python2
-    ./configure \
-        --prefix=/usr \
-        --libexecdir=/usr/lib \
-        --disable-static
-   make
+	export PYTHON=/usr/bin/python2
+	./configure \
+		--prefix=/usr \
+		--libexecdir=/usr/lib \
+		--disable-static
+	make
 }
 
 package() {
-    cd "${srcdir}/${pkgname}-${pkgver}"
-    make DESTDIR="${pkgdir}" install
-    sed -i "s/Icon=\/usr\/share\/pixmaps\/$pkgname.png/Icon=$pkgname/g" $pkgdir/usr/share/applications/$pkgname.desktop
+	cd "${srcdir}/${pkgname}-${pkgver}"
+	make DESTDIR="${pkgdir}" install
+	sed -i "s/Icon=\/usr\/share\/pixmaps\/$pkgname.png/Icon=$pkgname/g" $pkgdir/usr/share/applications/$pkgname.desktop
 }
 
 md5sums=('47f13035d94f5c378bf237c335194a4d')

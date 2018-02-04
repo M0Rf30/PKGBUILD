@@ -12,13 +12,13 @@ depends=('python2')
 source=("https://pypi.python.org/packages/source/t/txrestapi/${_pkgsrcname}-${pkgver}.tar.gz")
 
 build() {
-  cd $srcdir/${_pkgsrcname}-$pkgver
-  python2 setup.py build
+	cd $srcdir/${_pkgsrcname}-$pkgver
+	python2 setup.py build
 }
 
 package() {
-  cd $srcdir/${_pkgsrcname}-$pkgver
-  python2 setup.py install --root=$pkgdir --optimize=1
+	cd $srcdir/${_pkgsrcname}-$pkgver
+	python2 setup.py install --root=$pkgdir --optimize=1
 }
 
 md5sums=('9fbe99e72444a1d3df52086f0400978c')

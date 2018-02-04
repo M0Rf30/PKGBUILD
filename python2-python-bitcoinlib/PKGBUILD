@@ -15,17 +15,17 @@ source=($pkgname-$pkgver.tar.gz::https://codeload.github.com/petertodd/${pkgname
 conflicts=('python2-bitcoin' 'python2-pybitcointools')
 
 build() {
-  cd "$srcdir/${pkgname#python2-}-${pkgname#python2-}-v$pkgver"
+	cd "$srcdir/${pkgname#python2-}-${pkgname#python2-}-v$pkgver"
 
-  msg2 'Building...'
-  python2 setup.py build
+	msg2 'Building...'
+	python2 setup.py build
 }
 
 package() {
-  cd "$srcdir/${pkgname#python2-}-${pkgname#python2-}-v$pkgver"
+	cd "$srcdir/${pkgname#python2-}-${pkgname#python2-}-v$pkgver"
 
-  msg2 'Installing...'
-  python2 setup.py install --root="$pkgdir" --optimize=1
+	msg2 'Installing...'
+	python2 setup.py install --root="$pkgdir" --optimize=1
 }
 
 md5sums=('1ecf7af7dadf463d96b8b7c64324d7ee')

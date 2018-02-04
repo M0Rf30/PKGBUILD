@@ -13,9 +13,9 @@ depends=(xdelta)
 source=(unreal.sh)
 
 package() {
-    cd "$srcdir"
-    install --mode=644 -D -- unreal.sh \
-            "$pkgdir/usr/lib/makepkg/unreal.sh"
+	cd "$srcdir"
+	install --mode=644 -D -- unreal.sh \
+		"$pkgdir/usr/lib/makepkg/unreal.sh"
 }
 
 md5sums=('e6e0b08d1981f2a8c0c254fc63a71e1e')

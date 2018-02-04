@@ -11,9 +11,9 @@ depends=('bash')
 source=(http://prdownloads.sourceforge.net/bootinfoscript/bootinfoscript-061.tar.gz)
 
 package() {
-  cd $srcdir
-  install -D -m644 bootinfoscript  $pkgdir/usr/bin/bootinfoscript
-  chmod +x $pkgdir/usr/bin/bootinfoscript
+	cd $srcdir
+	install -D -m644 bootinfoscript  $pkgdir/usr/bin/bootinfoscript
+	chmod +x $pkgdir/usr/bin/bootinfoscript
 }
 
 md5sums=('dc1e9122be4c2be2b4f9a97b4a219be9')

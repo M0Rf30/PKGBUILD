@@ -12,30 +12,30 @@ source=("http://file-store.rosalinux.ru/download/24ab538782cffdb15e17a95cce32ba1
 
 build()
 {
-  cd "${srcdir}"
+	cd "${srcdir}"
 
-  qmake-qt4 rosa-media-player-plugin.pro
-  make
-
-  cd rosamp-plugin
-
-  for pro in *.pro; do
-	qmake-qt4 ${pro}
+	qmake-qt4 rosa-media-player-plugin.pro
 	make
-  done
 
-  lrelease-qt4 rosamp-plugin-qt.pro
+	cd rosamp-plugin
+
+	for pro in *.pro; do
+		qmake-qt4 ${pro}
+		make
+	done
+
+	lrelease-qt4 rosamp-plugin-qt.pro
 }
 
 package()
 {
-  cd "${srcdir}"
+	cd "${srcdir}"
 
-  mkdir -p "${pkgdir}/usr/lib/mozilla/plugins/translations/"
+	mkdir -p "${pkgdir}/usr/lib/mozilla/plugins/translations/"
 
-  cp -f romp/rosa-media-player/build/*.so "${pkgdir}/usr/lib/"
-  cp -f rosamp-plugin/build/*.so "${pkgdir}/usr/lib/mozilla/plugins/"
-  cp -f rosamp-plugin/translations/*.qm "${pkgdir}/usr/lib/mozilla/plugins/translations/"
+	cp -f romp/rosa-media-player/build/*.so "${pkgdir}/usr/lib/"
+	cp -f rosamp-plugin/build/*.so "${pkgdir}/usr/lib/mozilla/plugins/"
+	cp -f rosamp-plugin/translations/*.qm "${pkgdir}/usr/lib/mozilla/plugins/translations/"
 }
 
 md5sums=('258928a989192d9abb92030cb1b998b0')

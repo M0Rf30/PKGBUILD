@@ -12,17 +12,17 @@ options=(!emptydirs)
 source=("http://goldenstudios.or.id/products/GTGE/GTGE_0_2_3_complete.zip")
 
 package() {
-	cd ${srcdir}/GTGE	
+	cd ${srcdir}/GTGE
 
 	JAVA_DIR=${pkgdir}/usr/share/java/${pkgname}
 	DOC_DIR=${pkgdir}/usr/share/doc/${pkgname}
-	
+
 	# Directories
 	install -d ${JAVA_DIR} ${DOC_DIR} ${BIN_DIR}
 
 	# jar
 	install -D golden*.jar ${JAVA_DIR}/golden.jar
-        cp -r docs ${JAVA_DIR}/
+	cp -r docs ${JAVA_DIR}/
 
 	# docs readme and copyright
 	install -D README.txt ${DOC_DIR}

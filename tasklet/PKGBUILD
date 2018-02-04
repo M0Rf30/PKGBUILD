@@ -11,14 +11,14 @@ depends=(pth libgee vala)
 source=(http://mirror.lihnidos.org/GNU/savannah//netsukuku/${pkgname}-${pkgver}.tar.gz)
 
 build() {
-  cd $srcdir/${pkgname}-${pkgver}
-  ./configure --prefix=/usr
-  make  
+	cd $srcdir/${pkgname}-${pkgver}
+	./configure --prefix=/usr
+	make
 }
 
 package() {
-  cd $srcdir/${pkgname}-${pkgver}
-  make DESTDIR=$pkgdir install
+	cd $srcdir/${pkgname}-${pkgver}
+	make DESTDIR=$pkgdir install
 }
- 
+
 md5sums=('902277148cbaa969eacc7157613fa597')

@@ -13,18 +13,18 @@ install=$pkgname.install
 
 
 build() {
-  cd portage
-  python2 setup.py build 
-} 
+	cd portage
+	python2 setup.py build
+}
 
-package() { 
- cd portage
- python2 setup.py install --root="$pkgdir" --sbindir=/usr/bin
+package() {
+	cd portage
+	python2 setup.py install --root="$pkgdir" --sbindir=/usr/bin
 }
 
 pkgver() {
-  cd portage
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd portage
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

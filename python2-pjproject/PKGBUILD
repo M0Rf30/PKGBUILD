@@ -13,10 +13,10 @@ makedepends=('python2-distribute')
 source=("http://www.pjsip.org/release/$pkgver/${pkgname##python2-}-$pkgver.tar.bz2")
 
 package() {
-  cd $srcdir/${pkgname##python2-}-$pkgver
+	cd $srcdir/${pkgname##python2-}-$pkgver
 
-  cd pjsip-apps/src/python/
-  python2 setup.py install --root="$pkgdir"
+	cd pjsip-apps/src/python/
+	python2 setup.py install --root="$pkgdir"
 }
 
 md5sums=('99a64110fa5c2debff40e0e8d4676380')

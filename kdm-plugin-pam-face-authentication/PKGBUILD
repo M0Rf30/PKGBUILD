@@ -12,14 +12,14 @@ makedepends=('cmake' 'automoc4')
 source=(http://pam-face-authentication.googlecode.com/files/$pkgname-$pkgver.tar.gz)
 
 build() {
-  cd "$srcdir/$pkgname-$pkgver"
-  cmake -D CMAKE_INSTALL_PREFIX=/usr/ .
-  make
+	cd "$srcdir/$pkgname-$pkgver"
+	cmake -D CMAKE_INSTALL_PREFIX=/usr/ .
+	make
 }
 
 package(){
-  cd "$srcdir/$pkgname-$pkgver"
-  make DESTDIR="$pkgdir/" install
+	cd "$srcdir/$pkgname-$pkgver"
+	make DESTDIR="$pkgdir/" install
 }
 
 md5sums=('3174cb6915d8f08c02bd6858d9164779')

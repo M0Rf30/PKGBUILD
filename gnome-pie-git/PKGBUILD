@@ -14,22 +14,22 @@ source=('gnome-pie::git://github.com/Simmesimme/Gnome-Pie.git')
 
 
 build() {
-  cd gnome-pie
-  msg "Building gnome-pie"
-  mkdir -p build
-  cd build
-  cmake -DCMAKE_INSTALL_PREFIX=/usr ..
-  make
+	cd gnome-pie
+	msg "Building gnome-pie"
+	mkdir -p build
+	cd build
+	cmake -DCMAKE_INSTALL_PREFIX=/usr ..
+	make
 }
 
 package() {
-  cd gnome-pie/build
-  make DESTDIR=${pkgdir} install
+	cd gnome-pie/build
+	make DESTDIR=${pkgdir} install
 }
 
 pkgver() {
-  cd gnome-pie
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd gnome-pie
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

@@ -13,16 +13,16 @@ options=(!emptydirs)
 source=(https://pypi.python.org/packages/source/p/python-rudp/python-rudp-$pkgver.tar.gz)
 
 build() {
-  cd "$srcdir/python-rudp-$pkgver"
+	cd "$srcdir/python-rudp-$pkgver"
 
-  msg 'Building...'
-  python2 setup.py build
+	msg 'Building...'
+	python2 setup.py build
 }
 
 package() {
-  cd "$srcdir/python-rudp-$pkgver"
+	cd "$srcdir/python-rudp-$pkgver"
 
-  msg 'Installing...'
-  python2 setup.py install --root="$pkgdir" --optimize=1
+	msg 'Installing...'
+	python2 setup.py install --root="$pkgdir" --optimize=1
 }
 md5sums=('eb01bde666681448575914003d0b0060')

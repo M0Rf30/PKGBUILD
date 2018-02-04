@@ -13,11 +13,11 @@ source=("http://prdownloads.sourceforge.net/autoindex/AutoIndex-${pkgver}.tar.gz
 
 package() {
 
-    cd $srcdir/AutoIndex-${pkgver}
-    mkdir -p $pkgdir/srv/http/autoindex
-    cp -r * ${pkgdir}/srv/http/autoindex
-  
-    
+	cd $srcdir/AutoIndex-${pkgver}
+	mkdir -p $pkgdir/srv/http/autoindex
+	cp -r * ${pkgdir}/srv/http/autoindex
+
+
 }
 
 md5sums=('3c8b88c595f39d05ab9e048258b7ee20')

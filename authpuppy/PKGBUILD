@@ -14,14 +14,14 @@ install='authpuppy.install'
 options=(!strip)
 
 package() {
-  cd ${srcdir}
-  mkdir -p $pkgdir/srv/http/
-  cp -r authpuppy $pkgdir/srv/http/
-  chmod 777 -R $pkgdir/srv/http/authpuppy/*
-  mkdir -p $pkgdir/etc/httpd/conf/extra
-  cp httpd-authpuppy.conf $pkgdir/etc/httpd/conf/extra
-  mkdir -p $pkgdir/var/log/httpd/authpuppy/
+	cd ${srcdir}
+	mkdir -p $pkgdir/srv/http/
+	cp -r authpuppy $pkgdir/srv/http/
+	chmod 777 -R $pkgdir/srv/http/authpuppy/*
+	mkdir -p $pkgdir/etc/httpd/conf/extra
+	cp httpd-authpuppy.conf $pkgdir/etc/httpd/conf/extra
+	mkdir -p $pkgdir/var/log/httpd/authpuppy/
 }
 
 md5sums=('a168ba71cd0e4347ab0983daf6d8e150'
-         '1b008fb4616c661a22fcb5584fce8846')
+'1b008fb4616c661a22fcb5584fce8846')

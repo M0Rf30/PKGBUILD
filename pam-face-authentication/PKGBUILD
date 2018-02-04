@@ -13,7 +13,7 @@ makedepends=('cmake')
 source=('http://pam-face-authentication.googlecode.com/files/pam-face-authentication-0.3.tar.gz')
 
 build() {
-cd "$srcdir"/${pkgname}-$pkgver
+	cd "$srcdir"/${pkgname}-$pkgver
 
 	rm cmake/modules/FindOpenCV.cmake
 	cp /usr/share/opencv/OpenCVConfig.cmake cmake/modules
@@ -22,9 +22,9 @@ cd "$srcdir"/${pkgname}-$pkgver
 }
 
 package() {
-cd ${srcdir}/${pkgname}-$pkgver
-make || return 1
-make DESTDIR="$pkgdir/" install || return 1
+	cd ${srcdir}/${pkgname}-$pkgver
+	make || return 1
+	make DESTDIR="$pkgdir/" install || return 1
 }
 
 md5sums=('5ef71bcf4bdebd2ee7216387ef17fc27')

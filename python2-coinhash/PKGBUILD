@@ -13,8 +13,8 @@ makedepends=('python2-setuptools')
 source=("https://github.com/mazaclub/coinhash/archive/$pkgver.tar.gz")
 
 package(){
-  cd ${_pkgname}-${pkgver}
-  python2 setup.py install --root="$pkgdir"
+	cd ${_pkgname}-${pkgver}
+	python2 setup.py install --root="$pkgdir"
 }
 
 md5sums=('b8c3bdd3b42be7bb3a5f59eb636883c4')

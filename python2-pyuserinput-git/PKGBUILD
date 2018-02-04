@@ -11,13 +11,13 @@ depends=('python2' 'python2-xlib')
 source=('git+https://github.com/SavinaRoja/PyUserInput.git')
 
 package() {
-  cd PyUserInput
-  python2 setup.py install --root="$pkgdir/"
+	cd PyUserInput
+	python2 setup.py install --root="$pkgdir/"
 }
 
 pkgver() {
-  cd PyUserInput
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd PyUserInput
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

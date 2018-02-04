@@ -12,9 +12,9 @@ conflicts=('whatweb-git')
 source=("https://github.com/urbanadventurer/WhatWeb/archive/v$pkgver.tar.gz")
 
 package() {
-  cd "$srcdir/WhatWeb-$pkgver"
-  make DESTDIR=$pkgdir
-  sed 's#/usr/bin/env ruby#/usr/bin/ruby-1.8#g' -i ${pkgdir}/usr/bin/whatweb
+	cd "$srcdir/WhatWeb-$pkgver"
+	make DESTDIR=$pkgdir
+	sed 's#/usr/bin/env ruby#/usr/bin/ruby-1.8#g' -i ${pkgdir}/usr/bin/whatweb
 }
 
 md5sums=('31d57457f34f6691ac20639ffdef8ad6')

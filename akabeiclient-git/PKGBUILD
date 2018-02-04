@@ -13,19 +13,19 @@ source=("akabeiclient::git://gitorious.org/chakra/akabeiclient.git")
 
 
 build() {
-  cd akabeiclient
-  cmake . -DCMAKE_INSTALL_PREFIX=/usr 
-  make
+	cd akabeiclient
+	cmake . -DCMAKE_INSTALL_PREFIX=/usr
+	make
 }
 
 package() {
-  cd akabeiclient
-  make DESTDIR=$pkgdir install
+	cd akabeiclient
+	make DESTDIR=$pkgdir install
 }
 
 pkgver() {
-  cd akabeiclient
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd akabeiclient
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

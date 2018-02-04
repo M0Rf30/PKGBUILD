@@ -13,18 +13,18 @@ source=("akabeicore::git://gitorious.org/chakra/akabeicore.git")
 
 
 build() {
-  cd akabeicore
-  cmake . -DCMAKE_INSTALL_PREFIX=/usr 
-  make || return 1
+	cd akabeicore
+	cmake . -DCMAKE_INSTALL_PREFIX=/usr
+	make || return 1
 }
 package() {
-  cd akabeicore
-  make DESTDIR=$pkgdir install
+	cd akabeicore
+	make DESTDIR=$pkgdir install
 }
 
 pkgver() {
-  cd akabeicore
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd akabeicore
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

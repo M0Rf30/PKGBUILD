@@ -13,16 +13,16 @@ options=(!emptydirs)
 source=("https://github.com/tiran/pysha3/archive/${pkgver}.tar.gz")
 
 build() {
-  cd "$srcdir/${pkgname#python-}-$pkgver"
+	cd "$srcdir/${pkgname#python-}-$pkgver"
 
-  msg 'Building...'
-  python setup.py build
+	msg 'Building...'
+	python setup.py build
 }
 
 package() {
-  cd "$srcdir/${pkgname#python-}-$pkgver"
+	cd "$srcdir/${pkgname#python-}-$pkgver"
 
-  msg 'Installing...'
-  python setup.py install --root="$pkgdir" --optimize=1
+	msg 'Installing...'
+	python setup.py install --root="$pkgdir" --optimize=1
 }
 md5sums=('8e705c4e0b3e6cf4d108a3c9d8a2ac3d')

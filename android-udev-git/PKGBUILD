@@ -16,24 +16,24 @@ provides=('android-udev')
 install='android-udev.install'
 
 package() {
-  cd android-udev
-  # Creating system folders
-  mkdir -p $pkgdir/usr/lib/udev/rules.d/
-  mkdir -p $pkgdir/usr/lib/sysusers.d
-  mkdir -p $pkgdir/usr/share/android/
+	cd android-udev
+	# Creating system folders
+	mkdir -p $pkgdir/usr/lib/udev/rules.d/
+	mkdir -p $pkgdir/usr/lib/sysusers.d
+	mkdir -p $pkgdir/usr/share/android/
 
-  # Installing rules and confs
-  cp adb_usb.ini $pkgdir/usr/share/android/
-  cp 51-android.rules $pkgdir/usr/lib/udev/rules.d/51-android.rules
-  cp android-udev.conf $pkgdir/usr/lib/sysusers.d
+	# Installing rules and confs
+	cp adb_usb.ini $pkgdir/usr/share/android/
+	cp 51-android.rules $pkgdir/usr/lib/udev/rules.d/51-android.rules
+	cp android-udev.conf $pkgdir/usr/lib/sysusers.d
 
-  # Setting permissions
-  chmod a+r $pkgdir/usr/lib/udev/rules.d/51-android.rules
+	# Setting permissions
+	chmod a+r $pkgdir/usr/lib/udev/rules.d/51-android.rules
 }
 
 pkgver() {
-  cd android-udev
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+	cd android-udev
+	git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 md5sums=('SKIP')

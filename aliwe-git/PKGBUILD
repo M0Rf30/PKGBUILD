@@ -12,19 +12,19 @@ makedepends=('git')
 source=('aliwe::git://github.com/M0Rf30/aliwe.git')
 
 build() {
-  cd aliwe
-  make
+	cd aliwe
+	make
 }
 
 package(){
-  cd aliwe
-  make DESTDIR=$pkgdir install
-  rm -rf "$srcdir/$_gitname-build"
+	cd aliwe
+	make DESTDIR=$pkgdir install
+	rm -rf "$srcdir/$_gitname-build"
 }
 
 pkgver() {
-  cd aliwe
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd aliwe
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

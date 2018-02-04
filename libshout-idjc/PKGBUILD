@@ -13,14 +13,14 @@ license=('LGPL')
 
 build()
 {
-  cd "$srcdir/$pkgname-$pkgver"
-  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
-  make LDFLAGS+=-lspeex
+	cd "$srcdir/$pkgname-$pkgver"
+	./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
+	make LDFLAGS+=-lspeex
 }
 
 package() {
-  cd "$srcdir/$pkgname-$pkgver"
-  make DESTDIR="${pkgdir}" install
-  make DESTDIR="${pkgdir}" uninstall-m4dataDATA
+	cd "$srcdir/$pkgname-$pkgver"
+	make DESTDIR="${pkgdir}" install
+	make DESTDIR="${pkgdir}" uninstall-m4dataDATA
 }
 md5sums=('0e25d128e00aca44fbb3f4130b8ae50e')

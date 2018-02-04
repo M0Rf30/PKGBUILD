@@ -9,18 +9,18 @@ url="https://github.com/M0Rf30/misc-scripts"
 license=('GPL2')
 depends=('iio-sensor-proxy')
 source=("https://raw.githubusercontent.com/M0Rf30/misc-scripts/master/polling.c"
-	iio-sensor-polling.service)
+iio-sensor-polling.service)
 
 build() {
-  cd "$srcdir/"
-  gcc -o polling polling.c
+	cd "$srcdir/"
+	gcc -o polling polling.c
 }
 
 package() {
-  install -dm755 $pkgdir/usr/bin/
-  install -dm755 $pkgdir/usr/lib/systemd/system
-  cp $srcdir/polling $pkgdir/usr/bin
-  cp $srcdir/iio-sensor-polling.service $pkgdir/usr/lib/systemd/system
+	install -dm755 $pkgdir/usr/bin/
+	install -dm755 $pkgdir/usr/lib/systemd/system
+	cp $srcdir/polling $pkgdir/usr/bin
+	cp $srcdir/iio-sensor-polling.service $pkgdir/usr/lib/systemd/system
 }
 md5sums=('28733aa7e65a3e967961311f85ed82b7'
-         '141507209c0664fcb7b88927de36e3e1')
+'141507209c0664fcb7b88927de36e3e1')

@@ -13,14 +13,14 @@ install=$pkgname.install
 source=('archweb::git://projects.archlinux.org/archweb.git')
 
 package() {
-  mkdir -p $pkgdir/srv/http
-  cp -r archweb $pkgdir/srv/http/
-  rm -r $pkgdir/srv/http/archweb/.git*
+	mkdir -p $pkgdir/srv/http
+	cp -r archweb $pkgdir/srv/http/
+	rm -r $pkgdir/srv/http/archweb/.git*
 }
 
 pkgver() {
-  cd archweb
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd archweb
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

@@ -12,21 +12,21 @@ makedepends=('git' 'cmake' 'automoc4')
 source=("libmimic::git://gitorious.org/kmess/libmimic-qt.git")
 
 build() {
-  cd libmimic
-  msg "Starting make..."
-  cmake . -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` \
-          -DCMAKE_BUILD_TYPE=Release
-  make
+	cd libmimic
+	msg "Starting make..."
+	cmake . -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` \
+		-DCMAKE_BUILD_TYPE=Release
+	make
 }
 
 package() {
-  cd libmimic
-  make DESTDIR=${pkgdir} install
-} 
+	cd libmimic
+	make DESTDIR=${pkgdir} install
+}
 
 pkgver() {
-  cd libmimic
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd libmimic
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

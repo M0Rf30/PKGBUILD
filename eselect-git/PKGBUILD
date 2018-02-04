@@ -11,20 +11,20 @@ source=('eselect::git://anongit.gentoo.org/proj/eselect.git')
 makedepends=('git')
 
 build() {
-  cd eselect
-  ./autogen.bash
-  ./configure --prefix=/usr
-  make 
-} 
+	cd eselect
+	./autogen.bash
+	./configure --prefix=/usr
+	make
+}
 
 package() {
- cd eselect
- make DESTDIR=$pkgdir install
+	cd eselect
+	make DESTDIR=$pkgdir install
 }
 
 pkgver() {
-  cd eselect
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd eselect
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

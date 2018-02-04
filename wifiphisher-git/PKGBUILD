@@ -19,22 +19,22 @@ conflicts=('wifiphisher')
 source=("git+https://github.com/sophron/wifiphisher.git")
 
 pkgver() {
-  cd "$srcdir/${_name}"
+	cd "$srcdir/${_name}"
 
-  echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
+	echo $(git rev-list --count HEAD).$(git rev-parse --short HEAD)
 }
 
 build() {
-  cd "$srcdir/${_name}"
-  msg2 'Building...'
-  python2 setup.py build
+	cd "$srcdir/${_name}"
+	msg2 'Building...'
+	python2 setup.py build
 }
 
 package() {
-  cd "$srcdir/${_name}"
-  msg2 'Installing...'
-  python2 setup.py install --root="$pkgdir" --optimize=1
-  rm -rf $pkgdir/usr/lib/python2.7/site-packages/tests/
+	cd "$srcdir/${_name}"
+	msg2 'Installing...'
+	python2 setup.py install --root="$pkgdir" --optimize=1
+	rm -rf $pkgdir/usr/lib/python2.7/site-packages/tests/
 }
 
 md5sums=('SKIP')

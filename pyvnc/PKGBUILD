@@ -1,4 +1,4 @@
- 
+
 pkgname=pyvnc
 pkgver=0.1
 pkgrel=1
@@ -13,7 +13,7 @@ md5sums=('630884c678507bfa56808edccdfb2d27')
 
 build ()
 {
-  cd $srcdir/$pkgname-$pkgver
-  python2 setup.py install --root=$pkgdir
+	cd $srcdir/$pkgname-$pkgver
+	python2 setup.py install --root=$pkgdir
 
 }

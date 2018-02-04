@@ -9,22 +9,22 @@ arch=('any')
 url="http://www.mopidy.com"
 license=('APACHE')
 depends=(
-  'mopidy>=1.0'
-  'python2-gmusicapi-git'
-  'python2-setuptools')
+	'mopidy>=1.0'
+	'python2-gmusicapi-git'
+'python2-setuptools')
 makedepends=('python2')
 
 conflicts=('mopidy-gmusic')
 source=("$_pkgname::git+https://github.com/hechtus/mopidy-gmusic.git")
 
 pkgver() {
-  cd "$_pkgname"
-    echo $(git rev-list --count develop).$(git rev-parse --short develop)
+	cd "$_pkgname"
+	echo $(git rev-list --count develop).$(git rev-parse --short develop)
 }
 
 package() {
-  cd "$srcdir/$_pkgname"
-  python2 setup.py install --root="$pkgdir/" --optimize=1
+	cd "$srcdir/$_pkgname"
+	python2 setup.py install --root="$pkgdir/" --optimize=1
 }
 
 md5sums=('SKIP')

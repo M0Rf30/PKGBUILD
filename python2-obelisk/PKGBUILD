@@ -13,8 +13,8 @@ conflicts=('python2-obelisk-git')
 replaces=('python2-obelisk-git')
 
 package(){
-  cd python-obelisk-${pkgver}
-  python2 setup.py install --root="$pkgdir"
+	cd python-obelisk-${pkgver}
+	python2 setup.py install --root="$pkgdir"
 }
 
 md5sums=('3340c8e5a4b9918b9117fc66c64d95a4')

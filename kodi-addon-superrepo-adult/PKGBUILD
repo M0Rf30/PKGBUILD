@@ -15,13 +15,13 @@ source=("http://srp.nu/${_codename}/genres/adult/${_classname}-${pkgver}.zip")
 noextract=("${source[@]##*/}")
 
 prepare() {
-  unzip -o ${_classname}-${pkgver}.zip
+	unzip -o ${_classname}-${pkgver}.zip
 }
 package() {
-  mkdir -p "${pkgdir}/usr/share/kodi/addons/"
-  cp -r "${srcdir}/${_classname}/" "${pkgdir}/usr/share/kodi/addons/"
-  find "${pkgdir}/usr/share/kodi/addons/${_classname}/" -type d -name '.git' -exec rm -rf {} \;
-  find "${pkgdir}/usr/share/kodi/addons/${_classname}/" -type f -exec chmod 644 {} \;
+	mkdir -p "${pkgdir}/usr/share/kodi/addons/"
+	cp -r "${srcdir}/${_classname}/" "${pkgdir}/usr/share/kodi/addons/"
+	find "${pkgdir}/usr/share/kodi/addons/${_classname}/" -type d -name '.git' -exec rm -rf {} \;
+	find "${pkgdir}/usr/share/kodi/addons/${_classname}/" -type f -exec chmod 644 {} \;
 }
 
 md5sums=('3fd29d3c4714f858dd45f89088de2b91')

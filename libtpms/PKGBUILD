@@ -15,15 +15,15 @@ sha1sums=('SKIP')
 _gitname=libtpms
 
 build() {
-  cd $_gitname
-  ./bootstrap.sh
-  ./configure --prefix=/usr --with-openssl
-  make
+	cd $_gitname
+	./bootstrap.sh
+	./configure --prefix=/usr --with-openssl
+	make
 }
 
 package() {
-  cd $_gitname
-  make DESTDIR="${pkgdir}" install
+	cd $_gitname
+	make DESTDIR="${pkgdir}" install
 }
 
 # vim:set ts=2 sw=2 et:

@@ -14,13 +14,13 @@ source=('pyelliptic::git+https://github.com/yann2192/pyelliptic.git')
 conflicts=('python2-pyelliptic')
 
 package(){
-  cd pyelliptic
-  python2 setup.py install --root="$pkgdir"
+	cd pyelliptic
+	python2 setup.py install --root="$pkgdir"
 }
 
 pkgver() {
-  cd pyelliptic
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd pyelliptic
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

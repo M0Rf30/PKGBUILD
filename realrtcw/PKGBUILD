@@ -20,74 +20,74 @@ source=("https://github.com/wolfetplayer/RealRTCW/archive/$pkgver.tar.gz"
 )
 
 build() {
-  if [ ! -f /opt/wolf-data/pak0.pk3 ]; then
-   echo "pak0.pk3 doesn't exist. The game will not start"
-   echo "Follow the wolf-data package instructions!"
-   sleep 5
-  fi
+	if [ ! -f /opt/wolf-data/pak0.pk3 ]; then
+		echo "pak0.pk3 doesn't exist. The game will not start"
+		echo "Follow the wolf-data package instructions!"
+		sleep 5
+	fi
 }
 
 package_realrtcw() {
-  cd "$srcdir/RealRTCW-$pkgver"
-  
-  make USE_INTERNAL_LIBS=0 COPYDIR=$pkgdir/opt/realrtcw/ copyfiles
-    
-  ln -s -r /opt/wolf-data/mp_pak0.pk3   $pkgdir/opt/realrtcw/main
-  ln -s -r /opt/wolf-data/mp_pak1.pk3	$pkgdir/opt/realrtcw/main
-  ln -s -r /opt/wolf-data/mp_pak2.pk3	$pkgdir/opt/realrtcw/main  
-  ln -s -r /opt/wolf-data/pak0.pk3	$pkgdir/opt/realrtcw/main
-  ln -s -r /opt/wolf-data/sp_pak1.pk3	$pkgdir/opt/realrtcw/main
-  ln -s -r /opt/wolf-data/sp_pak2.pk3	$pkgdir/opt/realrtcw/main
-  ln -s -r /opt/wolf-data/sp_pak3.pk3   $pkgdir/opt/realrtcw/main
-  ln -s -r /opt/wolf-data/sp_pak4.pk3   $pkgdir/opt/realrtcw/main
+	cd "$srcdir/RealRTCW-$pkgver"
 
-# Unzipping with flattened paths
-  unzip -jo $srcdir/realrtcw$pkgver.zip -d $srcdir
+	make USE_INTERNAL_LIBS=0 COPYDIR=$pkgdir/opt/realrtcw/ copyfiles
 
-# Installing RealRTCW pk3
-  install -m 755 $srcdir/z_realrtcw.pk3 \
-        $pkgdir/opt/realrtcw/main
+	ln -s -r /opt/wolf-data/mp_pak0.pk3   $pkgdir/opt/realrtcw/main
+	ln -s -r /opt/wolf-data/mp_pak1.pk3	$pkgdir/opt/realrtcw/main
+	ln -s -r /opt/wolf-data/mp_pak2.pk3	$pkgdir/opt/realrtcw/main
+	ln -s -r /opt/wolf-data/pak0.pk3	$pkgdir/opt/realrtcw/main
+	ln -s -r /opt/wolf-data/sp_pak1.pk3	$pkgdir/opt/realrtcw/main
+	ln -s -r /opt/wolf-data/sp_pak2.pk3	$pkgdir/opt/realrtcw/main
+	ln -s -r /opt/wolf-data/sp_pak3.pk3   $pkgdir/opt/realrtcw/main
+	ln -s -r /opt/wolf-data/sp_pak4.pk3   $pkgdir/opt/realrtcw/main
 
-# Modify Launcher Scripts
-    if [ "$CARCH" = "x86_64" ]; then
-        #
-        # x86_64 Systems
-        #
-        sed -i "s:ARCH:x86_64:" \
-            $srcdir/realrtcw-sp.launcher
-    else
-        #
-        # i686 Systems
-        #
-        sed -i "s:ARCH:x86:" \
-            $srcdir/realrtcw-sp.launcher
-    fi
-  
-  # Install Launcher Script (Single Player Client)
-    install -D -m 755 $srcdir/realrtcw-sp.launcher \
-        $pkgdir/usr/bin/realrtcw-sp
+	# Unzipping with flattened paths
+	unzip -jo $srcdir/realrtcw$pkgver.zip -d $srcdir
 
-  # Install Desktop File (Single Player)
-    install -D -m 644 $srcdir/realrtcw-sp.desktop \
-        $pkgdir/usr/share/applications/realrtcw-sp.desktop
+	# Installing RealRTCW pk3
+	install -m 755 $srcdir/z_realrtcw.pk3 \
+		$pkgdir/opt/realrtcw/main
 
-  # Install Icon File (Single Player)
-    install -Dm 644 misc/iortcw.svg \
-        $pkgdir/usr/share/pixmaps/realrtcw.svg
+	# Modify Launcher Scripts
+	if [ "$CARCH" = "x86_64" ]; then
+		#
+		# x86_64 Systems
+		#
+		sed -i "s:ARCH:x86_64:" \
+			$srcdir/realrtcw-sp.launcher
+	else
+		#
+		# i686 Systems
+		#
+		sed -i "s:ARCH:x86:" \
+			$srcdir/realrtcw-sp.launcher
+	fi
+
+	# Install Launcher Script (Single Player Client)
+	install -D -m 755 $srcdir/realrtcw-sp.launcher \
+		$pkgdir/usr/bin/realrtcw-sp
+
+	# Install Desktop File (Single Player)
+	install -D -m 644 $srcdir/realrtcw-sp.desktop \
+		$pkgdir/usr/share/applications/realrtcw-sp.desktop
+
+	# Install Icon File (Single Player)
+	install -Dm 644 misc/iortcw.svg \
+		$pkgdir/usr/share/pixmaps/realrtcw.svg
 }
 
 package_realrtcw-hdpack() {
 	pkgdesc="HD Textures for RealRTCW Mod"
 
-# Unzipping with flattened paths
-  unzip -jo $srcdir/hdpack$pkgver.zip -d $srcdir
+	# Unzipping with flattened paths
+	unzip -jo $srcdir/hdpack$pkgver.zip -d $srcdir
 
-# Installing RealRTCW HD pack pk3
-  install -D -m 755 $srcdir/z_hdpack.pk3 \
-        $pkgdir/opt/realrtcw/main/z_hdpack.pk3
+	# Installing RealRTCW HD pack pk3
+	install -D -m 755 $srcdir/z_hdpack.pk3 \
+		$pkgdir/opt/realrtcw/main/z_hdpack.pk3
 }
 md5sums=('784c0978eba01201d8cab96b949b3a61'
-         'a24763c9d08a87e64c567f6f53296dff'
-         '800b2b4f9166a46198c093f9c6365bf3'
-         '7e3991e5f331662419ad1ed04e49366c'
-         '33f08bc165906164461420e1cc6dd86a')
+	'a24763c9d08a87e64c567f6f53296dff'
+	'800b2b4f9166a46198c093f9c6365bf3'
+	'7e3991e5f331662419ad1ed04e49366c'
+'33f08bc165906164461420e1cc6dd86a')

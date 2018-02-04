@@ -11,19 +11,19 @@ makedepends=('git')
 conflicts=('evopedia')
 source=('evopedia::git://github.com/evopedia/evopedia_qt.git')
 build() {
-  cd evopedia
-  qmake-qt4 evopedia.pro PREFIX="$pkgdir"/usr
-  make
+	cd evopedia
+	qmake-qt4 evopedia.pro PREFIX="$pkgdir"/usr
+	make
 }
 
 package() {
-  cd evopedia
-  make install
+	cd evopedia
+	make install
 }
 
 pkgver() {
-  cd evopedia
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd evopedia
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

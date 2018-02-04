@@ -12,20 +12,20 @@ makedepends=('python-setuptools' 'python2-setuptools')
 source=("http://pypi.python.org/packages/source/v/validictory/validictory-${pkgver}.tar.gz")
 
 prepare() {
-    cd "${srcdir}"
-    cp -a validictory-${pkgver} validictory-${pkgver}-py2
+	cd "${srcdir}"
+	cp -a validictory-${pkgver} validictory-${pkgver}-py2
 }
 
 package_python-validictory() {
-    depends=('python')
-    cd "${srcdir}/validictory-${pkgver}"
-    python setup.py install --root="${pkgdir}" --optimize=1
+	depends=('python')
+	cd "${srcdir}/validictory-${pkgver}"
+	python setup.py install --root="${pkgdir}" --optimize=1
 }
 
 package_python2-validictory() {
-    depends=('python2')
-    cd "${srcdir}/validictory-${pkgver}-py2"
-    python2 setup.py install --root="${pkgdir}" --optimize=1
+	depends=('python2')
+	cd "${srcdir}/validictory-${pkgver}-py2"
+	python2 setup.py install --root="${pkgdir}" --optimize=1
 }
 
 md5sums=('0e2eb442d2d489c08b2c3a607b3c707a')

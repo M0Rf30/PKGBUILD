@@ -12,12 +12,12 @@ makedepends=('git')
 source=(cexio::git+https://github.com/matveyco/cex.io-api-python.git)
 
 package() {
-  cd $srcdir/cexio
-  install -D cexapi.py $pkgdir/usr/lib/python2.7/site-packages/cexapi.py
+	cd $srcdir/cexio
+	install -D cexapi.py $pkgdir/usr/lib/python2.7/site-packages/cexapi.py
 }
 
 pkgver() {
-  cd $srcdir/cexio
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd $srcdir/cexio
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 md5sums=('SKIP')

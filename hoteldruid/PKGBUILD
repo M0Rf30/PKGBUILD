@@ -15,7 +15,7 @@ source=(http://www.digitaldruid.net/download/${pkgname}_${pkgver}.tar.gz)
 
 package() {
 	install -d $pkgdir/srv/http/$pkgname
-        cp -r $srcdir/$pkgname/* ${pkgdir}/srv/http/$pkgname
+	cp -r $srcdir/$pkgname/* ${pkgdir}/srv/http/$pkgname
 }
 
 md5sums=('aec2542864f938647db29bc6ee25d02f')

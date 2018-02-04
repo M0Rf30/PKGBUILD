@@ -14,8 +14,8 @@ replaces=(python2-obelisk)
 source=("https://pypi.python.org/packages/source/p/python-libbitcoinclient/python-libbitcoinclient-$pkgver.tar.gz")
 
 package() {
-  cd "$srcdir/python-libbitcoinclient-$pkgver"
-  python2 setup.py install --root="$pkgdir" -O1
+	cd "$srcdir/python-libbitcoinclient-$pkgver"
+	python2 setup.py install --root="$pkgdir" -O1
 }
 
 md5sums=('87f8826aac8d0f2ff951b122be8624ff')

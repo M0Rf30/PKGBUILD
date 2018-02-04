@@ -14,13 +14,13 @@ makedepends=('leiningen')
 source=("https://github.com/hyperledger/fabric-chaintool/archive/v$pkgver.tar.gz")
 
 build() {
-  cd $srcdir/${_pkgname}-$pkgver
-  make
+	cd $srcdir/${_pkgname}-$pkgver
+	make
 }
 
 package() {
-  cd $srcdir/${_pkgname}-$pkgver
-  make PREFIX=$pkgdir/usr BINDIR=/bin install
+	cd $srcdir/${_pkgname}-$pkgver
+	make PREFIX=$pkgdir/usr BINDIR=/bin install
 }
 
 md5sums=('46c93f9f57411614809cbf751c04a763')

@@ -11,14 +11,14 @@ depends=(libgee vala zcd netsukuku-rpc)
 source=(http://mirror.lihnidos.org/GNU/savannah//netsukuku/${pkgname}-${pkgver}.tar.gz)
 
 build() {
-  cd $srcdir/${pkgname}-${pkgver}
-  ./configure --prefix=/usr
-  make  
+	cd $srcdir/${pkgname}-${pkgver}
+	./configure --prefix=/usr
+	make
 }
 
 package() {
-  cd $srcdir/${pkgname}-${pkgver}
-  make DESTDIR=$pkgdir install
+	cd $srcdir/${pkgname}-${pkgver}
+	make DESTDIR=$pkgdir install
 }
- 
+
 md5sums=('36fbc472d868d07353c9d885e047c9f5')

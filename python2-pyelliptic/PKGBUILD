@@ -11,7 +11,7 @@ depends=('openssl')
 source=(https://github.com/yann2192/pyelliptic/archive/$pkgver.tar.gz)
 
 package(){
-  cd $srcdir/pyelliptic-$pkgver
-  python2 setup.py install --root="$pkgdir"
+	cd $srcdir/pyelliptic-$pkgver
+	python2 setup.py install --root="$pkgdir"
 }
 md5sums=('ce185fdefe4bfa2ede5ed7e41fa0e8d4')

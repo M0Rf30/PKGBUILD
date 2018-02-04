@@ -13,8 +13,8 @@ makedepends=('python2-setuptools')
 source=("https://github.com/vertoe/darkcoin_hash/archive/$pkgver.tar.gz")
 
 package(){
-  cd ${_pkgname}-${pkgver}
-  python2 setup.py install --root="$pkgdir"
+	cd ${_pkgname}-${pkgver}
+	python2 setup.py install --root="$pkgdir"
 }
 
 md5sums=('56bf68eb020d08a603eb0589cd513faf')

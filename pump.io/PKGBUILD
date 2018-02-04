@@ -16,16 +16,16 @@ backup=(etc/webapps/$pkgname/$pkgname.json)
 source=(https://github.com/pump-io/pump.io/archive/v$pkgver.tar.gz)
 
 package() {
-cd $srcdir
-  local _npmdir="$pkgdir/usr/lib/node_modules/"
-  mkdir -p $_npmdir
-  cd $_npmdir
-  npm install -g --prefix "$pkgdir/usr" $pkgname@$pkgver
+	cd $srcdir
+	local _npmdir="$pkgdir/usr/lib/node_modules/"
+	mkdir -p $_npmdir
+	cd $_npmdir
+	npm install -g --prefix "$pkgdir/usr" $pkgname@$pkgver
 
-msg2 "Installing systemd service"
-  install -Dm755 -d "$srcdir/$pkgname-$pkgver/$pkgname\@.service" "${pkgdir}/usr/lib/systemd/system/"
-  install -Dm755 -d "$pkgname.json.sample" "$pkgdir/etc/$pkgname.json"
-  rm -rf $pkgdir/usr/etc
+	msg2 "Installing systemd service"
+	install -Dm755 -d "$srcdir/$pkgname-$pkgver/$pkgname\@.service" "${pkgdir}/usr/lib/systemd/system/"
+	install -Dm755 -d "$pkgname.json.sample" "$pkgdir/etc/$pkgname.json"
+	rm -rf $pkgdir/usr/etc
 }
 
 md5sums=('27235551c29b90240cc98ce3604e34e2')

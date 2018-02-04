@@ -10,14 +10,14 @@ license=(GPL)
 source=("https://sourceforge.net/projects/partclone-utils/files/$pkgname-$pkgver.tar.gz")
 
 build() {
-  cd "$srcdir/$pkgname-$pkgver"
-  ./configure --prefix=/usr --sbindir=/usr/bin
-  make
+	cd "$srcdir/$pkgname-$pkgver"
+	./configure --prefix=/usr --sbindir=/usr/bin
+	make
 }
 
 package() {
-  cd "$srcdir/$pkgname-$pkgver"
-  make DESTDIR="$pkgdir" install
+	cd "$srcdir/$pkgname-$pkgver"
+	make DESTDIR="$pkgdir" install
 }
 
 md5sums=('8ab22dfad00559533bc6694f756d6070')

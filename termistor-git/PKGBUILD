@@ -12,19 +12,19 @@ makedepends=('git')
 source=('termistor::git+https://github.com/giucam/termistor.git')
 
 build() {
-  cd termistor
-  cmake .
-  make
+	cd termistor
+	cmake .
+	make
 }
 
 package(){
-  cd termistor
-  make DESTDIR=$pkgdir install
+	cd termistor
+	make DESTDIR=$pkgdir install
 }
 
 pkgver() {
-  cd termistor
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd termistor
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

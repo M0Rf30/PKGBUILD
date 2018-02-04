@@ -13,12 +13,12 @@ source=(http://www.italiansubs.net/software/FeedWorkerItasa_203.zip)
 package() {
 	cd $srcdir/FeedWorkerItasa
 	install -d -m777 $pkgdir/opt/feedworkeritasa/
-        cp -r {lib,FeedWorkerItasa.jar} $pkgdir/opt/feedworkeritasa/
+	cp -r {lib,FeedWorkerItasa.jar} $pkgdir/opt/feedworkeritasa/
 	install -d -m755 $pkgdir/usr/bin
-        echo "#!/bin/bash" >> $pkgdir/usr/bin/feedworkeritasa
+	echo "#!/bin/bash" >> $pkgdir/usr/bin/feedworkeritasa
 	echo "cd /opt/feedworkeritasa/" >> $pkgdir/usr/bin/feedworkeritasa
 	echo "java -jar "FeedWorkerItasa.jar"" >> $pkgdir/usr/bin/feedworkeritasa
-        chmod +x $pkgdir/usr/bin/feedworkeritasa
+	chmod +x $pkgdir/usr/bin/feedworkeritasa
 }
 
 

@@ -12,9 +12,9 @@ depends=('python2' 'python2-twisted' 'python2-protobuf')
 source=("https://pypi.python.org/packages/d6/d9/2c41beed045ac2324973d685c49663cfea8fb8b9f60cb24b820647deed59/txrudp-$pkgver.tar.gz")
 
 package() {
-  cd $srcdir/${_pkgsrcname}-$pkgver
+	cd $srcdir/${_pkgsrcname}-$pkgver
 
-  python2 setup.py install --root $pkgdir
-  rm -rf $pkgdir/usr/lib/python2.7/site-packages/tests/
+	python2 setup.py install --root $pkgdir
+	rm -rf $pkgdir/usr/lib/python2.7/site-packages/tests/
 }
 md5sums=('65eb8c5a0d11bbc86493c79c0430ffcb')

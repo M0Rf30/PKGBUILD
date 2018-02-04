@@ -14,19 +14,19 @@ options=(!emptydirs)
 source=("http://miniupnp.free.fr/files/${pkgname#python2-}-$pkgver.tar.gz")
 
 build() {
-  cd $srcdir/${pkgname#python2-}-$pkgver
-  
-  msg 'Building...'
-  make
-  python2 setup.py build
+	cd $srcdir/${pkgname#python2-}-$pkgver
+
+	msg 'Building...'
+	make
+	python2 setup.py build
 
 }
 
 package() {
-  cd $srcdir/${pkgname#python2-}-$pkgver
+	cd $srcdir/${pkgname#python2-}-$pkgver
 
-  msg 'Installing...'
-  python2 setup.py install --root="$pkgdir" --optimize=1
+	msg 'Installing...'
+	python2 setup.py install --root="$pkgdir" --optimize=1
 }
 
 md5sums=('9d4a454806a8d3d7ccf09858ab2df81c')

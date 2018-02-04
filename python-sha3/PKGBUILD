@@ -13,12 +13,12 @@ options=(!emptydirs)
 source=("https://files.pythonhosted.org/packages/source/s/sha3/sha3-$pkgver.tar.gz")
 
 build() {
-  cd $srcdir/${_name}-$pkgver
-  python setup.py build
+	cd $srcdir/${_name}-$pkgver
+	python setup.py build
 }
 package() {
-  cd $srcdir/${_name}-$pkgver
-  python setup.py install --root="$pkgdir/" --optimize=1
+	cd $srcdir/${_name}-$pkgver
+	python setup.py install --root="$pkgdir/" --optimize=1
 }
 
 md5sums=('95af0d74b1c4593062599a4b2e0ad951')

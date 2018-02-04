@@ -14,19 +14,19 @@ replaces=('mtd-utils')
 source=("mtd-utils::git://git.infradead.org/mtd-utils.git")
 
 prepare() {
-  cd mtd-utils
-  sed -i 's/sbin/bin/' common.mk
+	cd mtd-utils
+	sed -i 's/sbin/bin/' common.mk
 }
 
 package ()
 {
-  cd mtd-utils
-  make DESTDIR="$pkgdir" install
+	cd mtd-utils
+	make DESTDIR="$pkgdir" install
 }
 
 pkgver() {
-  cd mtd-utils
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd mtd-utils
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

@@ -12,13 +12,13 @@ depends=('python2' 'python2-twisted')
 source=("https://pypi.python.org/packages/source/t/txJSON-RPC/txJSON-RPC-${pkgver}.tar.gz")
 
 build() {
-  cd $srcdir/txJSON-RPC-$pkgver
-  python2 setup.py build
+	cd $srcdir/txJSON-RPC-$pkgver
+	python2 setup.py build
 }
 
 package() {
-  cd $srcdir/txJSON-RPC-$pkgver
-  python2 setup.py install --prefix=${pkgdir}/usr --root=$pkgdir --optimize=1
+	cd $srcdir/txJSON-RPC-$pkgver
+	python2 setup.py install --prefix=${pkgdir}/usr --root=$pkgdir --optimize=1
 }
 
 md5sums=('1dafa2df893d9d068573671d3a87ca9b')

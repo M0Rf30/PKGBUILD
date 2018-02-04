@@ -16,10 +16,10 @@ install=kodi-addon-pulsar.install
 installpath=/var/lib/kodi/.kodi/addons/
 
 package() {
-  mkdir -p ${pkgdir}/${installpath}
-  unzip -o ${classname}-${pkgver}.zip -d ${pkgdir}/${installpath}
-  rm ${pkgdir}/${installpath}/${classname}/Makefile
-  rm -r ${pkgdir}/${installpath}/${classname}/resources/bin/{windows_x86,darwin_x64,linux_arm}
+	mkdir -p ${pkgdir}/${installpath}
+	unzip -o ${classname}-${pkgver}.zip -d ${pkgdir}/${installpath}
+	rm ${pkgdir}/${installpath}/${classname}/Makefile
+	rm -r ${pkgdir}/${installpath}/${classname}/resources/bin/{windows_x86,darwin_x64,linux_arm}
 }
 
 md5sums=('f40d16540520a24baf79de667037fb1c')

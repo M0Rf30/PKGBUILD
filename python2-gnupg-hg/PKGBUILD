@@ -15,18 +15,18 @@ makedepends=('mercurial')
 source=("${_pkgsrcname}::hg+https://bitbucket.org/vinay.sajip/python-gnupg")
 
 build() {
-  cd $srcdir/${_pkgsrcname}
-  python2 setup.py build
+	cd $srcdir/${_pkgsrcname}
+	python2 setup.py build
 }
 
 package() {
-  cd $srcdir/${_pkgsrcname}
-  python2 setup.py install --prefix=${pkgdir}/usr --optimize=1
+	cd $srcdir/${_pkgsrcname}
+	python2 setup.py install --prefix=${pkgdir}/usr --optimize=1
 }
 
 pkgver() {
-  cd $srcdir/${_pkgsrcname}
-  printf "r%s.%s" "$(hg identify -n)" "$(hg identify -i)"
+	cd $srcdir/${_pkgsrcname}
+	printf "r%s.%s" "$(hg identify -n)" "$(hg identify -i)"
 }
 
 md5sums=('SKIP')

@@ -14,13 +14,13 @@ source=('obelisk::git+https://github.com/darkwallet/python-obelisk.git')
 provides=('python2-obelisk')
 
 package(){
-  cd obelisk
-  python2 setup.py install --root="$pkgdir"
+	cd obelisk
+	python2 setup.py install --root="$pkgdir"
 }
 
 pkgver() {
-  cd obelisk
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd obelisk
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

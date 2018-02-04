@@ -12,22 +12,22 @@ depends=('python2' 'python2-distribute' 'python2-markdown' 'python2-django' 'pyt
 makedepends=('python2' 'git')
 conflicts=(hyde)
 source=('hyde::git://github.com/hyde/hyde.git'
-        '0001-Allow-higher-versions-of-some-packages.patch')
+'0001-Allow-higher-versions-of-some-packages.patch')
 
 prepare() {
-   cd hyde
-   git am "${srcdir}/0001-Allow-higher-versions-of-some-packages.patch"
+	cd hyde
+	git am "${srcdir}/0001-Allow-higher-versions-of-some-packages.patch"
 }
 
 package() {
-   cd hyde
-   python2 setup.py install --root=$pkgdir/ --optimize=1
+	cd hyde
+	python2 setup.py install --root=$pkgdir/ --optimize=1
 }
 
 pkgver() {
-  cd hyde
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd hyde
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP'
-         '7d16362ebdbba1a06641295466880b71')
+'7d16362ebdbba1a06641295466880b71')

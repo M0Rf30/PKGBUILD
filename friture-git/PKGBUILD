@@ -14,18 +14,18 @@ source=("friture::git+https://github.com/tlecomte/friture.git")
 md5sums=('866407aefd359ae16015f4ce6a2cd212')
 
 build() {
-  cd friture
-  python setup.py build
+	cd friture
+	python setup.py build
 }
 
 package() {
-  cd friture
-  python setup.py install --root="$pkgdir/"
+	cd friture
+	python setup.py install --root="$pkgdir/"
 }
 
 pkgver() {
-  cd friture
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+	cd friture
+	git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 md5sums=('SKIP')

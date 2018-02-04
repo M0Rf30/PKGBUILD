@@ -14,13 +14,13 @@ provides=('python2-gnupg')
 source=("https://github.com/isislovecruft/python-gnupg/archive/$pkgver.tar.gz")
 
 build() {
-  cd $name-$pkgver
-  python2 setup.py build
+	cd $name-$pkgver
+	python2 setup.py build
 }
 
 package() {
-  cd $name-$pkgver
-  python2 setup.py install --root=${pkgdir} --optimize=1
+	cd $name-$pkgver
+	python2 setup.py install --root=${pkgdir} --optimize=1
 }
 
 md5sums=('b08128652940f0dc1fd1b94d2e4efea2')

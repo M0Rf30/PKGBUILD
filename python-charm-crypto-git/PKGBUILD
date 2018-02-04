@@ -13,19 +13,19 @@ makedepends=('python')
 source=("${_pkgname}::git+https://github.com/JHUISI/charm.git")
 
 pkgver() {
-  cd $srcdir/${_pkgname}
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+	cd $srcdir/${_pkgname}
+	git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-  cd $srcdir/${_pkgname}
-  ./configure.sh --prefix=/usr --sysconfdir=/etc
-  make
+	cd $srcdir/${_pkgname}
+	./configure.sh --prefix=/usr --sysconfdir=/etc
+	make
 }
 
 package() {
-  cd $srcdir/${_pkgname}
-  python setup.py install --root=$pkgdir
+	cd $srcdir/${_pkgname}
+	python setup.py install --root=$pkgdir
 }
 
 md5sums=('SKIP')

@@ -12,17 +12,17 @@ optdepends=()
 source=("http://download.enlightenment.org/releases/$pkgname-$pkgver.tar.bz2")
 
 build() {
-  cd "$srcdir/$pkgname-$pkgver"
+	cd "$srcdir/$pkgname-$pkgver"
 
-  ./configure --prefix=/usr
+	./configure --prefix=/usr
 
-  make
+	make
 }
 
 package(){
-  cd "$srcdir/$pkgname-$pkgver"
+	cd "$srcdir/$pkgname-$pkgver"
 
-  make DESTDIR="$pkgdir" install
+	make DESTDIR="$pkgdir" install
 
 
 }

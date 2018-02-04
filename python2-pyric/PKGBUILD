@@ -13,9 +13,9 @@ source=("https://pypi.python.org/packages/e1/56/cb834d27ef717594f0179c8c0eefb20a
 
 
 package() {
-  cd $srcdir/${_pkgsrcname}-$pkgver
-  python2 setup.py install --root $pkgdir
-  rm -rf $pkgdir/usr/lib/python2.7/site-packages/tests/
+	cd $srcdir/${_pkgsrcname}-$pkgver
+	python2 setup.py install --root $pkgdir
+	rm -rf $pkgdir/usr/lib/python2.7/site-packages/tests/
 }
 
 md5sums=('0e1077a4fa1a567aaa6daec23ebf4571')

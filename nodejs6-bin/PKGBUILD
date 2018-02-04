@@ -16,19 +16,19 @@ source_i686=("https://nodejs.org/dist/v$pkgver/node-v$pkgver-linux-x86.tar.xz")
 source_x86_64=("https://nodejs.org/dist/v$pkgver/node-v$pkgver-linux-x64.tar.xz")
 
 package() {
-  if [ "$CARCH" = "x86_64" ]; then
+	if [ "$CARCH" = "x86_64" ]; then
 
-        # x86_64 Systems
-	cd node-v$pkgver-linux-x64
-    else
+		# x86_64 Systems
+		cd node-v$pkgver-linux-x64
+	else
 
-        # i686 Systems
-	cd node-v$pkgver-linux-x86
-    fi
-    mkdir $pkgdir/usr
-    cp -r {bin,include,lib,share} $pkgdir/usr 
-    install -D -m644 LICENSE \
-    "$pkgdir"/usr/share/licenses/nodejs/LICENSE
+		# i686 Systems
+		cd node-v$pkgver-linux-x86
+	fi
+	mkdir $pkgdir/usr
+	cp -r {bin,include,lib,share} $pkgdir/usr
+	install -D -m644 LICENSE \
+		"$pkgdir"/usr/share/licenses/nodejs/LICENSE
 }
 
 md5sums_i686=('664af4b372faea057aed9f349b66f9a3')

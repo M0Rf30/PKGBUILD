@@ -14,20 +14,20 @@ source=(${_pkgname}::git+https://git.gnome.org/browse/${_pkgname}/)
 install=$_pkgname.install
 
 build() {
-  cd $srcdir/${_pkgname}
-  ./autogen.sh --prefix=/usr
-  sed -i "s/docbook2man \$?/docbook2man --sgml \$?/g" man/Makefile
-  make
+	cd $srcdir/${_pkgname}
+	./autogen.sh --prefix=/usr
+	sed -i "s/docbook2man \$?/docbook2man --sgml \$?/g" man/Makefile
+	make
 }
 
 package(){
-  cd $srcdir/${_pkgname}
-  make DESTDIR=$pkgdir install install-data
+	cd $srcdir/${_pkgname}
+	make DESTDIR=$pkgdir install install-data
 }
 
 pkgver() {
-  cd $srcdir/${_pkgname}
-  echo $(git rev-list --count master).$(git rev-parse --short master)
+	cd $srcdir/${_pkgname}
+	echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

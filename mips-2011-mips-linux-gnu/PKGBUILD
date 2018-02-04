@@ -13,7 +13,7 @@ source=(http://www.codesourcery.com/sgpp/lite/mips/portal/package9055/public/mip
 
 
 package() {
-#Copy base binaries, libraries and such
+	#Copy base binaries, libraries and such
 	mkdir -p $pkgdir/usr
 	cd $srcdir/mips-$pkgver
 	cp -PR * $pkgdir/usr

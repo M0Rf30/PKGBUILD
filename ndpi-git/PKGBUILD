@@ -13,24 +13,24 @@ source=('ndpi::git+https://github.com/ntop/nDPI.git')
 makedepends=('git')
 
 pkgver() {
-  cd ndpi
-  echo $(git rev-list --count dev).$(git rev-parse --short dev)
+	cd ndpi
+	echo $(git rev-list --count dev).$(git rev-parse --short dev)
 }
 
-build() {                                                                                                                                                                    
-   cd ndpi
-   ./autogen.sh
-   ./configure --prefix=/usr --with-pic --includedir=/usr/include --libdir=/usr/lib
-   make
+build() {
+	cd ndpi
+	./autogen.sh
+	./configure --prefix=/usr --with-pic --includedir=/usr/include --libdir=/usr/lib
+	make
 }
- package() {
-   cd ndpi
-   make DESTDIR="${pkgdir}/" install
-   mv $pkgdir/usr/include/libndpi-*/libndpi $pkgdir/usr/include
-   rm -r $pkgdir/usr/include/libndpi-*
-   sed -i 's|\/libndpi-2.*.*||g' $pkgdir/usr/lib/pkgconfig/libndpi.pc
-   sed -i 's=#include "../lib/third_party/include/libcache.h"=#include "libcache.h"=' $pkgdir/usr/include/libndpi/ndpi_typedefs.h
-   cp -p src/lib/third_party/include/libcache.h $pkgdir/usr/include/libndpi
+package() {
+	cd ndpi
+	make DESTDIR="${pkgdir}/" install
+	mv $pkgdir/usr/include/libndpi-*/libndpi $pkgdir/usr/include
+	rm -r $pkgdir/usr/include/libndpi-*
+	sed -i 's|\/libndpi-2.*.*||g' $pkgdir/usr/lib/pkgconfig/libndpi.pc
+	sed -i 's=#include "../lib/third_party/include/libcache.h"=#include "libcache.h"=' $pkgdir/usr/include/libndpi/ndpi_typedefs.h
+	cp -p src/lib/third_party/include/libcache.h $pkgdir/usr/include/libndpi
 }
 
 md5sums=('SKIP')
