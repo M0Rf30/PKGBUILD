@@ -12,7 +12,6 @@ arch=('x86_64')
 url="http://www.soulseekqt.net/news/"
 license=('CUSTOM')
 depends=('fontconfig' 'libxext' 'libxrender' 'qt5-multimedia')
-makedepends=('libselinux')
 source=("https://www.dropbox.com/s/ru2mvycljfrejcx/SoulseekQt-$_pkgver-64bit.AppImage"
 	$pkgname.desktop
 )
