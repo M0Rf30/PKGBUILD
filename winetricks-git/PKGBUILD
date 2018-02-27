@@ -2,7 +2,7 @@
 # Contributor: Eschwartz <eschwartz93@gmail.com>
 
 pkgname=winetricks-git
-pkgver=20171222.r1.gd30478d
+pkgver=20180217.r9.g807ed1f
 pkgrel=1
 pkgdesc='Script to install various redistributable runtime libraries in Wine.'
 url='http://wiki.winehq.org/winetricks'
@@ -18,7 +18,6 @@ optdepends=('zenity: For the GTK3 GUI.'
 conflicts=('winetricks' 'bin32-winetricks')
 provides=('winetricks')
 source=("$pkgname::git+https://github.com/Winetricks/winetricks.git")
-sha256sums=('SKIP')
 
 pkgver() {
 	cd "$pkgname"
@@ -29,3 +28,5 @@ package() {
 	cd "$pkgname"
 	make DESTDIR="$pkgdir" install
 }
+
+md5sums=('SKIP')
