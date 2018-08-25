@@ -46,23 +46,19 @@ burn
 
 # I18N settings.
 #
-. /etc/vdr/i18n 2>/dev/null || :
+. /etc/locale.conf 2>/dev/null || :
 # LC_TIME affects how dates and times are displayed.
 #export LC_TIME=fi_FI.UTF-8
 
 # PATH where to find the internally used executables.
 #
-#PATH="$PATH:/opt/bin"
+PATH="/usr/lib/vdr/bin:$PATH"
 
 # How many minutes before a recording should the VDR box wake up?
 # Some CI/CAM combinations can take quite a long time to initialize, so
 # we default to a pretty generous value here.
 #
 WAKEUP_BEFORE_RECORDING=10
-
-# Try reloading DVB modules on unexpected exits?
-#
-#RELOAD_DVB=yes
 
 # For debugging: allow vdr to dump core.  Note that depending on the operating
 # environment, core dumps from setuid processes may be a security issue.

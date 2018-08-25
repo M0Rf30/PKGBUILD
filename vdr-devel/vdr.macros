@@ -1,0 +1,22 @@
+%vdr_pcvar()    %(v=$(pkg-config vdr --variable="%1") ; echo "${v:-ERROR}")
+
+%vdr_version    %(pkg-config vdr --modversion || echo ERROR)
+%vdr_apiversion %vdr_pcvar apiversion
+
+%vdr_user       %vdr_pcvar user
+%vdr_group      %vdr_pcvar group
+
+%vdr_bindir     %vdr_pcvar bindir
+%vdr_cachedir   %vdr_pcvar cachedir
+%vdr_configdir  %vdr_pcvar configdir
+%vdr_libdir     %vdr_pcvar libdir
+%vdr_locdir     %vdr_pcvar locdir
+%vdr_resdir     %vdr_pcvar resdir
+%vdr_rundir     %vdr_pcvar rundir
+%vdr_vardir     %vdr_pcvar vardir
+%vdr_videodir   %vdr_pcvar videodir
+
+# deprecated, backwards compatibility
+%vdr_includedir %{_includedir}
+%vdr_localedir  %{vdr_locdir}
+%vdr_plugindir  %{vdr_libdir}

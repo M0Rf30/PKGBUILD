@@ -1,10 +1,9 @@
 #!/bin/sh
 
-cfg=/etc/vdr/channels.conf
+cfg=/var/lib/vdr/channels.conf
 if [ ! -s $cfg ] ; then
-	logger -s -p daemon.err -t vdr.service \
-		"$cfg is not valid, use \"scandvb -o vdr\" from the dvb-apps package to create one."
-	exit 6
+    echo "$cfg is not valid, use \"w_scan -t 3 -o 21\" from the w_scan package to create one." >&2
+    exit 2
 else
-	chown vdr:vdr $cfg && chmod 644 $cfg
+    chown vdr:video $cfg && chmod 644 $cfg
 fi
