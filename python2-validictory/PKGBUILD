@@ -1,31 +1,21 @@
 # Maintainer: robertfoster
+# Contributor: boosterdev@linuxmail.org
 
-pkgbase=python-validictory
-pkgname=('python-validictory' 'python2-validictory')
-pkgver=1.0.0
+_pkgname=validictory
+pkgname=python2-$_pkgname
+pkgver=1.1.2
 pkgrel=1
-pkgdesc='A general purpose Python data validator'
+pkgdesc="General purpose python data validator"
 arch=('any')
-url='https://pypi.python.org/pypi/validictory/'
+url="https://github.com/jamesturk/validictory"
 license=('MIT')
-makedepends=('python-setuptools' 'python2-setuptools')
-source=("http://pypi.python.org/packages/source/v/validictory/validictory-${pkgver}.tar.gz")
+depends=('python2')
+makedepends=('python2-setuptools')
+source=("$pkgname-$pkgver.tar.gz::https://github.com/jamesturk/$_pkgname/archive/$pkgver.tar.gz")
 
-prepare() {
-	cd "${srcdir}"
-	cp -a validictory-${pkgver} validictory-${pkgver}-py2
+package() {
+    cd "${_pkgname}-${pkgver}"
+    python2 setup.py install --root="$pkgdir" --optimize=1
+    install -Dm644 LICENSE.txt "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
-
-package_python-validictory() {
-	depends=('python')
-	cd "${srcdir}/validictory-${pkgver}"
-	python setup.py install --root="${pkgdir}" --optimize=1
-}
-
-package_python2-validictory() {
-	depends=('python2')
-	cd "${srcdir}/validictory-${pkgver}-py2"
-	python2 setup.py install --root="${pkgdir}" --optimize=1
-}
-
-md5sums=('0e2eb442d2d489c08b2c3a607b3c707a')
+md5sums=('8440c2550e61b4cce3d5155e45e51dca')
