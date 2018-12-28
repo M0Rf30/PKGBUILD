@@ -1,8 +1,0 @@
-[Unit]
-Description=Leap Motion Service Daemon
-
-[Service]
-ExecStart=/usr/bin/leapd
-
-[Install]
-WantedBy=multi-user.target
