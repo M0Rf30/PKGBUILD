@@ -1,14 +1,14 @@
 # Maintainer: robertfoster
 
 pkgname=jacklistener-git
-pkgver=47.79b6bcf
+pkgver=51.2e73f72
 pkgrel=1
 pkgdesc="Jack Listener Daemon (jack-sensing)"
 arch=('i686' 'x86_64')
 url="https://github.com/gentoo-root/jacklistener"
 license=('GPL3')
 provides=('jacklistener')
-depends=('dbus')
+depends=('dbus' 'udev')
 optdepends=("jackeventcmd-git: Run custom commands when headphones are (un)plugged"
 	    "jacknotifier-git: Headphones Jack Notification Daemon"
 	    "musicpaused-git: Pause music when headphones are unplugged"
@@ -24,7 +24,9 @@ build() {
   autoheader
   automake --add-missing
   autoconf
-  ./configure --prefix=/usr --sbindir=/usr/bin --sysconfdir=/etc --enable-systemd --enable-arch
+  ./configure --prefix=/usr --sbindir=/usr/bin \
+	--sysconfdir=/etc --enable-systemd \
+	--enable-arch --enable-udev
   make
 }
 
