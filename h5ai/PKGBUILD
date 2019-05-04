@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=h5ai
-pkgver=0.29.0
+pkgver=0.29.2
 pkgrel=1
 arch=(any)
 pkgdesc="A modern file indexer for HTTP web servers with focus on your files"
@@ -28,4 +28,4 @@ package() {
 	cp -r _${pkgname} ${pkgdir}/$webapps/${pkgname}
 }
 
-md5sums=('dd44880a4353bec140ded7fdec0ac3ce')
+md5sums=('5cfe8ea94c5a4e27ee8d8117ef4d52c8')
