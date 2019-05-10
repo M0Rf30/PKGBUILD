@@ -3,13 +3,13 @@
 # Contributor: Romain Porte <microjoe@microjoe.org>
 
 pkgname=sw4stm32
-pkgver=2.7
+pkgver=2.9
 pkgrel=1
 pkgdesc="SystemWorkbench for STM32"
 arch=('x86_64')
 url="http://www.openstm32.org/System+Workbench+for+STM32"
 license=('CUSTOM')
-depends=("java-environment<=8")
+depends=("java-environment=8")
 options=(!emptydirs !strip)
 source=("http://www.ac6-tools.com/downloads/SW4STM32/install_sw4stm32_linux_64bits-v$pkgver.run"
     $pkgname
@@ -25,7 +25,7 @@ optdepends=('arm-none-eabi-gcc: ARM compiler'
 
 package() {
     HOME="$pkgdir/usr/lib/sw4stm32"
-    sed "s|home|$HOME|g" auto-install.xml > unattended.xml
+    sed "s|@HOME@|$HOME|g" auto-install.xml > unattended.xml
 
     cd $srcdir
     chmod +x install_sw4stm32_linux_64bits-v$pkgver.run
@@ -46,7 +46,7 @@ package() {
     #done
 
     # Extracting arm cross-compiler
-    CROSSPATH="$HOME/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.16.0.201807130628/tools/st-gnu-arm-gcc-7-2017-q4-major_gdb-5_4-2016q3-linux.tar.bz2"
+    CROSSPATH="$HOME/plugins/fr.ac6.mcu.externaltools.arm-none.linux64_1.17.0.201812190825/tools/st-gnu-arm-gcc-7-2018-q2-update_gdb-5_4-2016q3-linux.tar.bz2"
     CROSSDEST=$(dirname $CROSSPATH)
     tar -xf $CROSSPATH -C $(dirname $CROSSPATH)
     rm $CROSSPATH
@@ -59,8 +59,8 @@ package() {
     echo "-Dosgi.configuration.area=@user.home/.sw4stm32" >> $HOME/eclipse.bin.ini
 }
 
-md5sums=('f391a314d958442a94a28ea3dbf4b1e3'
+md5sums=('670be5ab4b336a118aaa4179a499fcac'
     'd1dfe6479d10bbfd07b17a289aa1ae32'
     '1abad981624008108a0651b9847e183e'
     'ff9b48b50dc8a1845d002bc1f1ddb50a'
-'bbec97848b7d66d227a40b0321e55f31')
+'78b8e04b38d672dc60bc14a78ac5814f')
