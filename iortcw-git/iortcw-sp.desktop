@@ -3,7 +3,7 @@
 Version=1.0
 Type=Application
 Name=ioRTCW SP
-Comment=Return To Castle Wolfenstein (Single Player)
+Comment=Return To Castle Wolfenstein with Rend2 (Single Player)
 Exec=/usr/bin/iortcw-sp
 Icon=iortcw
 Terminal=false
