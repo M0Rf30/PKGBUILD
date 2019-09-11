@@ -1,0 +1,31 @@
+pkgbase = pyload-nightly
+	pkgdesc = Downloadtool for One-Click-Hoster written in python. Latest devel branch
+	pkgver = v0.4.9.r4782.gd686d625b
+	pkgrel = 2
+	url = https://github.com/pyload/pyload
+	arch = any
+	license = GPL
+	makedepends = git
+	makedepends = python-jinja
+	makedepends = python-setuptools
+	depends = python
+	depends = python-cheroot
+	depends = python-cryptography
+	depends = python-flask
+	depends = python-flask-babel
+	depends = python-filetype
+	depends = python-flask-themes2
+	depends = python-pycurl
+	depends = python-requests-html
+	depends = python-semver
+	provides = pyload
+	conflicts = pyload
+	conflicts = pyload-hg
+	backup = var/lib/pyload/pyload.conf
+	source = pyload-nightly::git+https://github.com/pyload/pyload.git
+	source = pyload.service
+	md5sums = SKIP
+	md5sums = 75069bddcec3ee630d2abea02ffef0b4
+
+pkgname = pyload-nightly
+
