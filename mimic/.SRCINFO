@@ -1,0 +1,19 @@
+pkgbase = mimic
+	pkgdesc = Text-to-speech voice synthesis from the Mycroft project.
+	pkgver = 1.2.0.2
+	pkgrel = 3
+	url = https://mimic.mycroft.ai/
+	arch = x86_64
+	arch = i686
+	license = custom
+	makedepends = git
+	makedepends = libtool
+	makedepends = autoconf
+	makedepends = automake
+	makedepends = icu
+	depends = alsa-lib
+	source = mimic-1.2.0.2.tar.gz::https://github.com/MycroftAI/mimic1/archive/1.2.0.2.tar.gz
+	md5sums = a2baf460aa97a949519f4185d72053f5
+
+pkgname = mimic
+
