@@ -1,4 +1,7 @@
-d /var/lib/mycroft 0755 mycroft mycroft 
+Z /usr/share/mycroft-core 0755 mycroft mycroft 
+Z /var/lib/mycroft 0755 mycroft mycroft
+L /var/lib/mycroft/.config/pulse/client.conf - - - - /usr/share/mycroft-core/pulse-client.conf
 d /var/log/mycroft 0755 mycroft mycroft 
 d /opt/mycroft/ 0755 mycroft mycroft
 d /tmp/mycroft/ 0755 mycroft mycroft
+f /var/tmp/mycroft_web_cache.json 0755 mycroft mycroft
