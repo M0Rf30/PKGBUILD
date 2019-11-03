@@ -1,6 +1,0 @@
-#!/bin/sh
-
-for i in $(find . -type f -name "*.sh"); do
-	beautysh --files $i -t
-done
-
