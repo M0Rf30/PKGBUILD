@@ -1,9 +1,0 @@
-[Desktop Entry]
-Encoding=UTF-8
-Type=Application
-Name=Tiny Media Manager
-Exec=tinymediamanager
-Icon=tmm
-Comment=A multi-OS media managment tool
-Categories=AudioVideo;Video;Database;Java;
-StartupWMClass=org-tinymediamanager-TinyMediaManager
