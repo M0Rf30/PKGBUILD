@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Prey
+GenericName=Prey
+Comment=Single and Multiplayer First Person Shooter
+Exec=/usr/bin/prey
+Icon=prey
+StartupNotify=true
+Terminal=false
+Type=Application
+Categories=Application;Game
+StartupWMClass=prey.x86
