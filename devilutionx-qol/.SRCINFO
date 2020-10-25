@@ -1,0 +1,29 @@
+pkgbase = devilutionx-qol
+	pkgdesc = Diablo devolved for linux (with Qualitity Of Life patchset by Manuel-K)
+	pkgver = 1.1.0
+	pkgrel = 1
+	url = https://github.com/diasurgical/devilutionX
+	install = devilutionx-qol.install
+	arch = armv6h
+	arch = armv7h
+	arch = arm
+	arch = aarch64
+	arch = i686
+	arch = x86_64
+	license = custom:unlicense
+	makedepends = cmake
+	makedepends = gcc-libs
+	depends = graphite
+	depends = libsodium
+	depends = sdl2_mixer
+	depends = sdl2_ttf
+	conflicts = devilutionx
+	replaces = devilutionx
+	options = strip
+	source = https://github.com/diasurgical/devilutionX/archive/1.1.0.tar.gz
+	source = qol::git+https://github.com/Manuel-K/devilutionX-QOL-patches#commit=7ae428b089e7bc463d72ece0e6047f28db092a3a
+	md5sums = 76e7f5219e8f58ee71ab671b13ce3139
+	md5sums = SKIP
+
+pkgname = devilutionx-qol
+
