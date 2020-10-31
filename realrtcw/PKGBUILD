@@ -3,7 +3,7 @@
 pkgname=realrtcw
 pkgver=3.1n
 pkgrel=1
-pkgdesc="A mod that brings some realism to the classic Wolfenstein game. You can expect ruthless AI, new weapons and rebalanced gameplay"
+pkgdesc="An overhaul mod for critically acclaimed Return To Castle Wolfenstein."
 arch=('i686' 'x86_64')
 url="http://www.moddb.com/mods/realrtcw-realism-mod"
 license=('GPL')
@@ -87,7 +87,7 @@ package() {
 }
 
 md5sums=('f0d07eef3bcde761727eca023aef2b4f'
-         '6f140b9df87f6fb362c323b0b5656710'
-         '19ef21acfceb965f36b53b70267641d1'
-         '7e3991e5f331662419ad1ed04e49366c'
-         '88752202a0da9bc9cb467b6f0f201132')
+  '6f140b9df87f6fb362c323b0b5656710'
+  '19ef21acfceb965f36b53b70267641d1'
+  '7e3991e5f331662419ad1ed04e49366c'
+  '88752202a0da9bc9cb467b6f0f201132')

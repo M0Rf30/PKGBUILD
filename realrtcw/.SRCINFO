@@ -1,5 +1,5 @@
 pkgbase = realrtcw
-	pkgdesc = A mod that brings some realism to the classic Wolfenstein game. You can expect ruthless AI, new weapons and rebalanced gameplay
+	pkgdesc = An overhaul mod for critically acclaimed Return To Castle Wolfenstein.
 	pkgver = 3.1n
 	pkgrel = 1
 	url = http://www.moddb.com/mods/realrtcw-realism-mod
