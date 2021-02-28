@@ -1,0 +1,20 @@
+pkgbase = ocaml-lastfm
+	pkgdesc = OCaml API to lastfm radio and audioscrobbler
+	pkgver = 0.3.3
+	pkgrel = 1
+	url = https://github.com/savonet/ocaml-lastfm
+	arch = i686
+	arch = x86_64
+	license = LGPL2.1
+	makedepends = ocaml-findlib
+	makedepends = dune
+	depends = ocaml
+	depends = ocaml-pcre
+	depends = ocaml-xmlplaylist
+	depends = ocamlnet
+	options = !strip
+	source = https://github.com/savonet/ocaml-lastfm/archive/v0.3.3.tar.gz
+	sha256sums = e0c05c3221f0faa09d7c2447573181067bf9f192cadbfadb7b97067c72add73a
+
+pkgname = ocaml-lastfm
+
