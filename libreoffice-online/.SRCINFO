@@ -5,6 +5,7 @@ pkgbase = libreoffice-online
 	epoch = 1
 	url = https://www.libreoffice.org/download/libreoffice-online/
 	install = libreoffice-online.install
+	arch = aarch64
 	arch = x86_64
 	license = MPL
 	makedepends = cppunit
