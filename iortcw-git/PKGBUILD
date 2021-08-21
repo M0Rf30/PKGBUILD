@@ -32,6 +32,19 @@ pkgver() {
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
+build() {
+	cd "$srcdir/iortcw"
+
+    # make SP
+	cd SP
+	make USE_INTERNAL_LIBS=0
+
+
+    # make MP
+    cd ../MP
+    make USE_INTERNAL_LIBS=0
+}
+
 package() {
   cd "$srcdir/iortcw"
 
