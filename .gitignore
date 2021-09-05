@@ -1,6 +1,12 @@
-src/*		
-pkg/*		
+src/*
+pkg/*
 *.tar*
 .AURINFO
 */.git*
-
+*/*.tar
+*/*.gz
+*/*.part
+*/pkg
+*/src
+*/*.pkg.*
+.SRCINFO
