@@ -1,0 +1,51 @@
+# Maintainer: robertfoster
+
+pkgname=xash3d-hlsdk-git
+pkgver=r551.6802cda9
+pkgrel=1
+pkgdesc="Half-Life SDK from original Xash3D engine"
+arch=('i686' 'x86_64')
+url="https://xash.su/"
+license=('GPL3')
+makedepends=('git' 'cmake' 'sdl2')
+makedepends_x86_64=('lib32-gcc-libs')
+source=("git+https://github.com/FWGS/hlsdk-xash3d"
+        "git+https://github.com/FWGS/vgui-dev")
+
+_args="--enable-goldsrc-support \
+       --build-type=release \
+       --enable-voicemgr"
+
+if [ $CARCH == "x86_64" ]; then
+  _args+=" --libdir=/usr/lib32"
+else
+  _args+=" --libdir=/usr/lib"
+fi
+
+pkgver() {
+  cd "$srcdir/hlsdk-xash3d"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+prepare() {
+  cd "$srcdir/hlsdk-xash3d"
+
+  git submodule init
+  git config submodule.vgui-dev.url "${srcdir}/vgui-dev"
+  git submodule update
+
+  ./waf configure ${_args}
+}
+
+build() {
+  cd "$srcdir/hlsdk-xash3d"
+  ./waf build
+}
+
+package() {
+  cd "$srcdir/hlsdk-xash3d"
+  ./waf install --destdir="$pkgdir/usr/lib"
+}
+
+md5sums=('SKIP'
+         'SKIP')

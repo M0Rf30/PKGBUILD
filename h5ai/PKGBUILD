@@ -9,14 +9,14 @@ url="http://larsjung.de/h5ai/"
 license=('MIT')
 depends=('php')
 optdepends=('apache: server software'
-  'nginx: server software'
-  'lighttpd: server sofware'
-  'imagemagick: for PDF thumbs'
-  'tar: for tar managing'
-  'zip: for zip managing '
-  'coreutils: for folders managing'
-  'ffmpeg: for movie thumbs'
-)
+            'nginx: server software'
+            'lighttpd: server sofware'
+            'imagemagick: for PDF thumbs'
+            'tar: for tar managing'
+            'zip: for zip managing '
+            'coreutils: for folders managing'
+            'ffmpeg: for movie thumbs'
+            )
 source=("http://release.larsjung.de/h5ai/${pkgname}-${pkgver}.zip")
 options=('!strip')
 webapps=usr/share/webapps

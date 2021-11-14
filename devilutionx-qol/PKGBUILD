@@ -8,17 +8,17 @@ pkgver=1.1.0
 pkgrel=1
 pkgdesc="Diablo devolved for linux (with Qualitity Of Life patchset by Manuel-K)"
 arch=('armv6h' 'armv7h' 'arm' 'aarch64' 'i686' 'x86_64')
-url="https://github.com/diasurgical/devilutionX"
+url="https://github.com/Manuel-K/devilutionX-QOL-patches"
 license=('custom:unlicense')
 depends=('graphite' 'libsodium' 'sdl2_mixer' 'sdl2_ttf')
-makedepends=('cmake' 'gcc-libs')
+makedepends=('cmake' 'git')
 replaces=('devilutionx')
 conflicts=('devilutionx')
 install="$pkgname".install
 options=('strip')
 _qol_commit="7ae428b089e7bc463d72ece0e6047f28db092a3a"
 source=("https://github.com/diasurgical/devilutionX/archive/$pkgver.tar.gz"
-	"qol::git+https://github.com/Manuel-K/devilutionX-QOL-patches#commit=${_qol_commit}")
+        "qol::git+https://github.com/Manuel-K/devilutionX-QOL-patches#commit=${_qol_commit}")
 
 prepare() {
 	cd "$srcdir/${_pkgname}-$pkgver"

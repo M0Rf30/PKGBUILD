@@ -1,26 +1,37 @@
 # Maintainer: robertfoster
 
 pkgname=gyp-git
-pkgver=2077.8e8c317
+pkgver=r2163.d6c5dd51
 pkgrel=1
+epoch=1
 pkgdesc="GYP can Generate Your Projects."
 url="http://code.google.com/p/gyp/"
 arch=('i686' 'x86_64')
 makedepends=('git')
 depends=('python2' 'python2-setuptools')
-license=('custom')
-source=("gyp::git+https://chromium.googlesource.com/external/gyp")
-conflicts=('gyp-svn')
+license=('BSD')
+source=("git+https://chromium.googlesource.com/external/gyp")
 replaces=('gyp-svn')
 
 pkgver() {
-	cd gyp
-	echo $(git rev-list --count master).$(git rev-parse --short master)
+  cd "${srcdir}/gyp"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
+build() {
+  cd "${srcdir}/gyp"
+  python2 setup.py build
+}
+
+#check() {
+#  cd "${srcdir}/gyp"
+#  python2 gyptest.py -a
+#}
+
 package() {
-	cd gyp
-	python2 setup.py install --root=$pkgdir
+  cd "${srcdir}/gyp"
+  python2 setup.py install --skip-build --optimize=1 --prefix=/usr --root="${pkgdir}"
+  install -D LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}"
 }
 
 md5sums=('SKIP')

@@ -1,11 +1,12 @@
 # Maintainer: robertfoster
 
 pkgname=soundcloud-dl-git
-pkgver=v1.3.3b1.r163.g6dd6ef7
-pkgrel=2
+pkgver=1.3.3b1.r163.g6dd6ef7
+pkgrel=1
 pkgdesc="Souncloud music downloader"
 url="https://github.com/flyingrub/scdl"
 arch=(any)
+license=(GPL2)
 depends=(
   'python-clint'
   'python-docopt'
@@ -15,17 +16,21 @@ depends=(
   'python-requests'
 )
 makedepends=(git python-setuptools)
-source=("$pkgname::git+https://github.com/flyingrub/scdl.git")
-license=(GPL2)
+source=("${pkgname%-git}::git+https://github.com/flyingrub/scdl.git")
 
 pkgver() {
-  cd "$srcdir/$pkgname"
-  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+  cd "${srcdir}/${pkgname%-git}"
+  git describe --long --tags | sed 's/^v//;s/\([^-]*-g\)/r\1/;s/-/./g'
+}
+
+build() {
+  cd "${srcdir}/${pkgname%-git}"
+  python setup.py build
 }
 
 package() {
-  cd "$srcdir/$pkgname"
-  python setup.py install --root="$pkgdir"
+  cd "${srcdir}/${pkgname%-git}"
+  python setup.py install --skip-build --optimize=1 --prefix=/usr --root="${pkgdir}"
 }
 
 md5sums=('SKIP')

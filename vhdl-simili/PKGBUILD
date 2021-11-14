@@ -4,29 +4,31 @@ pkgname=vhdl-simili
 pkgver=3.1b16
 pkgrel=5
 pkgdesc="A low-cost VHDL development system designed for the serious hardware designer."
-arch=('i686' 'x86_64')
 url="http://www.symphonyeda.com/products.htm"
-license=('custom')
-source=("http://www.symphonyeda.com/Downloads/Simili31b16-linux-x86.tar"
-	"$pkgname.sh"
-)
-depends=('glibc' 'libx11')
+arch=('i686' 'x86_64')
+license=('custom: Symphony EDA EULA')
+depends_i686=('glibc' 'libx11')
+depends_x86_64=('lib32-glibc' 'lib32-libx11')
+makedpends=(chrpath)
+source=("http://www.symphonyeda.com/Downloads/Simili${pkgver//./}-linux-x86.tar"
+        "$pkgname.sh")
 
-if [[ "$CARCH" == 'x86_64' ]]; then
-	depends=('lib32-'{'glibc','libx11'})
-fi
-
-package()
-{
-	similidir=opt/simili
+package() {
 	cd $srcdir
-	install -dm755 $pkgdir/$similidir
-	tar xvf Simili31b16-linux-x86-image.tgz -C $pkgdir/$similidir
+	install -dm755 $pkgdir/opt/simili
+	tar xvf Simili31b16-linux-x86-image.tgz -C $pkgdir/opt/simili
 	install -Dm755 "${srcdir}/$pkgname.sh" "${pkgdir}/usr/bin/$pkgname"
+
+    chrpath --delete "$pkgdir/opt/simili/tcl/bin/tclsh8.4"
+    chrpath --delete "$pkgdir/opt/simili/tcl/bin/wish8.4"
+    chrpath --delete "$pkgdir/opt/simili/tcl/lib/Tktable2.7/Tktable.so.2.7"
+    chrpath --delete "$pkgdir/opt/simili/tcl/lib/libtk8.4.so"
 
 	# Fix for Documentation
 	ln -sr /usr/bin/firefox $pkgdir/usr/bin/mozilla
+
+    install -D license.txt -t "${pkgdir}/usr/share/licenses/${pkgname}"
 }
 
-md5sums=('SKIP'
-'1c244349f72fe7abc1574b671dcde0c6')
+sha256sums=('53946068fbff3720ff9da71d38da4641c0c1affd1484f5628585a79f98fcc73e'
+            '9bbc5cae0feb09fc880fef30a83d2b6bae8d20ce81c4b90b9e60f32d4f98471e')

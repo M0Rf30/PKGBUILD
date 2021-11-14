@@ -10,7 +10,3 @@ url="http://me.me"
 provides=('java-environment' 'java-runtime' 'jre7-openjdk' 'java-runtime-headless' 'jre7-openjdk-headless')
 replaces=('java-environment' 'java-runtime' 'jre7-openjdk' 'java-runtime-headless' 'jre7-openjdk-headless')
 conflicts=('java-environment' 'java-runtime' 'jre7-openjdk' 'java-runtime-headless' 'jre7-openjdk-headless')
-
-package() {
-	cd .
-}

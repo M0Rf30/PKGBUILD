@@ -1,30 +1,36 @@
 # Maintainer: robertfoster
 
 pkgname=xash3d-git
-pkgver=r1508.2939ab8
+pkgver=r1553.8ab97fb
+_extrasver=0.19.2
 pkgrel=1
 pkgdesc="A custom Gold Source engine rewritten from scratch"
 arch=('i686' 'x86_64')
 url="http://xash.su/"
 license=('GPL3')
-depends=('xash3d-hlsdk')
+depends=('xash3d-hlsdk-git')
 depends_i686=('freetype2' 'fontconfig' 'libpulse' 'sdl2')
 depends_x86_64=('lib32-freetype2' 'lib32-fontconfig' 'lib32-libpulse' 'lib32-sdl2')
-makedepends=('make' 'binutils' 'cmake')
-makedepends_i686=('gcc' 'gcc-libs')
-makedepends_x86_64=('gcc-multilib' 'lib32-gcc-libs')
+makedepends=('git' 'cmake')
+makedepends_x86_64=('lib32-gcc-libs')
 backup=('etc/conf.d/xash3d')
-source=("${pkgname}::git+https://github.com/FWGS/xash3d-fwgs"
-  ${pkgname%%-git}
-  ${pkgname%%-git}.conf.d
-  ${pkgname%%-git}.dedicated
-  ${pkgname%%-git}.desktop
-  https://github.com/FWGS/xash-extras/releases/download/v0.19.2/extras.pak
-)
+source=("xash3d::git+https://github.com/FWGS/xash3d-fwgs"
+        "git+https://github.com/FWGS/mainui_cpp"
+        "git+https://github.com/FWGS/nanogl"
+        "git+https://github.com/FWGS/gl-wes-v2"
+        "git+https://github.com/FWGS/vgui-dev"
+        "git+https://github.com/ptitSeb/gl4es"
+        "git+https://github.com/FWGS/miniutl"
+        "xash-${_extrasver}-extras.pak::https://github.com/FWGS/xash-extras/releases/download/v${_extrasver}/extras.pak"
+        ${pkgname%-git}
+        ${pkgname%-git}.conf.d
+        ${pkgname%-git}.dedicated
+        ${pkgname%-git}.desktop)
+
 _args="--prefix=/usr \
---build-type=release \
---disable-vgui \
---enable-stbtt"
+       --build-type=release \
+       --disable-vgui \
+       --enable-stbtt"
 
 if [ $CARCH == "x86_64" ]; then
   _args+=" --libdir=/usr/lib32"
@@ -33,64 +39,81 @@ else
 fi
 
 pkgver() {
-  cd "${srcdir}/${pkgname}"
+  cd "${srcdir}/${pkgname%-git}"
   printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 prepare() {
-  cd "${srcdir}/${pkgname}"
-  git submodule update --init --recursive
+  cd "${srcdir}/${pkgname%-git}"
+  git submodule init
+  git config submodule.mainui.url "${srcdir}/mainui_cpp"
+  git config submodule.ref_gl/nanogl.url "${srcdir}/nanogl"
+  git config submodule.ref_gl/gl-wes-v2.url "${srcdir}/gl-wes-v2"
+  git config submodule.vgui-dev.url "${srcdir}/vgui-dev"
+  git config submodule.ref_gl/gl4es.url "${srcdir}/gl4es"
+  git submodule update
+
+  cd mainui
+  git submodule init
+  git config submodule.miniutl.url "${srcdir}/miniutl"
+  git submodule update
 }
 
 prepare_xash3d() {
-  cd "${srcdir}/${pkgname}"
+  cd "${srcdir}/${pkgname%-git}"
   ./waf configure ${_args}
 }
 
 prepare_xash3ds() {
-  cd "${srcdir}/${pkgname}"
+  cd "${srcdir}/${pkgname%-git}"
   ./waf clean
   ./waf configure ${_args} --dedicated
 }
 
 build_both() {
-  cd "${srcdir}/${pkgname}"
+  cd "${srcdir}/${pkgname%-git}"
   ./waf build
 }
 
 install_both() {
-  cd "${srcdir}/${pkgname}"
+  cd "${srcdir}/${pkgname%-git}"
   ./waf install --destdir="${pkgdir}"
 }
 
 package() {
-  msg2 "Preparing xash3d compilation..."
+  echo "Preparing xash3d compilation..."
   prepare_xash3d
   build_both
   install_both
-  msg2 "Preparing xash3d dedicated compilation..."
+  echo "Preparing xash3d dedicated compilation..."
   prepare_xash3ds
   build_both
   install_both
 
   cd ${srcdir}
-  install -Dm644 "${pkgname%%-git}.conf.d" \
-    "${pkgdir}/etc/conf.d/${pkgname%%-git}"
-  install -Dm755 "${pkgname%%-git}" \
-    "${pkgdir}/usr/bin/${pkgname%%-git}"
-  install -Dm755 "${pkgname%%-git}.dedicated" \
-    "${pkgdir}/usr/bin/${pkgname%%-git}-dedicated"
-  install -Dm644 "${pkgname%%-git}.desktop" \
-    "${pkgdir}/usr/share/applications/${pkgname%%-git}.desktop"
-  install -Dm644 "${pkgname}/game_launch/icon-xash-material.png" \
-    "${pkgdir}/usr/share/pixmaps/${pkgname%%-git}.png"
-  install -Dm644 ../extras.pak \
+  install -Dm644 "${pkgname%-git}.conf.d" \
+    "${pkgdir}/etc/conf.d/${pkgname%-git}"
+  install -Dm755 "${pkgname%-git}" \
+    "${pkgdir}/usr/bin/${pkgname%-git}"
+  install -Dm755 "${pkgname%-git}.dedicated" \
+    "${pkgdir}/usr/bin/${pkgname%-git}-dedicated"
+  install -Dm644 "${pkgname%-git}.desktop" \
+    "${pkgdir}/usr/share/applications/${pkgname%-git}.desktop"
+  install -Dm644 "${pkgname%-git}/game_launch/icon-xash-material.png" \
+    "${pkgdir}/usr/share/pixmaps/${pkgname%-git}.png"
+  install -Dm644 ../xash-${_extrasver}-extras.pak \
     "${pkgdir}/usr/share/xash3d/extras.pak"
 }
 
-md5sums=('SKIP'
-  '71f6125d9270685a05067e597e527747'
-  '2f9f7b77e05177961fdcecc4660a2010'
-  'c1f2f0000496b1a6e6763ac8fb25fed9'
-  '60d714544048b0383a7e79cfaed96d78'
-  '409462da6be03f004e84452cfcb93d6b')
+sha256sums=('SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'SKIP'
+            'b3783f366f785fb1ac9bdacc6c677324b0507a4d98358a3ec94af3a088e363ce'
+            '12d036a2d794f9b8fb30f41afb74c9a03904aded1e720fa5fdf0a5782a1d949f'
+            '2e0aafe79dafa39c5341748e17b2a733bd7465b928cbf77797ad182a3004c242'
+            'bb1b8f89619259139ee24eccea8172190a99a15c1dc779e4579ae3302e2b5509'
+            '62298a5710fe8f9d33a4b4a43df14ffe973942682c99fbcab852155ae24fbccf')
