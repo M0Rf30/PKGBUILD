@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 # Contributor: Bartłomiej Piotrowski <bpiotrowski@archlinux.org>
 
-pkgname=qemu-arm-static
+pkgname=qemu-arm-static-bin
 pkgver=6.1.0r1
 _pkgver=${pkgver/r/-r}
 pkgrel=1
@@ -11,9 +11,9 @@ url='https://alpinelinux.org/'
 license=('GPL2')
 install="${pkgname}.install"
 source=("https://alpine.global.ssl.fastly.net/alpine/edge/community/x86_64/qemu-aarch64-${_pkgver}.apk"
-  "https://alpine.global.ssl.fastly.net/alpine/edge/community/x86_64/qemu-arm-${_pkgver}.apk"
-  "https://alpine.global.ssl.fastly.net/alpine/edge/community/x86_64/qemu-armeb-${_pkgver}.apk"
-  aarch64.binfmt arm.binfmt armeb.binfmt
+        "https://alpine.global.ssl.fastly.net/alpine/edge/community/x86_64/qemu-arm-${_pkgver}.apk"
+        "https://alpine.global.ssl.fastly.net/alpine/edge/community/x86_64/qemu-armeb-${_pkgver}.apk"
+        aarch64.binfmt arm.binfmt armeb.binfmt
 )
 
 package() {
