@@ -5,27 +5,27 @@
 _pkgname=devilutionX
 pkgname=devilutionx-qol
 pkgver=1.1.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Diablo devolved for linux (with Qualitity Of Life patchset by Manuel-K)"
 arch=('armv6h' 'armv7h' 'arm' 'aarch64' 'i686' 'x86_64')
-url="https://github.com/diasurgical/devilutionX"
+url="https://github.com/Manuel-K/devilutionX-QOL-patches"
 license=('custom:unlicense')
 depends=('graphite' 'libsodium' 'sdl2_mixer' 'sdl2_ttf')
-makedepends=('cmake' 'gcc-libs')
-replaces=('devilutionx')
+makedepends=('cmake' 'git')
+provides=('devilutionx')
 conflicts=('devilutionx')
 install="$pkgname".install
 options=('strip')
 _qol_commit="7ae428b089e7bc463d72ece0e6047f28db092a3a"
-source=("https://github.com/diasurgical/devilutionX/archive/$pkgver.tar.gz"
-	"qol::git+https://github.com/Manuel-K/devilutionX-QOL-patches#commit=${_qol_commit}")
+source=("$pkgname-$pkgver.tar.gz::https://github.com/diasurgical/devilutionX/archive/$pkgver.tar.gz"
+        "qol::git+https://github.com/Manuel-K/devilutionX-QOL-patches#commit=${_qol_commit}")
 
 prepare() {
 	cd "$srcdir/${_pkgname}-$pkgver"
 	if [ ! -d build ]; then
 		mkdir build
 	fi
-        patch -p1 < ../qol/infernity_common_v02.patch
+    patch -p1 < ../qol/infernity_common_v02.patch
 	patch -p1 < ../qol/infernity_item_hightlight_v04.patch
 	patch -p1 < ../qol/infernity_monster_hp_bar_v02.patch
 	patch -p1 < ../qol/mk_lmb_clicker_01.patch
@@ -48,6 +48,7 @@ build() {
 package() {
 	cd "$srcdir/${_pkgname}-$pkgver/build"
 	cmake --install .
+    install -D ../LICENSE -t "${pkgdir}/usr/share/licenses/${pkgname}/"
 }
 
 md5sums=('76e7f5219e8f58ee71ab671b13ce3139'
