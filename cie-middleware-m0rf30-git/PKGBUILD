@@ -1,22 +1,24 @@
 # Maintainer: robertfoster
 # Contributor: FabioLolix
 
-pkgname=cie-middleware-git
-pkgver=1.4.1.r2.c9c37c5
+pkgname=cie-middleware-m0rf30-git
+pkgver=1.4.1.r5.b2aba10
 pkgrel=1
-pkgdesc="Middleware della CIE (Carta di Identità Elettronica) per Linux (mio fork)"
+pkgdesc="Middleware della CIE (Carta di Identità Elettronica) per Linux, M0Rf30 fork with working build system"
 arch=(x86_64 i686 pentium4 arm armv6h armv7h aarch64)
-url="https://developers.italia.it/it/cie"
+url="https://github.com/M0Rf30/cie-middleware-linux"
 license=('BSD')
 depends=('crypto++' 'openssl' 'pcsclite' 'java-runtime')
 makedepends=('git' 'gradle' 'meson')
-install="${pkgname%-git}.install"
+provides=(cie-middleware)
+conflicts=(cie-middleware)
+install="cie-middleware.install"
 
-source=("${pkgname%-git}::git+https://github.com/M0Rf30/${pkgname%-git}-linux")
+source=("${pkgname%-git}::git+https://github.com/M0Rf30/cie-middleware-linux")
 
 pkgver() {
   cd "$srcdir/${pkgname%-git}"
-  printf "%s" "$(git describe --tags --long | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
+  git describe --tags --long | sed 's/\([^-]*-\)g/r\1/;s/-/./g'
 }
 
 build() {
@@ -40,7 +42,7 @@ package() {
   install -Dm755 "data/cieid.sh" \
     "${pkgdir}/usr/bin/cieid"
   install -Dm644 LICENSE \
-    "${pkgdir}/usr/share/licenses/cieid/LICENSE"
+    "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 
   # Lib for PKCS11
   DESTDIR="${pkgdir}" meson install -C libcie-pkcs11/builddir
