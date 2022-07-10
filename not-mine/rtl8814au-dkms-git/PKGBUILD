@@ -1,0 +1,39 @@
+# Maintainer: zebulon <zeb (at)zebulon(dot)org(dot)uk>
+# Contributor: NovaMoon <novamoon1 (at)gmail(dot)com>
+# Contributor: Erikas Rudinskas <erikmnkl (at)gmail(dot)com>
+# Contributor: Marcel Unbehaun <f.rostze.ux at gmail dot com>
+
+pkgname=rtl8814au-dkms-git
+_pkgbase=rtl8814au
+pkgver=5.8.5.1.r147.g161f3aa
+pkgrel=1
+pkgdesc="RTL8814AU and RTL8813AU chipset driver with firmware v5.8.5.1"
+arch=('x86_64' 'i686' 'arm' 'armv6h' 'armv7h' 'aarch64')
+url="https://github.com/morrownr/8814au"
+license=('GPL2')
+depends=('dkms' 'bc')
+makedepends=('git')
+provides=("${_pkgbase}" 'rtl8814au-aircrack-dkms-git')
+conflicts=('rtl8814au-aircrack-dkms-git')
+source=("${_pkgbase}::git+https://github.com/morrownr/8814au.git"
+  'dkms.conf')
+sha256sums=('SKIP'
+            '9b5ddd73f09de4e9ac7147948cb43ee32aab4947c039c017505d61fb01181b8f')
+
+pkgver() {
+  cd "${srcdir}/${_pkgbase}"
+  printf '%s.r%s.g%s' '5.8.5.1' "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+}
+
+package() {
+  cd "${srcdir}/${_pkgbase}"
+  mkdir -p ${pkgdir}/usr/src/${_pkgbase}-${pkgver}
+  cp -pr * ${pkgdir}/usr/src/${_pkgbase}-${pkgver}
+  cp ${srcdir}/dkms.conf \
+    ${pkgdir}/usr/src/${_pkgbase}-${pkgver}
+  
+  # Set name and version
+  sed -e "s/@_PKGBASE@/${_pkgbase}-dkms/" \
+    -e "s/@PKGVER@/${pkgver}/" \
+    -i "${pkgdir}"/usr/src/${_pkgbase}-${pkgver}/dkms.conf
+}
