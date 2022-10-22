@@ -1,3 +1,0 @@
-post_install() {
-  /usr/lib/systemd/systemd-binfmt
-}
