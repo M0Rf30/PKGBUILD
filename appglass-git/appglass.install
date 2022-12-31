@@ -1,3 +1,0 @@
-post_install () {
-	xdg-desktop-menu forceupdate
-}
