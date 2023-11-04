@@ -11,24 +11,23 @@ depends=('qt4')
 makedepends=('git' 'kdebase-lib' 'cmake' 'automoc4')
 source=("kmesstestserver::git://gitorious.org/kmess/kmesstestserver.git")
 
-
 build() {
-	cd kmesstestserver
+  cd kmesstestserver
 
-	cmake . -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` \
-		-DCMAKE_BUILD_TYPE=Release
-	make
+  cmake . -DCMAKE_INSTALL_PREFIX=$(kde4-config --prefix) \
+    -DCMAKE_BUILD_TYPE=Release
+  make
 }
 
 package() {
-	cd kmesstestserver
-	mkdir -p $pkgdir/usr/bin
-	cp kmesstestserver $pkgdir/usr/bin
+  cd kmesstestserver
+  mkdir -p $pkgdir/usr/bin
+  cp kmesstestserver $pkgdir/usr/bin
 }
 
 pkgver() {
-	cd kmesstestserver
-	echo $(git rev-list --count master).$(git rev-parse --short master)
+  cd kmesstestserver
+  echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

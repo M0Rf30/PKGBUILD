@@ -80,8 +80,8 @@ source=(
   'janus.conf'
 )
 sha256sums=('cf0ba7dc10cc566364e7ad066944b7f64a8d768109b8894f7f1d7682564a6e34'
-            'cf2b6c8fdcd60ccfa179c4cd207a23ee7edfee90588c2c3847aa6cda418bed7f'
-            'bd6d7615e722adb64816fae3c5323f6aeb1b9561c39f1652568ed494ffdaa191')
+  'cf2b6c8fdcd60ccfa179c4cd207a23ee7edfee90588c2c3847aa6cda418bed7f'
+  'bd6d7615e722adb64816fae3c5323f6aeb1b9561c39f1652568ed494ffdaa191')
 
 build() {
   cd "$pkgname-$pkgver"

@@ -13,15 +13,15 @@ depends=('kdelibs' 'opencv')
 makedepends=('cmake' 'automoc4')
 source=("http://kde-apps.org/CONTENT/content-files/119405-kcm.tar.gz")
 
-build(){
-	cd ${srcdir}/kcm
-	cmake -DCMAKE_INSTALL_PREFIX=/usr \
-		-DCMAKE_BUILD_TYPE=Release
-	make
+build() {
+  cd ${srcdir}/kcm
+  cmake -DCMAKE_INSTALL_PREFIX=/usr \
+    -DCMAKE_BUILD_TYPE=Release
+  make
 }
 
-package(){
-	cd ${srcdir}/kcm
-	make DESTDIR="${pkgdir}" install
+package() {
+  cd ${srcdir}/kcm
+  make DESTDIR="${pkgdir}" install
 }
 md5sums=('9c00bbdd5a9857c1d98cc2b29bccd6c6')

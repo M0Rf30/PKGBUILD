@@ -12,15 +12,15 @@ conflicts=('dboxfe')
 source=(https://downloads.sourceforge.net/project/dboxfe.berlios/dboxfe-$pkgver.tar.bz2)
 
 build() {
-	cd $srcdir/dboxfe-$pkgver
-	# configure is broken
-	qmake-qt4 -o Makefile dboxfe.pro
-	make
+  cd $srcdir/dboxfe-$pkgver
+  # configure is broken
+  qmake-qt4 -o Makefile dboxfe.pro
+  make
 }
 
 package() {
-	cd $srcdir/dboxfe-$pkgver
-	install -D -m755 bin/dboxfe $pkgdir/usr/bin/dboxfe
+  cd $srcdir/dboxfe-$pkgver
+  install -D -m755 bin/dboxfe $pkgdir/usr/bin/dboxfe
 }
 
 md5sums=('1f6224c0eae16502349504e1b722d4aa')

@@ -10,16 +10,16 @@ url="http://ftp.cerias.purdue.edu/pub/tools/unix/scanners/strobe/"
 source=("http://ftp.cerias.purdue.edu/pub/tools/unix/scanners/strobe/$pkgname-$pkgver.tar.gz")
 
 build() {
-	cd $srcdir/$pkgname
-	make
+  cd $srcdir/$pkgname
+  make
 }
 
-package(){
-	cd $srcdir/$pkgname
-	mkdir -p $pkgdir/usr/{lib,man,bin}
-	mkdir -p $pkgdir/usr/man/man1
-	make INSTALLDIR=$pkgdir/usr/bin \
-		LIBDIR=$pkgdir/usr/lib MANDIR=$pkgdir/usr/man/man1 install
+package() {
+  cd $srcdir/$pkgname
+  mkdir -p $pkgdir/usr/{lib,man,bin}
+  mkdir -p $pkgdir/usr/man/man1
+  make INSTALLDIR=$pkgdir/usr/bin \
+    LIBDIR=$pkgdir/usr/lib MANDIR=$pkgdir/usr/man/man1 install
 
 }
 

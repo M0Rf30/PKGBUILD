@@ -10,13 +10,11 @@ license=('GPL')
 depends=('php' 'php-apache')
 source=("http://prdownloads.sourceforge.net/autoindex/AutoIndex-${pkgver}.tar.gz")
 
-
 package() {
 
-	cd $srcdir/AutoIndex-${pkgver}
-	mkdir -p $pkgdir/srv/http/autoindex
-	cp -r * ${pkgdir}/srv/http/autoindex
-
+  cd $srcdir/AutoIndex-${pkgver}
+  mkdir -p $pkgdir/srv/http/autoindex
+  cp -r * ${pkgdir}/srv/http/autoindex
 
 }
 

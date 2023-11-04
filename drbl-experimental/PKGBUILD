@@ -12,25 +12,25 @@ makedepends=('vim')
 backup=('etc/drbl/drbl.conf')
 provides=('drbl')
 source=(http://free.nchc.org.tw/drbl-core/src/unstable/$_name-$pkgver.tar.xz
-usrbin.patch)
+  usrbin.patch)
 
 prepare() {
-	cd $_name-$pkgver
+  cd $_name-$pkgver
 
-	patch -Np0 -i "$srcdir"/usrbin.patch
+  patch -Np0 -i "$srcdir"/usrbin.patch
 }
 
 build() {
-	cd $_name-$pkgver
+  cd $_name-$pkgver
 
-	make
+  make
 }
 
 package() {
-	cd $_name-$pkgver
+  cd $_name-$pkgver
 
-	make DESTDIR="$pkgdir" install
+  make DESTDIR="$pkgdir" install
 }
 
 md5sums=('9bebdca9b20b0309d6b7c4b2378e11d6'
-'f01eac478f1ae62f505de645de96c68a')
+  'f01eac478f1ae62f505de645de96c68a')

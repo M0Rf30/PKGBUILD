@@ -14,8 +14,8 @@ conflicts=('php-residence')
 source=(http://www.digitaldruid.net/download/${pkgname}_${pkgver}.tar.gz)
 
 package() {
-	install -d $pkgdir/usr/share/webapps/$pkgname
-	cp -r $srcdir/$pkgname/* ${pkgdir}/usr/share/webapps/$pkgname
+  install -d $pkgdir/usr/share/webapps/$pkgname
+  cp -r $srcdir/$pkgname/* ${pkgdir}/usr/share/webapps/$pkgname
 }
 
 md5sums=('6945cf052fe7fdf94c70a6daa3599678')

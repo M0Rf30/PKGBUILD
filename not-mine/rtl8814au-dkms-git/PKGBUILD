@@ -18,7 +18,7 @@ conflicts=('rtl8814au-aircrack-dkms-git')
 source=("${_pkgbase}::git+https://github.com/morrownr/8814au.git"
   'dkms.conf')
 sha256sums=('SKIP'
-            '9b5ddd73f09de4e9ac7147948cb43ee32aab4947c039c017505d61fb01181b8f')
+  '9b5ddd73f09de4e9ac7147948cb43ee32aab4947c039c017505d61fb01181b8f')
 
 pkgver() {
   cd "${srcdir}/${_pkgbase}"
@@ -31,7 +31,7 @@ package() {
   cp -pr * ${pkgdir}/usr/src/${_pkgbase}-${pkgver}
   cp ${srcdir}/dkms.conf \
     ${pkgdir}/usr/src/${_pkgbase}-${pkgver}
-  
+
   # Set name and version
   sed -e "s/@_PKGBASE@/${_pkgbase}-dkms/" \
     -e "s/@PKGVER@/${pkgver}/" \

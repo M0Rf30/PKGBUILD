@@ -15,20 +15,20 @@ replaces=("${pkgname%%-git}")
 source=("base::git+https://github.com/janestreet/base.git")
 
 pkgver() {
-    cd "$srcdir/base"
-    git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
+  cd "$srcdir/base"
+  git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
 build() {
-    cd "$srcdir/base"
-    jbuilder build
+  cd "$srcdir/base"
+  jbuilder build
 }
 
 package() {
-    cd "$srcdir/base"
-    mkdir -p "${pkgdir}$(ocamlfind printconf destdir)" "${pkgdir}/usr/share"
-    jbuilder install --prefix "${pkgdir}/usr" --libdir "${pkgdir}$(ocamlfind printconf destdir)"
-    mv "${pkgdir}/usr/doc" "${pkgdir}/usr/share/"
+  cd "$srcdir/base"
+  mkdir -p "${pkgdir}$(ocamlfind printconf destdir)" "${pkgdir}/usr/share"
+  jbuilder install --prefix "${pkgdir}/usr" --libdir "${pkgdir}$(ocamlfind printconf destdir)"
+  mv "${pkgdir}/usr/doc" "${pkgdir}/usr/share/"
 }
 
 md5sums=('SKIP')

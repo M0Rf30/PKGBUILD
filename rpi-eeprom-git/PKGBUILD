@@ -21,9 +21,9 @@ provides=('rpi-eeprom')
 conflicts=('rpi-eeprom')
 backup=('etc/default/rpi-eeprom-update')
 source=("git+https://github.com/raspberrypi/rpi-eeprom.git"
-        'rpi-eeprom-update.patch')
+  'rpi-eeprom-update.patch')
 md5sums=('SKIP'
-         '9036901f8345f0e0cbf25f4440529213')
+  '9036901f8345f0e0cbf25f4440529213')
 options=(!strip)
 
 pkgver() {

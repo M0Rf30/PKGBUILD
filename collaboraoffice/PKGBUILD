@@ -7,17 +7,17 @@ arch=('x86_64')
 license=('GPL3')
 url="https://www.collaboraoffice.com/solutions/collabora-office/"
 depends=('coin-or-mp' 'curl>=7.20.0' 'hunspell>=1.2.8' 'python>=3.7' 'libwpd>=0.9.2' 'libwps'
-	'neon>=0.28.6' 'pango' 'nspr' 'libjpeg' 'libxrandr' 'libgl'
-	'libxslt' 'redland' 'hyphen' 'lpsolve' 'gcc-libs' 'sh' 'graphite' 'icu'
-	'lcms2' 'poppler>=0.24.0' 'libvisio' 'libetonyek' 'libodfgen' 'libcdr'
-	'libmspub' 'harfbuzz-icu' 'nss' 'clucene' 'hicolor-icon-theme'
-	'desktop-file-utils' 'shared-mime-info' 'libpagemaker'
-	'libxinerama' 'libabw' 'libmwaw' 'libe-book' 'libcups'
-	'libcmis' 'libmythes' 'liborcus' # 'libfbclient'
-	'liblangtag' 'libexttextcat' 'mdds'
-	'libtommath' 'libzmf' 'libatomic_ops' 'xmlsec' 'gpgme' 'libnumbertext'
-	'libfreehand' 'libstaroffice' 'libepubgen' 'libqxp' 'libepoxy' 'box2d'
-	'xdg-utils')
+  'neon>=0.28.6' 'pango' 'nspr' 'libjpeg' 'libxrandr' 'libgl'
+  'libxslt' 'redland' 'hyphen' 'lpsolve' 'gcc-libs' 'sh' 'graphite' 'icu'
+  'lcms2' 'poppler>=0.24.0' 'libvisio' 'libetonyek' 'libodfgen' 'libcdr'
+  'libmspub' 'harfbuzz-icu' 'nss' 'clucene' 'hicolor-icon-theme'
+  'desktop-file-utils' 'shared-mime-info' 'libpagemaker'
+  'libxinerama' 'libabw' 'libmwaw' 'libe-book' 'libcups'
+  'libcmis' 'libmythes' 'liborcus' # 'libfbclient'
+  'liblangtag' 'libexttextcat' 'mdds'
+  'libtommath' 'libzmf' 'libatomic_ops' 'xmlsec' 'gpgme' 'libnumbertext'
+  'libfreehand' 'libstaroffice' 'libepubgen' 'libqxp' 'libepoxy' 'box2d'
+  'xdg-utils')
 
 _gitsubmodules=('dictionaries' 'help' 'translations')
 _mirror="https://download.documentfoundation.org/libreoffice/src/${pkgver}"
@@ -26,17 +26,17 @@ _additional_source_url="https://dev-www.libreoffice.org/src"
 _additional_source_url2="https://dev-www.libreoffice.org/extern"
 _commit_cmis="f7466a849949f987dd47f2e0bb3a3df0c8cac4e4"
 source=("https://github.com/LibreOffice/core/archive/refs/tags/cp-${pkgver}-${_rel}.tar.gz"
-	"${_gitsubmodules[0]}-co-${pkgver}-${_rel}.tar.gz::https://github.com/LibreOffice/${_gitsubmodules[0]}/archive/refs/tags/co-${pkgver}-${_rel}.tar.gz"
-	"${_gitsubmodules[1]}-co-${pkgver}-${_rel}.tar.gz::https://github.com/LibreOffice/${_gitsubmodules[1]}/archive/refs/tags/co-${pkgver}-${_rel}.tar.gz"
-	"${_gitsubmodules[2]}-co-${pkgver}-${_rel}.tar.gz::https://github.com/LibreOffice/${_gitsubmodules[2]}/archive/refs/tags/co-${pkgver}-${_rel}.tar.gz"
-	"${_additional_source_url}/0168229624cfac409e766913506961a8-ucpp-1.3.2.tar.gz"
-	"${_additional_source_url2}/f543e6e2d7275557a839a164941c0a86e5f2c3f2a0042bfc434c88c6dde9e140-opens___.ttf"
-	"${_additional_source_url}/pdfium-4306.tar.bz2"
-	"${_additional_source_url}/dtoa-20180411.tgz"
-	"${_additional_source_url}/skia-m88-59bafeeaa7de9eb753e3778c414e01dcf013dcd8.tar.xz"
-    "${_additional_source_url}/libcmis-0.5.2.tar.xz"
-	make-pyuno-work-with-system-wide-module-install.diff
-	cmis.patch)
+  "${_gitsubmodules[0]}-co-${pkgver}-${_rel}.tar.gz::https://github.com/LibreOffice/${_gitsubmodules[0]}/archive/refs/tags/co-${pkgver}-${_rel}.tar.gz"
+  "${_gitsubmodules[1]}-co-${pkgver}-${_rel}.tar.gz::https://github.com/LibreOffice/${_gitsubmodules[1]}/archive/refs/tags/co-${pkgver}-${_rel}.tar.gz"
+  "${_gitsubmodules[2]}-co-${pkgver}-${_rel}.tar.gz::https://github.com/LibreOffice/${_gitsubmodules[2]}/archive/refs/tags/co-${pkgver}-${_rel}.tar.gz"
+  "${_additional_source_url}/0168229624cfac409e766913506961a8-ucpp-1.3.2.tar.gz"
+  "${_additional_source_url2}/f543e6e2d7275557a839a164941c0a86e5f2c3f2a0042bfc434c88c6dde9e140-opens___.ttf"
+  "${_additional_source_url}/pdfium-4306.tar.bz2"
+  "${_additional_source_url}/dtoa-20180411.tgz"
+  "${_additional_source_url}/skia-m88-59bafeeaa7de9eb753e3778c414e01dcf013dcd8.tar.xz"
+  "${_additional_source_url}/libcmis-0.5.2.tar.xz"
+  make-pyuno-work-with-system-wide-module-install.diff
+  cmis.patch)
 
 # 	"${_additional_source_url}/35c94d2df8893241173de1d16b6034c0-swingExSrc.zip"
 #	"${_additional_source_url}/798b2ffdc8bcfe7bca2cf92b62caf685-rhino1_5R5.zip"
@@ -48,26 +48,26 @@ source=("https://github.com/LibreOffice/core/archive/refs/tags/cp-${pkgver}-${_r
 #	"${_additional_source_url}/ba2930200c9f019c2d93a8c88c651a0f-flow-engine-0.9.4.zip"
 
 sha256sums=('8cc728f11dd047949f5a5c10fba32dd9ff90070a147719e9fa992e69a4126259'
-            '123062c6eff3dde596c1d70d1abc4ceb65afeefc7b73bbd73803a704135d7fcb'
-            'eb654b91001eb3b55a602d28b4ad36399fc3b0c2baa364d03986e07d019f544c'
-            'f3dc06e328aa4c21f3d1fa5ec6f5c61e7b05998039dfe58313a54e04c39754a9'
-            '983941d31ee8d366085cadf28db75eb1f5cb03ba1e5853b98f12f7f51c63b776'
-            'f543e6e2d7275557a839a164941c0a86e5f2c3f2a0042bfc434c88c6dde9e140'
-            'eca406d47ac7e2a84dcc86f93c08f96e591d409589e881477fa75e488e4851d8'
-            '0082d0684f7db6f62361b76c4b7faba19e0c7ce5cb8e36c4b65fea8281e711b4'
-            'f293656a15342a53bb407b932fc907c6894178a162f09728bd383e24d84b1301'
-            'd7b18d9602190e10d437f8a964a32e983afd57e2db316a07d87477a79f5000a2'
-            'c463654a73ecfbc242ff109726fb4faecdbfb3d91affafe919b24bea65afb563'
-            'f38cfd045c6ff1885c64260149b1a7db7459d4199603b2c4465039367a5cec27')
+  '123062c6eff3dde596c1d70d1abc4ceb65afeefc7b73bbd73803a704135d7fcb'
+  'eb654b91001eb3b55a602d28b4ad36399fc3b0c2baa364d03986e07d019f544c'
+  'f3dc06e328aa4c21f3d1fa5ec6f5c61e7b05998039dfe58313a54e04c39754a9'
+  '983941d31ee8d366085cadf28db75eb1f5cb03ba1e5853b98f12f7f51c63b776'
+  'f543e6e2d7275557a839a164941c0a86e5f2c3f2a0042bfc434c88c6dde9e140'
+  'eca406d47ac7e2a84dcc86f93c08f96e591d409589e881477fa75e488e4851d8'
+  '0082d0684f7db6f62361b76c4b7faba19e0c7ce5cb8e36c4b65fea8281e711b4'
+  'f293656a15342a53bb407b932fc907c6894178a162f09728bd383e24d84b1301'
+  'd7b18d9602190e10d437f8a964a32e983afd57e2db316a07d87477a79f5000a2'
+  'c463654a73ecfbc242ff109726fb4faecdbfb3d91affafe919b24bea65afb563'
+  'f38cfd045c6ff1885c64260149b1a7db7459d4199603b2c4465039367a5cec27')
 
 _gitsubmodules=('dictionaries' 'help' 'translations')
 noextract=(
-	0168229624cfac409e766913506961a8-ucpp-1.3.2.tar.gz
-    f543e6e2d7275557a839a164941c0a86e5f2c3f2a0042bfc434c88c6dde9e140-opens___.ttf
-	skia-m88-59bafeeaa7de9eb753e3778c414e01dcf013dcd8.tar.xz
-    libcmis-0.5.2.tar.xz
-	pdfium-4306.tar.bz2
-	dtoa-20180411.tgz
+  0168229624cfac409e766913506961a8-ucpp-1.3.2.tar.gz
+  f543e6e2d7275557a839a164941c0a86e5f2c3f2a0042bfc434c88c6dde9e140-opens___.ttf
+  skia-m88-59bafeeaa7de9eb753e3778c414e01dcf013dcd8.tar.xz
+  libcmis-0.5.2.tar.xz
+  pdfium-4306.tar.bz2
+  dtoa-20180411.tgz
 )
 
 #35c94d2df8893241173de1d16b6034c0-swingExSrc.zip
@@ -81,147 +81,147 @@ noextract=(
 
 prepare() {
 
-	cd "core-cp-${pkgver}-${_rel}"
+  cd "core-cp-${pkgver}-${_rel}"
 
-	# fix not upstreamable pyuno paths - FS#54250
-	patch -Np1 -i "${srcdir}"/make-pyuno-work-with-system-wide-module-install.diff
-    patch -Np1 -i "${srcdir}"/cmis.patch 
-	# move external sources into place
-	if [ ! -d "${srcdir}/ext_sources" ]; then
-		mkdir "${srcdir}/ext_sources"
-	fi
-	pushd "${srcdir}"/ext_sources || exit
-	for source in "${noextract[@]}"; do
-		rm -rf "${source}"
-		ln -s "${srcdir}/${source}" .
-	done
-	popd || exit
+  # fix not upstreamable pyuno paths - FS#54250
+  patch -Np1 -i "${srcdir}"/make-pyuno-work-with-system-wide-module-install.diff
+  patch -Np1 -i "${srcdir}"/cmis.patch
+  # move external sources into place
+  if [ ! -d "${srcdir}/ext_sources" ]; then
+    mkdir "${srcdir}/ext_sources"
+  fi
+  pushd "${srcdir}"/ext_sources || exit
+  for source in "${noextract[@]}"; do
+    rm -rf "${source}"
+    ln -s "${srcdir}/${source}" .
+  done
+  popd || exit
 
-	for module in "${_gitsubmodules[@]}"; do
-		rm -rf "${module}"
-		ln -s "${srcdir}/$module-co-${pkgver}-${_rel}" "${module}"
-	done
+  for module in "${_gitsubmodules[@]}"; do
+    rm -rf "${module}"
+    ln -s "${srcdir}/$module-co-${pkgver}-${_rel}" "${module}"
+  done
 
-	#use the CFLAGS but remove the LibO overridden ones
-	for i in $CFLAGS; do
-		case "$i" in
-		-O? | -pipe | -Wall | -g | -fexceptions) continue ;;
-		esac
-		ARCH_FLAGS="$ARCH_FLAGS $i"
-	done
-	#cp ../download.lst .
+  #use the CFLAGS but remove the LibO overridden ones
+  for i in $CFLAGS; do
+    case "$i" in
+      -O? | -pipe | -Wall | -g | -fexceptions) continue ;;
+    esac
+    ARCH_FLAGS="$ARCH_FLAGS $i"
+  done
+  #cp ../download.lst .
 }
 
 build() {
-	cd "core-cp-${pkgver}-${_rel}"
+  cd "core-cp-${pkgver}-${_rel}"
 
-	# strip -s from Makeflags in case you use it to shorten build logs
-	_MAKEFLAGS=${MAKEFLAGS/-s/}
+  # strip -s from Makeflags in case you use it to shorten build logs
+  _MAKEFLAGS=${MAKEFLAGS/-s/}
 
-	# http://site.icu-project.org/download/61#TOC-Migration-Issues
-	CPPFLAGS+=' -DU_USING_ICU_NAMESPACE=1'
-	echo "lo_sources_ver=${pkgver}.${_rel}" >sources.ver
+  # http://site.icu-project.org/download/61#TOC-Migration-Issues
+  CPPFLAGS+=' -DU_USING_ICU_NAMESPACE=1'
+  echo "lo_sources_ver=${pkgver}.${_rel}" >sources.ver
 
-	./autogen.sh \
-		--build=x86_64-linux-gnu \
-		--disable-community-flavor \
-		--disable-dbus \
-		--disable-dconf \
-		--disable-evolution2 \
-		--disable-ext-ct2n \
-		--disable-ext-nlpsolver \
-		--disable-ext-numbertext \
-		--disable-ext-wiki-publisher \
-		--disable-fetch-external \
-		--disable-firebird-sdbc \
-		--disable-gio \
-		--disable-gstreamer-1-0 \
-		--disable-gtk3 \
-		--disable-gui \
-		--disable-kf5 \
-		--disable-odk \
-		--disable-online-update \
-		--disable-poppler \
-		--disable-postgresql-sdbc \
-		--disable-qt5 \
-		--disable-randr \
-		--disable-report-builder \
-		--disable-scripting-beanshell \
-		--disable-scripting-javascript \
-		--disable-sdremote \
-		--disable-sdremote-bluetooth \
-		--enable-extension-integration \
-		--enable-lto \
-		--enable-mergelibs \
-		--enable-mpl-subset \
-		--enable-noto-font \
-		--enable-python=system \
-		--enable-release-build \
-		--enable-release-build \
-		--enable-split-app-modules \
-		--host=x86_64-linux-gnu \
-		--libdir=/usr/lib --mandir=/usr/share/man \
-		--prefix=/usr --exec-prefix=/usr --sysconfdir=/etc \
-		--target=x86_64-linux-gnu \
-		--with-branding=icon-themes/galaxy/brand_cp \
-		--with-external-dict-dir=/usr/share/hunspell \
-		--with-external-hyph-dir=/usr/share/hyphen \
-		--with-external-tar="${srcdir}/ext_sources" \
-		--with-external-thes-dir=/usr/share/mythes \
-		--with-fonts \
-		--with-galleries=no \
-		--with-linker-hash-style=both \
-		--with-myspell-dicts \
-		--with-parallelism="${_MAKEFLAGS/-j/}" \
-		--with-system-boost \
-		--with-system-cairo \
-		--with-system-clucene \
-		--with-system-curl \
-		--with-system-dicts \
-		--with-system-expat \
-		--with-system-libstaroffice \
-		--with-system-glm \
-		--with-system-graphite \
-		--with-system-harfbuzz \
-		--with-system-headers \
-		--with-system-hunspell \
-		--with-system-icu \
-		--with-system-jars \
-		--with-system-jpeg \
-		--with-system-lcms2	\
-		--with-system-libexttextcat \
-		--with-system-liblangtag \
-		--with-system-libpng \
-		--with-system-libs \
-		--with-system-libxml \
-		--with-system-mdds \
-		--with-system-mythes \
-		--with-system-nss \
-		--with-system-openssl \
-		--with-system-orcus \
-		--with-system-postgresql \
-		--with-system-zlib \
-		--with-theme=colibre_svg \
-		--with-vendor="Arch Linux" \
-		--without-help \
-		--without-fonts \
-		--without-java \
-		--without-junit \
-		--disable-qrcodegen \
-		--with-lang=ar as ast bg bn-IN br ca ca-valencia cy cs da de el en-US en-GB es et eu fi fr ga gd gl gu he hi hr hu id is it ja km kn ko lt lv ml mr nb nl nn oc or pa-IN pl pt pt-BR ro ru sk sl sr sr-Latn sv ta te tr uk vi zh-CN zh-TW \
-		--with-webdav=serf \
-		--disable-lotuswordpro \
-		--disable-lpsolve \
-		--enable-symbols \
-		--enable-sal-log \
-		--with-gdrive-client-id=${_google_default_client_id} \
-		--with-gdrive-client-secret=${_google_default_client_secret} \
-		--disable-dependency-tracking
+  ./autogen.sh \
+    --build=x86_64-linux-gnu \
+    --disable-community-flavor \
+    --disable-dbus \
+    --disable-dconf \
+    --disable-evolution2 \
+    --disable-ext-ct2n \
+    --disable-ext-nlpsolver \
+    --disable-ext-numbertext \
+    --disable-ext-wiki-publisher \
+    --disable-fetch-external \
+    --disable-firebird-sdbc \
+    --disable-gio \
+    --disable-gstreamer-1-0 \
+    --disable-gtk3 \
+    --disable-gui \
+    --disable-kf5 \
+    --disable-odk \
+    --disable-online-update \
+    --disable-poppler \
+    --disable-postgresql-sdbc \
+    --disable-qt5 \
+    --disable-randr \
+    --disable-report-builder \
+    --disable-scripting-beanshell \
+    --disable-scripting-javascript \
+    --disable-sdremote \
+    --disable-sdremote-bluetooth \
+    --enable-extension-integration \
+    --enable-lto \
+    --enable-mergelibs \
+    --enable-mpl-subset \
+    --enable-noto-font \
+    --enable-python=system \
+    --enable-release-build \
+    --enable-release-build \
+    --enable-split-app-modules \
+    --host=x86_64-linux-gnu \
+    --libdir=/usr/lib --mandir=/usr/share/man \
+    --prefix=/usr --exec-prefix=/usr --sysconfdir=/etc \
+    --target=x86_64-linux-gnu \
+    --with-branding=icon-themes/galaxy/brand_cp \
+    --with-external-dict-dir=/usr/share/hunspell \
+    --with-external-hyph-dir=/usr/share/hyphen \
+    --with-external-tar="${srcdir}/ext_sources" \
+    --with-external-thes-dir=/usr/share/mythes \
+    --with-fonts \
+    --with-galleries=no \
+    --with-linker-hash-style=both \
+    --with-myspell-dicts \
+    --with-parallelism="${_MAKEFLAGS/-j/}" \
+    --with-system-boost \
+    --with-system-cairo \
+    --with-system-clucene \
+    --with-system-curl \
+    --with-system-dicts \
+    --with-system-expat \
+    --with-system-libstaroffice \
+    --with-system-glm \
+    --with-system-graphite \
+    --with-system-harfbuzz \
+    --with-system-headers \
+    --with-system-hunspell \
+    --with-system-icu \
+    --with-system-jars \
+    --with-system-jpeg \
+    --with-system-lcms2 \
+    --with-system-libexttextcat \
+    --with-system-liblangtag \
+    --with-system-libpng \
+    --with-system-libs \
+    --with-system-libxml \
+    --with-system-mdds \
+    --with-system-mythes \
+    --with-system-nss \
+    --with-system-openssl \
+    --with-system-orcus \
+    --with-system-postgresql \
+    --with-system-zlib \
+    --with-theme=colibre_svg \
+    --with-vendor="Arch Linux" \
+    --without-help \
+    --without-fonts \
+    --without-java \
+    --without-junit \
+    --disable-qrcodegen \
+    --with-lang=ar as ast bg bn-IN br ca ca-valencia cy cs da de el en-US en-GB es et eu fi fr ga gd gl gu he hi hr hu id is it ja km kn ko lt lv ml mr nb nl nn oc or pa-IN pl pt pt-BR ro ru sk sl sr sr-Latn sv ta te tr uk vi zh-CN zh-TW \
+    --with-webdav=serf \
+    --disable-lotuswordpro \
+    --disable-lpsolve \
+    --enable-symbols \
+    --enable-sal-log \
+    --with-gdrive-client-id=${_google_default_client_id} \
+    --with-gdrive-client-secret=${_google_default_client_secret} \
+    --disable-dependency-tracking
 
-	make build-nocheck
+  make build-nocheck
 
-	mkdir "${srcdir}"/fakeinstall
-	make DESTDIR="${srcdir}"/fakeinstall distro-pack-install
+  mkdir "${srcdir}"/fakeinstall
+  make DESTDIR="${srcdir}"/fakeinstall distro-pack-install
 }
 
 #check() {
@@ -230,151 +230,151 @@ build() {
 #}
 
 package() {
-	pkgdesc="Software Development Kit for CollaboraOffice Fresh"
-	depends=('collaboraoffice-fresh' 'gcc-libs' 'sh' 'make' 'zip' 'gcc')
-	provides=('libreoffice-sdk')
-	conflicts=('libreoffice-still-sdk')
+  pkgdesc="Software Development Kit for CollaboraOffice Fresh"
+  depends=('collaboraoffice-fresh' 'gcc-libs' 'sh' 'make' 'zip' 'gcc')
+  provides=('libreoffice-sdk')
+  conflicts=('libreoffice-still-sdk')
 
-	for dir in $(
-		grep -h ^%dir core-cp-${pkgver}-${_rel}
-		/file-lists/sdk{,_doc}_list.txt
-	); do
-		install -dm755 "${pkgdir}"/${dir/\%dir/}
-	done
+  for dir in $(
+    grep -h ^%dir core-cp-${pkgver}-${_rel}
+    /file-lists/sdk{,_doc}_list.txt
+  ); do
+    install -dm755 "${pkgdir}"/${dir/\%dir/}
+  done
 
-	for file in $(
-		grep -h -v ^%dir core-cp-${pkgver}-${_rel}
-		/file-lists/sdk{,_doc}_list.txt
-	); do
-		dirname=$(dirname $file)
-		[[ -d "${pkgdir}"/$dirname ]] || install -dm755 "${pkgdir}"/$dirname
-		mv "${srcdir}"/fakeinstall/${file} "${pkgdir}"/$file
-	done
+  for file in $(
+    grep -h -v ^%dir core-cp-${pkgver}-${_rel}
+    /file-lists/sdk{,_doc}_list.txt
+  ); do
+    dirname=$(dirname $file)
+    [[ -d "${pkgdir}"/$dirname ]] || install -dm755 "${pkgdir}"/$dirname
+    mv "${srcdir}"/fakeinstall/${file} "${pkgdir}"/$file
+  done
 
-	# fix environment path to keep compatibility with other java-environments
-	sed -i -e "s:\/usr\/lib\/jvm\/java-7-openjdk:\$J2SDKDIR:" \
-		"${pkgdir}"/usr/lib/libreoffice/sdk/setsdkenv_unix.sh
+  # fix environment path to keep compatibility with other java-environments
+  sed -i -e "s:\/usr\/lib\/jvm\/java-7-openjdk:\$J2SDKDIR:" \
+    "${pkgdir}"/usr/lib/libreoffice/sdk/setsdkenv_unix.sh
 
-	# fix permissions
-	find "${pkgdir}"/usr/lib/libreoffice/sdk/examples -type f -exec chmod -x {} +
+  # fix permissions
+  find "${pkgdir}"/usr/lib/libreoffice/sdk/examples -type f -exec chmod -x {} +
 
-	# add CollaboraOfficeKit headers; FS#48066
-	install -dm755 "${pkgdir}"/usr/include/CollaboraOfficeKit
-	install -v -m644 "${srcdir}"/core-cp-${pkgver}-${_rel}
-	/include/CollaboraOfficeKit/* "${pkgdir}"/usr/include/CollaboraOfficeKit
+  # add CollaboraOfficeKit headers; FS#48066
+  install -dm755 "${pkgdir}"/usr/include/CollaboraOfficeKit
+  install -v -m644 "${srcdir}"/core-cp-${pkgver}-${_rel}
+  /include/CollaboraOfficeKit/* "${pkgdir}"/usr/include/CollaboraOfficeKit
 }
 
 package_collaboraoffice() {
-	pkgdesc="CollaboraOffice branch which contains new features and program enhancements"
-	depends=('curl>=7.20.0' 'hunspell>=1.2.8' 'python>=3.7' 'libwpd>=0.9.2' 'libwps'
-		'neon>=0.28.6' 'pango' 'nspr' 'libjpeg' 'libxrandr' 'libgl'
-		'libxslt' 'redland' 'hyphen' 'lpsolve' 'gcc-libs' 'sh' 'graphite' 'icu'
-		'lcms2' 'poppler>=0.24.0' 'libvisio' 'libetonyek' 'libodfgen' 'libcdr'
-		'libmspub' 'harfbuzz-icu' 'nss' 'clucene' 'hicolor-icon-theme'
-		'desktop-file-utils' 'shared-mime-info' 'libpagemaker'
-		'libxinerama' 'libabw' 'libmwaw' 'libe-book' 'libcups'
-		#'liblangtag' 'libexttextcat' 'libcmis' 'liborcus' # 'libfbclient'
-		'liblangtag' 'libexttextcat' 'liborcus' # 'libfbclient'
-		'libtommath' 'libzmf' 'libatomic_ops' 'xmlsec' 'gpgme' 'libnumbertext'
-		'libfreehand' 'libstaroffice' 'libepubgen' 'libqxp' 'libepoxy' 'box2d'
-		'xdg-utils')
-	optdepends=('java-runtime:     adds java support'
-		'java-environment: required by extension-wiki-publisher and extension-nlpsolver'
-		'pstoedit:         translates PostScript and PDF graphics into other vector formats'
-		'libmythes:        for use in thesaurus'
-		'beanshell:       interactive java -- good for prototyping/macros'
-		'libwpg:           library for importing and converting WordPerfect Graphics format'
-		'sane:             for scanner access'
-		'unixodbc:         adds ODBC database support'
-		'gst-plugins-base-libs: for multimedia content, e.g. in Impress'
-		'libpaper:         takes care of papersize'
-		'postgresql-libs:  for postgresql-connector'
-		'mariadb-libs:     for mysql-connector'
-		'coin-or-mp:	   required by the Calc solver'
-		'gtk3:             for GTK3 integration'
-		'kio:              for KF5 KDE desktop integration')
-	backup=(etc/libreoffice/sofficerc
-		etc/libreoffice/bootstraprc
-		etc/libreoffice/psprint.conf
-		etc/profile.d/libreoffice-fresh.sh
-		etc/profile.d/libreoffice-fresh.csh)
-	provides=('libreoffice' 'libreoffice-en-US')
-	conflicts=('libreoffice-still')
+  pkgdesc="CollaboraOffice branch which contains new features and program enhancements"
+  depends=('curl>=7.20.0' 'hunspell>=1.2.8' 'python>=3.7' 'libwpd>=0.9.2' 'libwps'
+    'neon>=0.28.6' 'pango' 'nspr' 'libjpeg' 'libxrandr' 'libgl'
+    'libxslt' 'redland' 'hyphen' 'lpsolve' 'gcc-libs' 'sh' 'graphite' 'icu'
+    'lcms2' 'poppler>=0.24.0' 'libvisio' 'libetonyek' 'libodfgen' 'libcdr'
+    'libmspub' 'harfbuzz-icu' 'nss' 'clucene' 'hicolor-icon-theme'
+    'desktop-file-utils' 'shared-mime-info' 'libpagemaker'
+    'libxinerama' 'libabw' 'libmwaw' 'libe-book' 'libcups'
+    #'liblangtag' 'libexttextcat' 'libcmis' 'liborcus' # 'libfbclient'
+    'liblangtag' 'libexttextcat' 'liborcus' # 'libfbclient'
+    'libtommath' 'libzmf' 'libatomic_ops' 'xmlsec' 'gpgme' 'libnumbertext'
+    'libfreehand' 'libstaroffice' 'libepubgen' 'libqxp' 'libepoxy' 'box2d'
+    'xdg-utils')
+  optdepends=('java-runtime:     adds java support'
+    'java-environment: required by extension-wiki-publisher and extension-nlpsolver'
+    'pstoedit:         translates PostScript and PDF graphics into other vector formats'
+    'libmythes:        for use in thesaurus'
+    'beanshell:       interactive java -- good for prototyping/macros'
+    'libwpg:           library for importing and converting WordPerfect Graphics format'
+    'sane:             for scanner access'
+    'unixodbc:         adds ODBC database support'
+    'gst-plugins-base-libs: for multimedia content, e.g. in Impress'
+    'libpaper:         takes care of papersize'
+    'postgresql-libs:  for postgresql-connector'
+    'mariadb-libs:     for mysql-connector'
+    'coin-or-mp:	   required by the Calc solver'
+    'gtk3:             for GTK3 integration'
+    'kio:              for KF5 KDE desktop integration')
+  backup=(etc/libreoffice/sofficerc
+    etc/libreoffice/bootstraprc
+    etc/libreoffice/psprint.conf
+    etc/profile.d/libreoffice-fresh.sh
+    etc/profile.d/libreoffice-fresh.csh)
+  provides=('libreoffice' 'libreoffice-en-US')
+  conflicts=('libreoffice-still')
 
-	mv fakeinstall/* "${pkgdir}"/
+  mv fakeinstall/* "${pkgdir}"/
 
-	# put configuration files into place
-	install -dm755 "${pkgdir}"/etc/libreoffice
-	install -m644 "${pkgdir}"/usr/lib/libreoffice/program/{bootstraprc,sofficerc} \
-		"${pkgdir}"/etc/libreoffice/
-	install -m644 "${pkgdir}"/usr/lib/libreoffice/share/psprint/psprint.conf \
-		"${pkgdir}"/etc/libreoffice/
+  # put configuration files into place
+  install -dm755 "${pkgdir}"/etc/libreoffice
+  install -m644 "${pkgdir}"/usr/lib/libreoffice/program/{bootstraprc,sofficerc} \
+    "${pkgdir}"/etc/libreoffice/
+  install -m644 "${pkgdir}"/usr/lib/libreoffice/share/psprint/psprint.conf \
+    "${pkgdir}"/etc/libreoffice/
 
-	# install dummy links to make them found by LibO
-	cd "${pkgdir}"/usr/lib/libreoffice/program/
-	ln -vsf /etc/libreoffice/{bootstraprc,sofficerc} .
-	cd "${pkgdir}"/usr/lib/libreoffice/share/psprint/
-	ln -vsf /etc/libreoffice/psprint.conf .
+  # install dummy links to make them found by LibO
+  cd "${pkgdir}"/usr/lib/libreoffice/program/
+  ln -vsf /etc/libreoffice/{bootstraprc,sofficerc} .
+  cd "${pkgdir}"/usr/lib/libreoffice/share/psprint/
+  ln -vsf /etc/libreoffice/psprint.conf .
 
-	# allow to preset desired VLC
-	install -dm755 "${pkgdir}"/etc/profile.d
-	install -m644 "${srcdir}"/libreoffice-fresh.{sh,csh} "${pkgdir}"/etc/profile.d/
+  # allow to preset desired VLC
+  install -dm755 "${pkgdir}"/etc/profile.d
+  install -m644 "${srcdir}"/libreoffice-fresh.{sh,csh} "${pkgdir}"/etc/profile.d/
 
-	# make pyuno find its modules
-	install -dm755 "${pkgdir}"/usr/lib/python3.10/site-packages
-	ln -svf /usr/lib/libreoffice/program/uno.py \
-		"${pkgdir}"/usr/lib/python3.10/site-packages/uno.py
-	ln -svf /usr/lib/libreoffice/program/unohelper.py \
-		"${pkgdir}"/usr/lib/python3.10/site-packages/unohelper.py
+  # make pyuno find its modules
+  install -dm755 "${pkgdir}"/usr/lib/python3.10/site-packages
+  ln -svf /usr/lib/libreoffice/program/uno.py \
+    "${pkgdir}"/usr/lib/python3.10/site-packages/uno.py
+  ln -svf /usr/lib/libreoffice/program/unohelper.py \
+    "${pkgdir}"/usr/lib/python3.10/site-packages/unohelper.py
 
-	# add a symlink required for gnome-documents; FS#51887
-	# https://lists.freedesktop.org/archives/libreoffice/2016-March/073787.html
-	ln -svf /usr/lib/libreoffice/program/liblibreofficekitgtk.so \
-		"${pkgdir}"/usr/lib/liblibreofficekitgtk.so
+  # add a symlink required for gnome-documents; FS#51887
+  # https://lists.freedesktop.org/archives/libreoffice/2016-March/073787.html
+  ln -svf /usr/lib/libreoffice/program/liblibreofficekitgtk.so \
+    "${pkgdir}"/usr/lib/liblibreofficekitgtk.so
 
-	# cleanup
-	rm -rf "${pkgdir}"/usr/share/libreoffice/sdk
+  # cleanup
+  rm -rf "${pkgdir}"/usr/share/libreoffice/sdk
 
-	# add application descriptions
-	install -dm755 "${pkgdir}"/usr/share/metainfo
-	install -v -m644 "${srcdir}"/core-cp-${pkgver}-${_rel}
-	/sysui/desktop/appstream-appdata/*.xml \
-		"${pkgdir}"/usr/share/metainfo
+  # add application descriptions
+  install -dm755 "${pkgdir}"/usr/share/metainfo
+  install -v -m644 "${srcdir}"/core-cp-${pkgver}-${_rel}
+  /sysui/desktop/appstream-appdata/*.xml \
+    "${pkgdir}"/usr/share/metainfo
 
-	# add kde filemanager templates; FS#61662 - file taken from Debian
-	install -v -m644 "${srcdir}"/core-cp-${pkgver}-${_rel}
-	/extras/source/shellnew/soffice.* \
-		"${pkgdir}"/usr/share/templates/.source
+  # add kde filemanager templates; FS#61662 - file taken from Debian
+  install -v -m644 "${srcdir}"/core-cp-${pkgver}-${_rel}
+  /extras/source/shellnew/soffice.* \
+    "${pkgdir}"/usr/share/templates/.source
 
-	cat "${srcdir}"/soffice-template.desktop.in |
-		sed -e "s/@APP@/Writer/" |
-		sed -e "s/@EXT@/odt/" |
-		sed -e "s/@TYPE@/text/" \
-			>"${pkgdir}"/usr/share/templates/soffice.odt.desktop
-	cat "${srcdir}"/soffice-template.desktop.in |
-		sed -e "s/@APP@/Calc/" |
-		sed -e "s/@EXT@/ods/" |
-		sed -e "s/@TYPE@/spreadsheet/" \
-			>"${pkgdir}"/usr/share/templates/soffice.ods.desktop
-	cat "${srcdir}"/soffice-template.desktop.in |
-		sed -e "s/@APP@/Impress/" |
-		sed -e "s/@EXT@/odp/" |
-		sed -e "s/@TYPE@/presentation/" \
-			>"${pkgdir}"/usr/share/templates/soffice.odp.desktop
-	cat "${srcdir}"/soffice-template.desktop.in |
-		sed -e "s/@APP@/Draw/" |
-		sed -e "s/@EXT@/odg/" |
-		sed -e "s/@TYPE@/drawing/" \
-			>"${pkgdir}"/usr/share/templates/soffice.odg.desktop
+  cat "${srcdir}"/soffice-template.desktop.in |
+    sed -e "s/@APP@/Writer/" |
+    sed -e "s/@EXT@/odt/" |
+    sed -e "s/@TYPE@/text/" \
+      >"${pkgdir}"/usr/share/templates/soffice.odt.desktop
+  cat "${srcdir}"/soffice-template.desktop.in |
+    sed -e "s/@APP@/Calc/" |
+    sed -e "s/@EXT@/ods/" |
+    sed -e "s/@TYPE@/spreadsheet/" \
+      >"${pkgdir}"/usr/share/templates/soffice.ods.desktop
+  cat "${srcdir}"/soffice-template.desktop.in |
+    sed -e "s/@APP@/Impress/" |
+    sed -e "s/@EXT@/odp/" |
+    sed -e "s/@TYPE@/presentation/" \
+      >"${pkgdir}"/usr/share/templates/soffice.odp.desktop
+  cat "${srcdir}"/soffice-template.desktop.in |
+    sed -e "s/@APP@/Draw/" |
+    sed -e "s/@EXT@/odg/" |
+    sed -e "s/@TYPE@/drawing/" \
+      >"${pkgdir}"/usr/share/templates/soffice.odg.desktop
 
-	# make all i18n lang packages with help section ('1') available to
-	# fix "F1" not opening translated offline help opening in browser
-	# see also /usr/lib/libreoffice/help/en-US/langnames.js
-	echo "var languagesSet = new Set(['en-US','am','ar','ast','bg','bn',\
+  # make all i18n lang packages with help section ('1') available to
+  # fix "F1" not opening translated offline help opening in browser
+  # see also /usr/lib/libreoffice/help/en-US/langnames.js
+  echo "var languagesSet = new Set(['en-US','am','ar','ast','bg','bn',\
 	'bn-IN','bo','bs','ca','ca-valencia','cs','da','de','dz','el',\
 	'en-GB','en-ZA','eo','es','et','eu','fi','fr','gl','gu','he',\
 	'hi','hr','hu','id','is','it','ja','ka','km','ko','lo','lt','lv',\
 	'mk','nb','ne','nl','nn','om','pl','pt','pt-BR','ro','ru','si',\
 	'sid','sk','sl','sq','sv','ta','tg','tr','ug','uk','vi','zh-CN','zh-TW'])" \
-		>"${pkgdir}"/usr/lib/libreoffice/help/languages.js
+    >"${pkgdir}"/usr/lib/libreoffice/help/languages.js
 }

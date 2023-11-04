@@ -17,27 +17,27 @@ depends_i686=('freetype2' 'glib2' 'libgl' 'libpng12' 'libpulse' 'libxml2' 'libxr
 makedepends=('binutils' 'tar')
 
 source=("https://downloads.guitar-pro.com/gp6/gp6-full-linux-r$pkgver.deb"
-	"https://github.com/M0Rf30/openssl098-lib32/raw/master/libcrypto.so.0.9.8"
-"https://github.com/M0Rf30/openssl098-lib32/raw/master/libssl.so.0.9.8")
+  "https://github.com/M0Rf30/openssl098-lib32/raw/master/libcrypto.so.0.9.8"
+  "https://github.com/M0Rf30/openssl098-lib32/raw/master/libssl.so.0.9.8")
 
 build() {
-	cd "$srcdir"
-	tar xvzf data.tar.gz || return 1
+  cd "$srcdir"
+  tar xvzf data.tar.gz || return 1
 }
 
 package() {
-	cd "$srcdir"
+  cd "$srcdir"
 
-	mv -v opt $pkgdir
-	mv -v usr $pkgdir
+  mv -v opt $pkgdir
+  mv -v usr $pkgdir
 
-	install -m755 -D libcrypto.so.0.9.8 $pkgdir/opt/GuitarPro6
-	install -m755 -D libssl.so.0.9.8 $pkgdir/opt/GuitarPro6
-	sed -i 's|Icon=guitarpro6.png|Icon=GP6-icon|g' $pkgdir/usr/share/applications/GuitarPro6.desktop
-	mv $pkgdir/usr/share/pixmaps/guitarpro6.png $pkgdir/usr/share/pixmaps/GP6-icon.png
-	echo "StartupWMClass=GuitarPro" >> $pkgdir/usr/share/applications/GuitarPro6.desktop
+  install -m755 -D libcrypto.so.0.9.8 $pkgdir/opt/GuitarPro6
+  install -m755 -D libssl.so.0.9.8 $pkgdir/opt/GuitarPro6
+  sed -i 's|Icon=guitarpro6.png|Icon=GP6-icon|g' $pkgdir/usr/share/applications/GuitarPro6.desktop
+  mv $pkgdir/usr/share/pixmaps/guitarpro6.png $pkgdir/usr/share/pixmaps/GP6-icon.png
+  echo "StartupWMClass=GuitarPro" >>$pkgdir/usr/share/applications/GuitarPro6.desktop
 }
 
 md5sums=('3de3b59151b33965a92cd4f51162aeee'
-	'3336a9a1296e78cc5645f99dfa42f1e4'
-'fa66495bce4ec55def25c49fb188065e')
+  '3336a9a1296e78cc5645f99dfa42f1e4'
+  'fa66495bce4ec55def25c49fb188065e')

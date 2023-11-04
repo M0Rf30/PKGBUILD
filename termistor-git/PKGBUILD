@@ -19,7 +19,7 @@ build() {
   make
 }
 
-package(){
+package() {
   cd "${srcdir}/${pkgname%%-git}"
   make DESTDIR=$pkgdir install
 }

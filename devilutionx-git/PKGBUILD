@@ -51,7 +51,7 @@ package_devilutionx-assets-git() {
   provides=("${pkgname%-git}" "devilutionx-fonts" "devilutionx-voices")
 
   cd "${srcdir}/${pkgname%-git}"
-  
+
   ./build.sh
 
   install -Dm644 fonts.mpq \

@@ -29,5 +29,4 @@ package() {
 }
 
 sha256sums=('f62a7c4a48177ab6fab199502a335ceeea88f53e503d679c18fcc1b5343f20fd'
-'skip')
-
+  'skip')

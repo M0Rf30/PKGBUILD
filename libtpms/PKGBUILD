@@ -13,14 +13,14 @@ provides=('libtpms')
 source=("https://github.com/stefanberger/libtpms/archive/v${pkgver}.tar.gz")
 
 build() {
-	cd "$pkgname-$pkgver"
-	./autogen.sh --with-tpm2 --with-openssl --prefix=/usr
-	make all
+  cd "$pkgname-$pkgver"
+  ./autogen.sh --with-tpm2 --with-openssl --prefix=/usr
+  make all
 }
 
 package() {
-	cd "$pkgname-$pkgver"
-	make DESTDIR="${pkgdir}" install
+  cd "$pkgname-$pkgver"
+  make DESTDIR="${pkgdir}" install
 }
 
 md5sums=('d9926438045b141e212307f280f77a7a')

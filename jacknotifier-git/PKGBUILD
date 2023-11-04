@@ -12,20 +12,19 @@ depends=('dbus' 'libnotify' 'jacklistener-git')
 makedepends=('git')
 source=('jacknotifier::git://github.com/gentoo-root/jacknotifier.git')
 
-
 build() {
-	cd jacknotifier
-	make
+  cd jacknotifier
+  make
 }
 
 package() {
-	cd jacknotifier
-	make DESTDIR="$pkgdir" install
+  cd jacknotifier
+  make DESTDIR="$pkgdir" install
 }
 
 pkgver() {
-	cd jacknotifier
-	echo $(git rev-list --count master).$(git rev-parse --short master)
+  cd jacknotifier
+  echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

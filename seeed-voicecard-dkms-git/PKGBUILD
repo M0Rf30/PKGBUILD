@@ -17,7 +17,6 @@ source=('git+https://github.com/respeaker/seeed-voicecard.git'
   '5.9-fix.patch')
 _overlays="/boot/overlays/"
 
-
 pkgver() {
   cd "$srcdir/${_pkg}"
   printf "r%s.%s" $(git tag | cut -c 2- | tail -1) $(git describe | cut -d "-" -f 3)
@@ -58,7 +57,7 @@ package_seeed-voicecard-dkms-git() {
   install -Dm644 pulseaudio/91-seeedvoicecard.rules \
     "$pkgdir"/usr/lib/udev/rules.d/91-seeedvoicecard.rules
   install -Dm644 "$srcdir/${_pkg}.conf" \
-  "$pkgdir"/usr/lib/modules-load.d/${_pkg}.conf
+    "$pkgdir"/usr/lib/modules-load.d/${_pkg}.conf
 
   msg2 "Set name and version"
   sed -e "s/@_PKGBASE@/${_pkg}/" \
@@ -96,7 +95,7 @@ package_seeed-voicecard-8mic-dkms-git() {
   pkgdesc="DTB Overlay for Seed Studio ReSpeaker 6-Mics Circular Array Kit for Raspberry Pi."
   depends=("${_pkg}-dkms-git")
   install="${_pkg}-8mic.install"
- 
+
   cd "$srcdir/${_pkg}"
 
   install -Dt "$pkgdir/${_overlays}" -m644 seeed-8mic-voicecard.dtbo
@@ -105,6 +104,6 @@ package_seeed-voicecard-8mic-dkms-git() {
 }
 
 md5sums=('SKIP'
-         'bf335011fea6259d4119059e5913744e'
-         '136d43780e54a3bb15c237ca594c90a7'
-         'd822994566e47b143b22554a38ffcfa0')
+  'bf335011fea6259d4119059e5913744e'
+  '136d43780e54a3bb15c237ca594c90a7'
+  'd822994566e47b143b22554a38ffcfa0')

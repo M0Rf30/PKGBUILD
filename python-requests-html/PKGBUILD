@@ -4,8 +4,8 @@
 pkgbase=python-requests-html
 _pyname=requests-html
 pkgname=('python-requests-html')
-depends=('python' 'python-requests' 'python-pyquery' 'python-fake-useragent' 
-'python-parse' 'python-beautifulsoup4' 'python-w3lib' 'python-pyppeteer')
+depends=('python' 'python-requests' 'python-pyquery' 'python-fake-useragent'
+  'python-parse' 'python-beautifulsoup4' 'python-w3lib' 'python-pyppeteer')
 makedepends=('python-setuptools')
 pkgver=0.10.0
 pkgrel=1

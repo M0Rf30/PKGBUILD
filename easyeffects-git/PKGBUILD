@@ -11,10 +11,10 @@ arch=(x86_64 i686 arm armv6h armv7h aarch64)
 url='https://github.com/wwmm/easyeffects'
 license=('GPL3')
 depends=('fftw' 'libfmt.so' 'gsl' 'gtk4' 'libadwaita-1.so'
-         'libbs2b.so' 'libebur128' 'libsamplerate.so'
-         'libsigc-3.0.so' 'libsndfile.so' 'liblilv-0.so'
-         'pipewire' 'rnnoise' 'soundtouch'
-         'speexdsp' 'tbb' 'zita-convolver')
+  'libbs2b.so' 'libebur128' 'libsamplerate.so'
+  'libsigc-3.0.so' 'libsndfile.so' 'liblilv-0.so'
+  'pipewire' 'rnnoise' 'soundtouch'
+  'speexdsp' 'tbb' 'zita-convolver')
 makedepends=('appstream-glib' 'itstool' 'meson' 'nlohmann-json' 'speex' 'lv2')
 optdepends=(
   'calf: limiter, exciter, bass enhancer and others'

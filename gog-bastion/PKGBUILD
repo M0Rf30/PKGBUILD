@@ -14,16 +14,16 @@ license=('custom')
 groups=('games' 'gog')
 arch=('i686' 'x86_64')
 source=("local:///bastion_${pkgver//./_}_initial_test_33876.sh"
-        "${pkgname}.desktop"
-        "$pkgname")
+  "${pkgname}.desktop"
+  "$pkgname")
 sha256sums=('3be3bc37cb24d3031f9e469b97a16639ad81a3ea217fcf20865d9e034ae523b6'
-            '79c2b1c4e8d00c3b0f9dfc2b700929b6dc85b332047533e418fd0eb5cd41465b'
-            '306723d271f33e32d3e057b7b1c69bc0075223364c136898557b24e4ae035a1c')
+  '79c2b1c4e8d00c3b0f9dfc2b700929b6dc85b332047533e418fd0eb5cd41465b'
+  '306723d271f33e32d3e057b7b1c69bc0075223364c136898557b24e4ae035a1c')
 
 # ABS automagically figures out how to extract this game file. If said magic
 # starts failing in the future, see prepare() in gog-pyre.
 
-package(){
+package() {
   # game files
   install -d "${pkgdir}/opt/${pkgname}"
   cp -rt "${pkgdir}/opt/${pkgname}" "${srcdir}/data/noarch/"*

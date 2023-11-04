@@ -11,20 +11,19 @@ depends=('dbus' 'jacklistener-git')
 makedepends=('git')
 source=('musicpaused::git://github.com/gentoo-root/musicpaused.git')
 
-
 build() {
-	cd musicpaused
-	make
+  cd musicpaused
+  make
 }
 
 package() {
-	cd musicpaused
-	make DESTDIR="$pkgdir" install
+  cd musicpaused
+  make DESTDIR="$pkgdir" install
 }
 
 pkgver() {
-	cd musicpaused
-	echo $(git rev-list --count master).$(git rev-parse --short master)
+  cd musicpaused
+  echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

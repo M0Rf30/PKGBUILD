@@ -10,7 +10,7 @@ license=('GPL2')
 depends=('python' 'dmidecode' 'libxml2' 'python-lxml')
 makedepends=('python' 'libxml2')
 source=("${url}/archive/v$pkgver.tar.gz"
-       makefile.patch)
+  makefile.patch)
 
 prepare() {
   cd $srcdir/$pkgbase-${pkgver}
@@ -29,4 +29,4 @@ package() {
 }
 
 sha256sums=('44d45d7d8344290c259c989d3af3f614c7837cbd85052d486adfa46a1c777164'
-            '46413b661e5394b65a4be50bd46102aaa4214e3d6e993613f53e58e98e2f602c')
+  '46413b661e5394b65a4be50bd46102aaa4214e3d6e993613f53e58e98e2f602c')

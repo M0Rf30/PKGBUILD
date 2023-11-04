@@ -11,21 +11,21 @@ source=("${pkgname%-git}::git://anongit.gentoo.org/proj/eselect.git")
 makedepends=('git')
 
 build() {
-	cd "$srcdir/${pkgname%-git}"
-	./autogen.bash
-	./configure --prefix=/usr
-	make
+  cd "$srcdir/${pkgname%-git}"
+  ./autogen.bash
+  ./configure --prefix=/usr
+  make
 }
 
 package() {
-	cd "$srcdir/${pkgname%-git}"
-	make DESTDIR=$pkgdir install
+  cd "$srcdir/${pkgname%-git}"
+  make DESTDIR=$pkgdir install
 }
 
 pkgver() {
-	cd "$srcdir/${pkgname%-git}"
-	version="$(git describe --long | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
-	printf "${version#eselect.}"
+  cd "$srcdir/${pkgname%-git}"
+  version="$(git describe --long | sed 's/\([^-]*-\)g/r\1/;s/-/./g')"
+  printf "${version#eselect.}"
 }
 
 md5sums=('SKIP')

@@ -12,13 +12,13 @@ makedepends=('python-setuptools')
 source=(https://github.com/radfish/pyelliptic/archive/$pkgver.tar.gz)
 
 build() {
-	cd ${pkgname##python-}-${pkgver}
-	python setup.py build
+  cd ${pkgname##python-}-${pkgver}
+  python setup.py build
 }
 
 package() {
-	cd ${pkgname##python-}-${pkgver}
-	python setup.py install --root="$pkgdir" --skip-build
+  cd ${pkgname##python-}-${pkgver}
+  python setup.py install --root="$pkgdir" --skip-build
 }
 
 sha256sums=('840ad6f5e79c633e1de79fb08be78bf76fe07a7f260905eea31efb5ddf00180d')

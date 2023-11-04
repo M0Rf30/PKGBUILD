@@ -27,8 +27,8 @@ build() {
 package() {
   cd "${srcdir}/nDPI-${pkgver}"
   make DESTDIR="${pkgdir}" install
-#  ln -sf /usr/include/ndpi \
-#    "${pkgdir}/usr/include/libndpi"
+  #  ln -sf /usr/include/ndpi \
+  #    "${pkgdir}/usr/include/libndpi"
 }
 
 sha256sums=('6f307e23ab11b2b9e84a696120810e27a854072576a49783ff84fd37a1d7411b')

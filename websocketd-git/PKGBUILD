@@ -14,18 +14,18 @@ makedepends=('git' 'mercurial')
 source=('websocketd::git+https://github.com/joewalnes/websocketd.git')
 
 build() {
-	cd ${_gitpkg}
-	make
+  cd ${_gitpkg}
+  make
 }
 
-package(){
-	cd ${_gitpkg}
-	install -Dm755 "${_gitpkg}" "${pkgdir}/usr/bin/${_gitpkg}"
+package() {
+  cd ${_gitpkg}
+  install -Dm755 "${_gitpkg}" "${pkgdir}/usr/bin/${_gitpkg}"
 }
 
 pkgver() {
-	cd ${_gitpkg}
-	echo $(git rev-list --count master).$(git rev-parse --short master)
+  cd ${_gitpkg}
+  echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

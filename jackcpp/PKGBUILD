@@ -13,14 +13,14 @@ license=('GPL3')
 source=('jackcpp::git://github.com/x37v/jackcpp.git')
 
 package() {
-	cd jackcpp
-	mkdir -p $pkgdir/usr/lib/ && mkdir -p $pkgdir/usr/include
-	make PREFIX=$pkgdir/usr DESTDIR=$pkgdir install
+  cd jackcpp
+  mkdir -p $pkgdir/usr/lib/ && mkdir -p $pkgdir/usr/include
+  make PREFIX=$pkgdir/usr DESTDIR=$pkgdir install
 }
 
 pkgver() {
-	cd jackcpp
-	echo $(git rev-list --count master).$(git rev-parse --short master)
+  cd jackcpp
+  echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

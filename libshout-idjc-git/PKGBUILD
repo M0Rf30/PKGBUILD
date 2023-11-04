@@ -15,27 +15,27 @@ source=('libshout-idjc::git+https://git.code.sf.net/p/idjc/code')
 license=('LGPL')
 
 prepare() {
-	cd $srcdir/libshout-idjc/libshout-idjc
-	sed -e 's/SSLeay_add_all_algorithms/OpenSSL_add_all_algorithms/g' -i src/tls.c
+  cd $srcdir/libshout-idjc/libshout-idjc
+  sed -e 's/SSLeay_add_all_algorithms/OpenSSL_add_all_algorithms/g' -i src/tls.c
 }
 
-build(){
-	cd $srcdir/libshout-idjc
-	./bootstrap
-	cd libshout-idjc
-	./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
-	make
+build() {
+  cd $srcdir/libshout-idjc
+  ./bootstrap
+  cd libshout-idjc
+  ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
+  make
 }
 
 package() {
-	cd $srcdir/libshout-idjc/libshout-idjc
-	make DESTDIR="${pkgdir}" install
-	make DESTDIR="${pkgdir}" uninstall-m4dataDATA
+  cd $srcdir/libshout-idjc/libshout-idjc
+  make DESTDIR="${pkgdir}" install
+  make DESTDIR="${pkgdir}" uninstall-m4dataDATA
 }
 
 pkgver() {
-	cd libshout-idjc
-	echo $(git rev-list --count master).$(git rev-parse --short master)
+  cd libshout-idjc
+  echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

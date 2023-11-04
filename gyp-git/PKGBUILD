@@ -14,13 +14,13 @@ conflicts=('gyp-svn')
 replaces=('gyp-svn')
 
 pkgver() {
-	cd gyp
-	echo $(git rev-list --count master).$(git rev-parse --short master)
+  cd gyp
+  echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 package() {
-	cd gyp
-	python2 setup.py install --root=$pkgdir
+  cd gyp
+  python2 setup.py install --root=$pkgdir
 }
 
 md5sums=('SKIP')

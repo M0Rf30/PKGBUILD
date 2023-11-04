@@ -12,5 +12,5 @@ replaces=('java-environment' 'java-runtime' 'jre7-openjdk' 'java-runtime-headles
 conflicts=('java-environment' 'java-runtime' 'jre7-openjdk' 'java-runtime-headless' 'jre7-openjdk-headless')
 
 package() {
-	cd .
+  cd .
 }

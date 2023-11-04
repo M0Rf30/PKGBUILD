@@ -12,21 +12,21 @@ makedepends=('git' 'cmake' 'automoc4')
 source=("libisf::git://gitorious.org/kmess/libisf-qt.git")
 
 build() {
-	cd libisf
-	msg "Starting make..."
-	cmake . -DCMAKE_INSTALL_PREFIX=`kde4-config --prefix` \
-		-DCMAKE_BUILD_TYPE=Release
-	make
+  cd libisf
+  msg "Starting make..."
+  cmake . -DCMAKE_INSTALL_PREFIX=$(kde4-config --prefix) \
+    -DCMAKE_BUILD_TYPE=Release
+  make
 }
 
 package() {
-	cd libisf
-	make DESTDIR=${pkgdir} install
+  cd libisf
+  make DESTDIR=${pkgdir} install
 }
 
 pkgver() {
-	cd libisf
-	echo $(git rev-list --count master).$(git rev-parse --short master)
+  cd libisf
+  echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 md5sums=('SKIP')

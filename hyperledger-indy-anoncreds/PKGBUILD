@@ -14,8 +14,8 @@ makedepends=('python')
 source=("https://github.com/hyperledger/${_pkgname}/archive/$pkgver-master.tar.gz")
 
 package() {
-	cd $srcdir/${_pkgname}-$pkgver-stable
-	python setup.py install -O1 --root="$pkgdir"
+  cd $srcdir/${_pkgname}-$pkgver-stable
+  python setup.py install -O1 --root="$pkgdir"
 }
 
 md5sums=('7e4a4ed43d768953e541371ca9490452')

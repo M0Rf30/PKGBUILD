@@ -10,24 +10,24 @@ arch=(any)
 license=('GPL3')
 depends=('java-runtime>=8')
 source=(
-    "bytecodeviewer"
-    "bytecodeviewer.png"
-    "bytecodeviewer.desktop"
-    "https://github.com/Konloch/bytecode-viewer/releases/download/v${pkgver}/Bytecode-Viewer-${pkgver}.jar"
+  "bytecodeviewer"
+  "bytecodeviewer.png"
+  "bytecodeviewer.desktop"
+  "https://github.com/Konloch/bytecode-viewer/releases/download/v${pkgver}/Bytecode-Viewer-${pkgver}.jar"
 )
 noextract=(
-    "Bytecode-Viewer-${pkgver}.jar"
+  "Bytecode-Viewer-${pkgver}.jar"
 )
 sha256sums=('8d641f8274fbe8d734385a3a75ee2dfe237eb5176042d21183f8b6fbda16edb2'
-            '380fbc2d958fc5e0c3f7c05b21de83e3d7e956b00ab476439f893f1d10a61a3e'
-            'a21248e8c437ac4e008392b8f2d834d47731536301185484f5192be3eb48f2a7'
-            '44c0f5cfef5810ee53bcb8ba0809ef7da4a1b6db88a91d0194ed7176683e9c79')
+  '380fbc2d958fc5e0c3f7c05b21de83e3d7e956b00ab476439f893f1d10a61a3e'
+  'a21248e8c437ac4e008392b8f2d834d47731536301185484f5192be3eb48f2a7'
+  '44c0f5cfef5810ee53bcb8ba0809ef7da4a1b6db88a91d0194ed7176683e9c79')
 
 package() {
-    cd "$srcdir"
+  cd "$srcdir"
 
-    install -D -m755 "${srcdir}/bytecodeviewer" "${pkgdir}/usr/bin/bytecodeviewer"
-    install -D -m644 "${srcdir}/Bytecode-Viewer-${pkgver}.jar" "${pkgdir}/usr/share/java/bytecodeviewer/bytecodeviewer.jar"
-    install -D -m644 "${srcdir}/bytecodeviewer.desktop" "${pkgdir}/usr/share/applications/bytecodeviewer.desktop"
-    install -D -m644 "${srcdir}/bytecodeviewer.png" "${pkgdir}/usr/share/pixmaps/bytecodeviewer.png"
+  install -D -m755 "${srcdir}/bytecodeviewer" "${pkgdir}/usr/bin/bytecodeviewer"
+  install -D -m644 "${srcdir}/Bytecode-Viewer-${pkgver}.jar" "${pkgdir}/usr/share/java/bytecodeviewer/bytecodeviewer.jar"
+  install -D -m644 "${srcdir}/bytecodeviewer.desktop" "${pkgdir}/usr/share/applications/bytecodeviewer.desktop"
+  install -D -m644 "${srcdir}/bytecodeviewer.png" "${pkgdir}/usr/share/pixmaps/bytecodeviewer.png"
 }

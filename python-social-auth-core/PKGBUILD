@@ -27,6 +27,6 @@ package() {
 
   install -Dm644 "${srcdir}/social-core-${pkgver}/LICENSE" \
     "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
-  
+
   rm -rf "${pkgdir}/usr/lib/python3.11/site-packages/social_core/tests"
 }

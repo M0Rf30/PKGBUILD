@@ -8,24 +8,24 @@ arch=('i686' 'x86_64')
 url="http://clonezilla.org/"
 license=('GPL')
 depends=('drbl' 'partclone' 'ntfs-3g' 'partimage' 'pigz' 'sshfs' 'parted'
-	'gptfdisk' 'dosfstools' 'gzip' 'bzip2' 'pbzip2' 'lbzip2' 'lrzip'
-'xz' 'pixz' 'lzop' 'ecryptfs-utils')
+  'gptfdisk' 'dosfstools' 'gzip' 'bzip2' 'pbzip2' 'lbzip2' 'lrzip'
+  'xz' 'pixz' 'lzop' 'ecryptfs-utils')
 backup=('etc/drbl/drbl-ocs.conf')
 provides=('clonezilla')
 source=(http://free.nchc.org.tw/drbl-core/src/unstable/$_name-$pkgver.tar.xz
-usrbin.patch)
+  usrbin.patch)
 
 prepare() {
-	cd $_name-$pkgver
+  cd $_name-$pkgver
 
-	patch -Np0 -i "$srcdir"/usrbin.patch
+  patch -Np0 -i "$srcdir"/usrbin.patch
 }
 
 package() {
-	cd $_name-$pkgver
+  cd $_name-$pkgver
 
-	make DESTDIR="$pkgdir" install
+  make DESTDIR="$pkgdir" install
 }
 
 md5sums=('523add3bb92d230fcbf0162849d27685'
-'a976c9209f7bbccd352a9d0a5c8b41ae')
+  'a976c9209f7bbccd352a9d0a5c8b41ae')

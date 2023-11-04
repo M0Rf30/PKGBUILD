@@ -15,9 +15,9 @@ depends=(
 )
 makedepends=('squashfs-tools' 'jq')
 sha256sums=('af88ff0c1f929b852d64bb0d1c35fa644190b150d356e1a51bad6252c28bf7ec'
-            '25f7ceaaec37eb9c287abeb839ba2036738eb363079e321c2bd410fa48301dd6'
-            '71420954985d07f63c8195d5e6ff12c55ac366d99fd3024846bbdc8463af2579'
-            '4991a25e728da947d59c31d9a790f2edaf04ae073bd267ea2ffcf519fe12f274')
+  '25f7ceaaec37eb9c287abeb839ba2036738eb363079e321c2bd410fa48301dd6'
+  '71420954985d07f63c8195d5e6ff12c55ac366d99fd3024846bbdc8463af2579'
+  '4991a25e728da947d59c31d9a790f2edaf04ae073bd267ea2ffcf519fe12f274')
 
 DLAGENTS+=("snap::${BASH_SOURCE[0]%/*}/snap-dlagent.sh %u %o")
 source=("${pkgname}-${pkgver}.squashfs::snap://api.snapcraft.io/v2/snaps/info/orion-desktop"

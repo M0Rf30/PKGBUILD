@@ -12,24 +12,24 @@ options=('!strip' '!makeflags')
 source=("${pkgname}::git+https://github.com/savonet/ocaml-fdkaac.git")
 
 pkgver() {
-    cd "${srcdir}/${pkgname}"
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "${srcdir}/${pkgname}"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 build() {
-    cd "${srcdir}/${pkgname}"  
-    dune build    
+  cd "${srcdir}/${pkgname}"
+  dune build
 }
 
 package() {
-    cd "${srcdir}/${pkgname}"
-    dune install --prefix "${pkgdir}/usr" \
+  cd "${srcdir}/${pkgname}"
+  dune install --prefix "${pkgdir}/usr" \
     --libdir "${pkgdir}$(ocamlfind printconf destdir)"
 }
 
 pkgver() {
-    cd "${srcdir}/${pkgname}"
-    printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
+  cd "${srcdir}/${pkgname}"
+  printf "r%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
 md5sums=('SKIP')

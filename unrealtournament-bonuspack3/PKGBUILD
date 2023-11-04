@@ -14,11 +14,10 @@ source=(https://github.com/XenGi/oldgames/raw/master/ut/utinoxxpacknoumod.zip)
 noextract=(utinoxxpacknoumod.zip)
 
 package() {
-	cd "${srcdir}"
-	install --directory -- "${pkgdir}/opt/ut"
-	bsdtar xfC utinoxxpacknoumod.zip "${pkgdir}/opt/ut" || return 1
-	chmod -R -- 644 ${pkgdir}/opt/ut/*/*
+  cd "${srcdir}"
+  install --directory -- "${pkgdir}/opt/ut"
+  bsdtar xfC utinoxxpacknoumod.zip "${pkgdir}/opt/ut" || return 1
+  chmod -R -- 644 ${pkgdir}/opt/ut/*/*
 }
 
 md5sums=('2825ad2bbf5c9ea0887b91907c16dd31')
-

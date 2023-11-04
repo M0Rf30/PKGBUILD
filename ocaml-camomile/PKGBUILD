@@ -30,7 +30,7 @@ package() {
     --destdir="${pkgdir}" \
     --prefix="/usr" \
     --libdir="$(ocamlfind printconf destdir)"
-  
+
   mv "${pkgdir}/usr/doc" "${pkgdir}/usr/share/"
 }
 

@@ -12,14 +12,14 @@ license=(LGPL)
 source=("blindelephant::svn+https://svn.code.sf.net/p/blindelephant/code/trunk")
 
 package() {
-	cd blindelephant/src
-	python2 setup.py install --root=$pkgdir
+  cd blindelephant/src
+  python2 setup.py install --root=$pkgdir
 
 }
 
 pkgver() {
-	cd blindelephant
-	svnversion | tr -d [A-z]
+  cd blindelephant
+  svnversion | tr -d [A-z]
 }
 
 md5sums=('SKIP')

@@ -25,4 +25,4 @@ package() {
 }
 
 sha256sums=('SKIP'
-            '040de00da0991afaedd6c6bc7eb938e9ae66d9700865402428a2d073df74face')
+  '040de00da0991afaedd6c6bc7eb938e9ae66d9700865402428a2d073df74face')

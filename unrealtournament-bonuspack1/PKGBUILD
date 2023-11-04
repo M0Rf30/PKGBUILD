@@ -14,14 +14,13 @@ conflicts=(ut1999-bonuspack1)
 source=(https://github.com/XenGi/oldgames/raw/master/ut/utbonuspack.zip)
 
 package() {
-	cd "${srcdir}"
-	install --directory -m775 -- ${pkgdir}/opt/ut/{System,Textures}
-	umodunpack --base ${pkgdir}/opt/ut --unpack UTBonusPack.umod \
-		|| return 1
-	mv -f -t ${pkgdir}/opt/ut/System -- ${pkgdir}/opt/ut/system/*
-	mv -f -t ${pkgdir}/opt/ut/Textures -- ${pkgdir}/opt/ut/textures/*
-	rm -rf -- ${pkgdir}/opt/ut/{system,textures}
+  cd "${srcdir}"
+  install --directory -m775 -- ${pkgdir}/opt/ut/{System,Textures}
+  umodunpack --base ${pkgdir}/opt/ut --unpack UTBonusPack.umod ||
+    return 1
+  mv -f -t ${pkgdir}/opt/ut/System -- ${pkgdir}/opt/ut/system/*
+  mv -f -t ${pkgdir}/opt/ut/Textures -- ${pkgdir}/opt/ut/textures/*
+  rm -rf -- ${pkgdir}/opt/ut/{system,textures}
 }
 
 md5sums=('e79b05b8a302593b53721e2a4295c6c0')
-

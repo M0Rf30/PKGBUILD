@@ -9,19 +9,18 @@ url="http://www.remote-exploit.org/?page_id=418"
 depends=('python2')
 license=('GPL')
 source=(http://www.remote-exploit.org/content/cupp-$pkgver.tar.gz
-cupp-bin)
+  cupp-bin)
 
-package()
-{
-	# Organize the paths
-	mkdir -p $pkgdir/usr/share/
-	cp -r $srcdir/cupp $pkgdir/usr/share/
+package() {
+  # Organize the paths
+  mkdir -p $pkgdir/usr/share/
+  cp -r $srcdir/cupp $pkgdir/usr/share/
 
-	# Create the executable link
-	mkdir -p $pkgdir/usr/bin
-	cp $srcdir/cupp-bin $pkgdir/usr/bin/cupp
+  # Create the executable link
+  mkdir -p $pkgdir/usr/bin
+  cp $srcdir/cupp-bin $pkgdir/usr/bin/cupp
 
 }
 
 md5sums=('d7bea1245095036a368566b9a15ddc86'
-'a44a6a199c7e80c926bffe95c1a5e8a7')
+  'a44a6a199c7e80c926bffe95c1a5e8a7')

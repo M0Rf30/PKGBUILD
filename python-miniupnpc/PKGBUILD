@@ -17,21 +17,21 @@ makedepends=('python-setuptools' 'python2-setuptools')
 sha256sums=('e19fb5e01ea5a707e2a8cb96f537fbd9f3a913d53d804a3265e3aeab3d2064c6')
 
 package_python2-miniupnpc() {
-	depends=('python2')
+  depends=('python2')
 
-	cd $srcdir/${pkgbase#python-}-$pkgver
+  cd $srcdir/${pkgbase#python-}-$pkgver
 
-	python2 setup.py build
-	python2 setup.py install --root="$pkgdir" --optimize=1
-	install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  python2 setup.py build
+  python2 setup.py install --root="$pkgdir" --optimize=1
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
 
 package_python-miniupnpc() {
-	depends=('python')
+  depends=('python')
 
-	cd $srcdir/${pkgbase#python-}-$pkgver
+  cd $srcdir/${pkgbase#python-}-$pkgver
 
-	python setup.py build
-	python setup.py install --root="$pkgdir" --optimize=1
-	install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
+  python setup.py build
+  python setup.py install --root="$pkgdir" --optimize=1
+  install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }

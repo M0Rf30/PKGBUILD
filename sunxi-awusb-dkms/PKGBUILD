@@ -14,9 +14,9 @@ conflicts=('cubieboard-livesuit')
 source=('git+https://github.com/M0Rf30/sunxi-awusb.git')
 
 package() {
-	cd $srcdir/${_pkg}
-	install -Dt "$pkgdir/usr/src/${_pkg}-$pkgver" -m644 awusb.c Makefile dkms.conf
-	install -Dt "$pkgdir/usr/lib/udev/rules.d/" -m644 udev/50-awusb.rules
+  cd $srcdir/${_pkg}
+  install -Dt "$pkgdir/usr/src/${_pkg}-$pkgver" -m644 awusb.c Makefile dkms.conf
+  install -Dt "$pkgdir/usr/lib/udev/rules.d/" -m644 udev/50-awusb.rules
 }
 
 md5sums=('SKIP')
