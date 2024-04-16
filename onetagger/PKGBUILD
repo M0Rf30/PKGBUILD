@@ -3,14 +3,13 @@
 
 pkgname=onetagger
 pkgver=1.7.0
-pkgrel=1
+pkgrel=2
 pkgdesc="Cross-platform music tagger with Beatport, Discogs, Musicbrainz, Spotify, Traxsource and many other services support."
 arch=('aarch64' 'x86_64')
 url="https://onetagger.github.io/"
 license=('GPL3')
 depends=('alsa-lib' 'webkit2gtk')
 makedepends=('cargo' 'pnpm')
-options=('!lto')
 source=(
   "https://github.com/Marekkon5/onetagger/archive/refs/tags/${pkgver}.tar.gz"
   "${pkgname}.desktop"
@@ -35,6 +34,7 @@ build() {
   pnpm run build
   popd
 
+  CFLAGS+=" -ffat-lto-objects"
   export RUSTUP_TOOLCHAIN=stable
   export CARGO_TARGET_DIR=target
   cargo build --frozen --release --all-features
