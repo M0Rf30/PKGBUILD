@@ -22,6 +22,7 @@ package_unrealtournament-bonuspack1() {
     pkgname="unrealtournament-bonuspack1"
     pkgdesc="Bonuspack 1: The Epic Pack for Unreal Tournament."
     conflicts=(ut1999-bonuspack1)
+    install=unrealtournament-bonuspack1.install
 
     cd "${srcdir}/Unreal Tournament Bonus Pack 1"
 
