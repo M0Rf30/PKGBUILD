@@ -1,0 +1,3 @@
+# Disable individual error codes
+disable=SC2154,SC2164,SC2034
+shell=bash
