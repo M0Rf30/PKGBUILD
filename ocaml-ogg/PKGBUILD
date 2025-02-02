@@ -2,7 +2,7 @@
 # Contributor: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-ogg
-pkgver=0.7.4 # renovate: datasource=github-tags depName=savonet/ocaml-ogg
+pkgver=0.7.4
 pkgrel=1
 pkgdesc="OCaml binding to libogg"
 arch=('i686' 'x86_64')
@@ -15,15 +15,15 @@ source=("${url}/archive/v${pkgver}.tar.gz")
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
-
+  
   dune build
 }
 
 package() {
   cd "${srcdir}/${pkgname}-${pkgver}"
-
-  DESTDIR="${pkgdir}" dune install --prefix "/usr" --libdir "lib/ocaml"
-
+  
+  DESTDIR="${pkgdir}" dune install --prefix "/usr" --libdir "/usr/lib/ocaml"
+  
   install -dm755 "${pkgdir}/usr/share/"
   mv "${pkgdir}/usr/doc" "${pkgdir}/usr/share/"
 }
