@@ -1,12 +1,34 @@
+# Backup files
+*~
+*.bak
+
+# Build artifacts
+*.oxt
+*.tar*
+*.tgz
+*.zip
+*.gz
+*.part
+*.log
+
+# Package files
+*.asc
+*.sig
+*.pkg.*
+.AURINFO
+.SRCINFO
+
+# Source and package directories
 src/*
 pkg/*
-*.tar*
-.AURINFO
-*/.git*
-*/*.tar
-*/*.gz
-*/*.part
-*/pkg
 */src
-*/*.pkg.*
-.SRCINFO
+*/pkg
+
+# VCS and other subfolders
+*/**/
+!.github/
+*/.git*
+
+# mkpkg status files
+.mkpkg_check
+
