@@ -2,7 +2,7 @@
 # Contributor: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-bjack
-pkgver=0.1.6
+pkgver=0.1.6 # renovate: datasource=github-tags depName=savonet/ocaml-bjack
 pkgrel=1
 pkgdesc="OCaml blocking JACK API"
 url="https://github.com/savonet/ocaml-bjack"

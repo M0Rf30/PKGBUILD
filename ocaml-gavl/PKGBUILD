@@ -1,7 +1,7 @@
 # Maintainer: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-gavl
-pkgver=0.1.6
+pkgver=0.1.6 # renovate: datasource=github-tags depName=savonet/ocaml-gavl
 pkgrel=2
 _commit=df62b5969c4b12e3d1d2c2cbb1a5f45a70353f7c
 pkgdesc="OCaml bindings for the Gavl video manipulation library"

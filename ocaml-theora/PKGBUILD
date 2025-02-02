@@ -1,7 +1,7 @@
 # Maintainer: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-theora
-pkgver=0.4.1
+pkgver=0.4.1 # renovate: datasource=github-tags depName=savonet/ocaml-theora
 pkgrel=1
 pkgdesc="OCaml binding to libtheora"
 arch=('i686' 'x86_64')

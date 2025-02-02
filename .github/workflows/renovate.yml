@@ -1,4 +1,4 @@
-name: Renovate
+name: renovate
 
 on:
   schedule:
@@ -8,9 +8,6 @@ on:
       - main
     paths:
       - "*/PKGBUILD"
-  pull_request:
-    branches:
-      - main
   workflow_dispatch:
 
 jobs:

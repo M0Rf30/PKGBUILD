@@ -2,7 +2,7 @@
 # Contributor: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-faad
-pkgver=0.5.1
+pkgver=0.5.1 # renovate: datasource=github-tags depName=savonet/ocaml-faad
 pkgrel=1
 pkgdesc="OCaml bindings for the libfaad AAC decoder library"
 arch=('i686' 'x86_64')
