@@ -23,4 +23,4 @@ package() {
   python -m installer --destdir="$pkgdir" dist/*.whl
 }
 
-sha256sums=('fb53683e44f6f9514a55c413cb6461c1e781922d5eda14af036c73460a7b4c96')
+sha256sums=('7dfe4f2a22a138d3c8264b44253442edcc5420064ab399d6ff87baf3a36523c3')
