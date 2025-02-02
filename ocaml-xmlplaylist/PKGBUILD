@@ -1,7 +1,7 @@
 # Maintainer: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-xmlplaylist
-pkgver=0.1.4 # renovate: datasource=github-tags depName=savonet/ocaml-xmlplaylist
+pkgver=0.1.5 # renovate: datasource=github-tags depName=savonet/ocaml-xmlplaylist
 pkgrel=1
 pkgdesc="OCaml module to parse various RSS playlist formats"
 arch=('i686' 'x86_64')
