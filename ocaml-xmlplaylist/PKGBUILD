@@ -10,8 +10,8 @@ license=('LGPL2.1')
 depends=('ocaml' 'ocaml-xmlm')
 makedepends=('ocaml-findlib')
 options=('!strip')
-source=("https://github.com/savonet/ocaml-xmlplaylist/releases/download/${pkgver}/${pkgname}-${pkgver}.tar.gz")
-md5sums=('99117433dacb84117af7f01bac67df81')
+source=("https://github.com/savonet/${pkgname}/archive/refs/tags/v${pkgver}.tar.gz")
+sha256sums=('99117433dacb84117af7f01bac67df81')
 
 build() {
   cd "${srcdir}/${pkgname}-${pkgver}"
