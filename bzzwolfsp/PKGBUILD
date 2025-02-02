@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=bzzwolfsp
-pkgver=1.0.1 # renovate: datasource=github-tags depName=rtcwcoop/rtcwcoop
+pkgver=1.0.2 # renovate: datasource=github-tags depName=rtcwcoop/rtcwcoop
 pkgrel=2
 pkgdesc="A Return to Castle Wolfenstein Single Player engine mod to make Cooperative play possible (aka RTCW Coop)"
 arch=('i686' 'x86_64')
