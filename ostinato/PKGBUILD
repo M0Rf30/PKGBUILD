@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=ostinato
-pkgver=1.3.0
+pkgver=1.3.0 # renovate: datasource=github-tags depName=pstavirs/ostinato
 pkgrel=1
 url="http://ostinato.org/"
 pkgdesc="Cross-platform network packet/traffic generator and analyzer"

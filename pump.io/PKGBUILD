@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=pump.io
-pkgver=5.1.4
+pkgver=5.1.4 # renovate: datasource=github-tags depName=pump-io/pump.io
 pkgrel=2
 pkgdesc="A stream server that does most of what people really want from a social network"
 url='http://pump.io'

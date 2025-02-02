@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=peerflix-server
-pkgver=0.6.0
+pkgver=0.6.0 # renovate: datasource=github-tags depName=asapach/peerflix-server
 pkgrel=1
 pkgdesc="Streaming torrent client for node.js with web ui"
 arch=('i686' 'x86_64')

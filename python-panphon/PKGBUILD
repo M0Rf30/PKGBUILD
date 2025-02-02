@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=python-panphon
-pkgver=0.19.1
+pkgver=0.19.1 # renovate: datasource=github-tags depName=dmort27/panphon
 pkgrel=2
 pkgdesc="Python package and data files for manipulating phonological segments (phones, phonemes) in terms of universal phonological features."
 arch=('any')

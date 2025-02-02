@@ -1,7 +1,7 @@
 # Maintainer: KopfKrieg <archlinux [at] absolem [dot] cc>
 # Maintainer: robertfoster
 
-pkgname=python-gnupg-isis
+pkgname=python-gnupg-isis # renovate: datasource=github-tags depName=isislovecruft/python-gnupg
 name=python-gnupg
 pkgver=3.1.1
 pkgrel=1

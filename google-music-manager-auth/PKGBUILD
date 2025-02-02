@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=google-music-manager-auth
-pkgver=1.3.1
+pkgver=1.3.1 # renovate: datasource=github-tags depName=jaymoulin/google-music-manager-auth
 pkgrel=1
 pkgdesc="Google Music Manager Auth Daemon"
 arch=('any')

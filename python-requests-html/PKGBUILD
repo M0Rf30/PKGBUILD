@@ -7,7 +7,7 @@ pkgname=('python-requests-html')
 depends=('python' 'python-requests' 'python-pyquery' 'python-fake-useragent'
   'python-parse' 'python-beautifulsoup4' 'python-w3lib' 'python-pyppeteer')
 makedepends=('python-setuptools')
-pkgver=0.10.0
+pkgver=0.10.0 # renovate: datasource=github-tags depName=kennethreitz/requests-html
 pkgrel=1
 pkgdesc="HTML Parsing for Humans"
 arch=('any')
