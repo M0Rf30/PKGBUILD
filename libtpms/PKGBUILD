@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=libtpms
-pkgver=0.7.3 # renovate: datasource=github-tags depName=stefanberger/libtpms
+pkgver=0.10.0 # renovate: datasource=github-tags depName=stefanberger/libtpms
 pkgrel=1
 pkgdesc="The libtpms library provides software emulation of a Trusted Platform Module (TPM 1.2)"
 arch=('i686' 'x86_64')
