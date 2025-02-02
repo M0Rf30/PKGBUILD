@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=ndpi
-pkgver=4.8 # renovate: datasource=github-tags depName=ntop/nDPI
+pkgver=4.12 # renovate: datasource=github-tags depName=ntop/nDPI
 pkgrel=1
 pkgdesc="Open and Extensible GPLv3 Deep Packet Inspection Library"
 arch=('i686' 'x86_64')
