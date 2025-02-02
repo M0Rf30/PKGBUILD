@@ -2,7 +2,7 @@
 # Contributor: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-ogg
-pkgver=0.7.4
+pkgver=0.7.4 # renovate: datasource=github-tags depName=savonet/ocaml-ogg
 pkgrel=1
 pkgdesc="OCaml binding to libogg"
 arch=('i686' 'x86_64')

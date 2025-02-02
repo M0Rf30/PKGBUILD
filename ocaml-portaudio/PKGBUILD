@@ -1,7 +1,7 @@
 # Maintainer: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-portaudio
-pkgver=0.2.3
+pkgver=0.2.3 # renovate: datasource=github-tags depName=savonet/ocaml-portaudio
 pkgrel=1
 pkgdesc="OCaml bindings for portaudio"
 arch=('i686' 'x86_64')

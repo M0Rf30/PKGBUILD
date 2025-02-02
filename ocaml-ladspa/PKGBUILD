@@ -2,7 +2,7 @@
 # Contributor: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-ladspa
-pkgver=0.2.2
+pkgver=0.2.2 # renovate: datasource=github-tags depName=savonet/ocaml-ladspa
 pkgrel=1
 pkgdesc="OCaml bindings for LADSPA plugins"
 arch=('i686' 'x86_64')

@@ -3,7 +3,7 @@
 # Contributor: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-opus
-pkgver=0.2.2
+pkgver=0.2.2 # renovate: datasource=github-tags depName=savonet/ocaml-opus
 pkgrel=1
 pkgdesc="OCaml bindings for Opus audio codec"
 arch=('i686' 'x86_64')

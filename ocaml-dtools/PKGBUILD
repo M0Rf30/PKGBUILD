@@ -3,7 +3,7 @@
 # Contributor: Jakob Gahde <j5lx@fmail.co.uk>
 
 pkgname=ocaml-dtools
-pkgver=0.4.5
+pkgver=0.4.5 # renovate: datasource=github-tags depName=savonet/ocaml-dtools
 pkgrel=1
 pkgdesc="OCaml modules for writing daemons"
 arch=('i686' 'x86_64')
