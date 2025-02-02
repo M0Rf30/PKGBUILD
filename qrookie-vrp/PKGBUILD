@@ -1,7 +1,7 @@
 # Maintainer: Glaumar git@geekgo.tech
 
 pkgname=qrookie-vrp
-pkgver=0.4.2
+pkgver=0.4.2 # renovate: datasource=github-tags depName=glaumar/QRookie
 pkgrel=1
 pkgdesc='Download and install Quest games from ROOKIE Public Mirror'
 arch=('x86_64')

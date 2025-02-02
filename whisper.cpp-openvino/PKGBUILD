@@ -2,7 +2,7 @@
 
 _pkgbase=whisper.cpp
 pkgname="${_pkgbase}-openvino"
-pkgver=1.7.4
+pkgver=1.7.4 # renovate: datasource=github-tags depName=ggerganov/whisper.cpp
 pkgrel=1
 pkgdesc="Port of OpenAI's Whisper model in C/C++ (with OpenVINO run-time)"
 arch=('armv7h' 'aarch64' 'x86_64')
