@@ -1,5 +1,5 @@
 # Maintainer: robertfoster
-pkgname=piper-phonemize
+pkgname=piper-phonemize # renovate: datasource=github-tags depName=rhasspy/piper-phonemize
 pkgver=2023.11.14
 _rel=4
 pkgrel=1

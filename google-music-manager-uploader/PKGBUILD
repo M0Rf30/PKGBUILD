@@ -2,7 +2,7 @@
 pkgname=google-music-manager-uploader
 pkgver=1.6.3
 pkgrel=1
-pkgdesc="Google Music Manager Uploader Daemon"
+pkgdesc="Google Music Manager Uploader Daemon" # renovate: datasource=github-tags depName=jaymoulin/google-music-manager-uploader
 arch=('any')
 url="https://github.com/jaymoulin/google-music-manager-uploader"
 license=('MIT')

@@ -2,7 +2,7 @@
 # Maintainer: Hu Butui <hot123tea123@gmail.com>
 
 _pkgname=mediapipe
-pkgname=python-mediapipe
+pkgname=python-mediapipe # renovate: datasource=github-tags depName=google-ai-edge/mediapipe
 pkgver=0.10.20
 pkgrel=1
 pkgdesc="A cross-platform, customizable ML solutions for live and streaming media"

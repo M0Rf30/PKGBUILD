@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 _name=autoeq
 pkgname="python-${_name}"
-pkgver=4.1.2
+pkgver=4.1.2 # renovate: datasource=github-tags depName=jaakkopasanen/AutoEq
 pkgrel=1
 pkgdesc="Automatic headphone equalizer config generator"
 arch=(any)

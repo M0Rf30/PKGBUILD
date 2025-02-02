@@ -2,7 +2,7 @@
 # Contributor: Thorben Guenther <echo YWRtaW5AeGVucm94Lm5ldAo= | base64 -d>
 
 pkgname=mycroft-core
-pkgver=21.2.2
+pkgver=21.2.2 # renovate: datasource=github-tags depName=MycroftAI/mycroft-core
 pkgrel=2
 pkgdesc="The Mycroft Artificial Intelligence platform."
 arch=('i686' 'x86_64' 'armv6h' 'armv7h' 'aarch64')

@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=python-dmidecode
-pkgver=3.12.3
+pkgver=3.12.3 # renovate: datasource=github-tags depName=nima/python-dmidecode
 pkgrel=2
 arch=('i686' 'x86_64')
 url="https://github.com/nima/python-dmidecode"

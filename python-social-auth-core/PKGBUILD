@@ -2,7 +2,7 @@
 # Contributor: Peter Mattern <pmattern at arcor dot de>
 
 pkgname=python-social-auth-core
-pkgver=4.5.4
+pkgver=4.5.4 # renovate: datasource=github-tags depName=python-social-auth/social-core
 pkgrel=2
 pkgdesc='Python Social Auth core component'
 arch=('any')

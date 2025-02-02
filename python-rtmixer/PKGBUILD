@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=python-rtmixer
-pkgver=0.1.7
+pkgver=0.1.7 # renovate: datasource=github-tags depName=spatialaudio/python-rtxmixer
 pkgrel=2
 pkgdesc="Reliable low-latency audio playback and recording with Python"
 arch=(any)

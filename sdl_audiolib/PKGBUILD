@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=sdl_audiolib
-pkgver=0.0.0
+pkgver=0.0.0 # renovate: datasource=github-tags depName=realnc/SDL_audiolib
 pkgrel=1
 pkgdesc="An audio decoding, resampling and mixing library."
 arch=(i686 x86_64)

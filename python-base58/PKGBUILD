@@ -3,7 +3,7 @@
 # Contributor: redfish
 
 pkgname=python-base58
-pkgver=2.1.1
+pkgver=2.1.1 # renovate: datasource=github-tags depName=keus/base58
 pkgrel=1
 pkgdesc="Bitcoin-compatible Base58 and Base58Check implementation"
 arch=('any')
