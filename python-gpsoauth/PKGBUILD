@@ -3,7 +3,7 @@
 
 _pkgname=gpsoauth
 pkgname=python-$_pkgname
-pkgver='1.0.3' # renovate: datasource=github-tags depName=simon-weber/gpsoauth
+pkgver=1.1.1 # renovate: datasource=github-tags depName=simon-weber/gpsoauth
 pkgrel=1
 pkgdesc="A python client library for Google Play Services OAuth."
 url="https://github.com/simon-weber/gpsoauth"
