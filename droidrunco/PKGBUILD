@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=droidrunco
-pkgver=2.4.2 # renovate: datasource=github-tags depName=lavafroth/droidrunco
+pkgver=2.5.0 # renovate: datasource=github-tags depName=lavafroth/droidrunco
 pkgrel=1
 pkgdesc="Minimalist, functional Android debloat tool in Go"
 arch=('armv6h' 'armv7h' 'arm' 'aarch64' 'i686' 'x86_64')
