@@ -31,9 +31,9 @@ source PKGBUILD
 paru -Syu --removemake --needed --noconfirm "${depends[@]}" "${makedepends[@]}"
 echo "::endgroup::"
 
-echo "::group::Running makepkg"
-makepkg
-echo "::endgroup::"
+# echo "::group::Running makepkg"
+# makepkg
+# echo "::endgroup::"
 
 echo "::group::Generating new .SRCINFO based on PKGBUILD"
 makepkg --printsrcinfo >.SRCINFO

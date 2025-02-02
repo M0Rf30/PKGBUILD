@@ -1,6 +1,5 @@
 name: "Arch Linux User Repository (AUR) GitHub Action"
 description: ""
-author: "JamieMagee"
 branding:
   icon: "package"
   color: "blue"
