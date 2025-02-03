@@ -17,5 +17,7 @@
       ],
       "extractVersionTemplate": "^v?(?<version>.*)$"
     }
-  ]
+  ],
+  "rebaseWhen": "behind-base-branch",
+  "timezone": "Etc/UTC"
 }
