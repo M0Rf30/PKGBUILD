@@ -27,5 +27,5 @@ package() {
   ln -sr /usr/bin/firefox $pkgdir/usr/bin/mozilla
 }
 
-md5sums=('SKIP'
-  '1c244349f72fe7abc1574b671dcde0c6')
+sha256sums=('1061c20394622827f47b8752eb9cb4a6557353d7add6aac4b8d0af65bb304363'
+            '9bbc5cae0feb09fc880fef30a83d2b6bae8d20ce81c4b90b9e60f32d4f98471e')
