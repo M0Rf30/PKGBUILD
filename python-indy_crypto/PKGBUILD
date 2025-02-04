@@ -17,4 +17,4 @@ package() {
   python setup.py install -O1 --root="$pkgdir"
 }
 
-md5sums=('708110787cefae0543205cdbbb637552')
+sha256sums=('74796a2fbcf0577c9cb91667a621e4febe22f9ef613f3c9d985fd7f3718ce3af')
