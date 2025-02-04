@@ -28,4 +28,4 @@ pkgver() {
   printf "${version#eselect.}"
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

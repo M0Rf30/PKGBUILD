@@ -30,4 +30,4 @@ package() {
   install -Dm644 "${srcdir}/${pkgname}"/LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

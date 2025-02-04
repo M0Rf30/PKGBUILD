@@ -26,4 +26,4 @@ package() {
   make DESTDIR=$pkgdir install
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

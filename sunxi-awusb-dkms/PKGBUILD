@@ -19,4 +19,4 @@ package() {
   install -Dt "$pkgdir/usr/lib/udev/rules.d/" -m644 udev/50-awusb.rules
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

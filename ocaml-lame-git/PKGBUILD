@@ -29,4 +29,4 @@ package() {
   # Remove docs
   rm -rf "${pkgdir}/usr/doc"
 }
-md5sums=('SKIP')
+sha256sums=('SKIP')

@@ -30,4 +30,4 @@ package() {
   install -Dm755 bin/qviaggiatreno $pkgdir/usr/bin/qviaggiatreno
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

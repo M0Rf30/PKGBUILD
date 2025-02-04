@@ -31,4 +31,4 @@ package() {
   mkdir -p "${OCAMLFIND_DESTDIR}/stublibs"
   make install
 }
-md5sums=('SKIP')
+sha256sums=('SKIP')

@@ -27,4 +27,4 @@ package() {
   dune install --prefix=$pkgdir/usr --libdir=$pkgdir$OCAML_STDLIB_DIR
   install -Dm644 LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
-md5sums=('SKIP')
+sha256sums=('SKIP')

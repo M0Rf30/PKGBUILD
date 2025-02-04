@@ -34,4 +34,4 @@ package() {
   dune install --prefix "${pkgdir}/usr" \
     --libdir "${pkgdir}$(ocamlfind printconf destdir)"
 }
-md5sums=('SKIP')
+sha256sums=('SKIP')

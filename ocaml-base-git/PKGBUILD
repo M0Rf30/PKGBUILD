@@ -31,4 +31,4 @@ package() {
   mv "${pkgdir}/usr/doc" "${pkgdir}/usr/share/"
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

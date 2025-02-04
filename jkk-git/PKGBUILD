@@ -39,4 +39,4 @@ package() {
   install -Dm 644 ../README.md -t "${pkgdir}/usr/share/doc/${pkgname%-git}"
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

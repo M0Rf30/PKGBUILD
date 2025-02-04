@@ -21,4 +21,4 @@ pkgver() {
   printf "%s.%s" "$(git rev-list --count HEAD)" "$(git rev-parse --short HEAD)"
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

@@ -28,4 +28,4 @@ package() {
   python setup.py install --root=$pkgdir
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

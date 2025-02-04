@@ -27,4 +27,4 @@ package() {
   python2 setup.py install --root="$pkgdir/" --optimize=1
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

@@ -12,7 +12,7 @@ conflicts=('iio-sensor-proxy')
 depends=('libgudev' 'gtk3' 'polkit' 'systemd')
 makedepends=('git' 'meson')
 source=("git+${url}")
-md5sums=('SKIP')
+sha256sums=('SKIP')
 
 pkgver() {
   cd "$srcdir/${pkgname%%-git}"

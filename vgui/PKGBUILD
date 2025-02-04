@@ -20,4 +20,4 @@ package() {
   cp -r include "$pkgdir/usr/"
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')

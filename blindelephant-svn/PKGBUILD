@@ -22,4 +22,4 @@ pkgver() {
   svnversion | tr -d [A-z]
 }
 
-md5sums=('SKIP')
+sha256sums=('SKIP')
