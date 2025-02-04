@@ -30,5 +30,5 @@ package() {
   wget -O "$pkgdir"/usr/share/pixmaps/steadyflow.png https://launchpadlibrarian.net/55910801/steadyflow-64px.png
 }
 
-md5sums=('16b9907c1d681e7f0a861f066d4fda0e'
-  '53ff49bd70c499fa75498ba06250e7fc')
+sha256sums=('ab1f23d52be78c952979ee0bb1778b8bf4664145c6fb28db219d516aae7dddb6'
+            'bba49955674a1d7847bd42509359a67f8405e4e5f849add7d6e1f6d1178bac95')
