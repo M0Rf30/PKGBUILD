@@ -25,4 +25,4 @@ package() {
   rm $pkgdir/usr/share/man/man1/verify.1
 }
 
-md5sums=('de901c359521a691962422a6cf8ad38b')
+sha256sums=('4890fb5db61478e189707ec72a78ded71c11dfe5251aa3cf578dbc78737724aa')
