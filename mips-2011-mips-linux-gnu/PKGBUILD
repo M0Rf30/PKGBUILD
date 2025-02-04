@@ -18,4 +18,4 @@ package() {
   cp -PR * $pkgdir/usr
 }
 
-md5sums=('8d8639a2aef4a79be1f63af635472f6e')
+sha256sums=('ef7a49aca1aa31d2dc7d41a8835b4e5f7a9e9e8129ffc03c597432352fc08368')
