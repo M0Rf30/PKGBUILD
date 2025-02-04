@@ -16,4 +16,4 @@ package() {
   chmod +x $pkgdir/usr/bin/bootinfoscript
 }
 
-md5sums=('48221c5714eb45feb321ee1ac823a962')
+sha256sums=('19780542c78756cee5eaf2327e118472d8d509df93bc7bf60deefa7db5ada80d')
