@@ -59,6 +59,6 @@ pkgver() {
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 
-md5sums=('SKIP'
-  '8359716a04cff2fd8499406408b6c590'
-  'a278f17aa965510cadb534df49b245dd')
+sha256sums=('SKIP'
+            '3c3ba19cf4575cb4ebf74502ba9badee6728e6df345e85e6fbedb62916b0d92e'
+            '668d6427925fee70eacd05a8498f2e1e32049b9825e0a1e4fa8f3825644351b3')
