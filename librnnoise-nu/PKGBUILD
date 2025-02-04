@@ -21,4 +21,4 @@ package() {
   cd "${pkgname#lib}-${_commit}"
   make DESTDIR="$pkgdir/" install
 }
-md5sums=('c753e7f7a3e73073cfdded735af25dfb')
+sha256sums=('15402f376af177d8d8cd1afd5a7945f16fa83f14636825bbd8509ceffe699adc')
