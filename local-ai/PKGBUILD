@@ -2,14 +2,13 @@
 _pkgname=LocalAI
 pkgname=local-ai
 pkgver=2.27.0 # renovate: datasource=github-tags depName=mudler/LocalAI
-
 pkgrel=1
 pkgdesc="Free, Open Source OpenAI alternative. Self-hosted, community-driven and local-first (with OPENBlas CPU optimizations)"
 arch=('x86_64')
 url="https://github.com/mudler/LocalAI"
 license=('MIT')
 backup=("etc/${pkgname}/${pkgname}.conf")
-depends=('glibc' 'openblas')
+depends=('openblas')
 options=('!strip')
 makedepends=(
   'c-ares'
@@ -19,7 +18,6 @@ makedepends=(
   'go'
   'grpc'
   'make'
-  'openblas'
   'openssl'
   'protoc-gen-go'
   'protoc-gen-go-grpc'
