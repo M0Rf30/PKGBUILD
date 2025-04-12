@@ -7,6 +7,7 @@ pkgdesc="Stable Diffusion in pure C/C++"
 arch=('armv7h' 'aarch64' 'x86_64')
 url="https://github.com/leejet/stable-diffusion.cpp"
 license=("MIT")
+depends=('openblas')
 makedepends=(
   'cmake'
   'git'
@@ -48,7 +49,7 @@ package() {
 
   install -Dm644 "${srcdir}/${pkgname%%-git}/LICENSE" \
     -t "${pkgdir}/usr/share/licenses/${pkgname}"
-  
+
   rm -rf "${pkgdir}/usr/include/gguf.h"
   rm -rf "${pkgdir}/usr/lib/cmake/ggml/ggml-config.cmake"
   rm -rf "${pkgdir}/usr/lib/cmake/ggml/ggml-version.cmake"
