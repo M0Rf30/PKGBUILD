@@ -32,7 +32,6 @@ prepare() {
 }
 
 build() {
-  source /opt/intel/oneapi/setvars.sh
   cmake \
     -B "${srcdir}/build" \
     -S "${srcdir}/${pkgname%%-git}" \
