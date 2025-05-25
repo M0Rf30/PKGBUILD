@@ -58,4 +58,4 @@ package() {
   meson install -C build --destdir "${pkgdir}" --no-rebuild
 }
 
-sha256sums=('51196fcf05803e66ede418d5ef8f0204c63b3a9aa9835686436644059481f0df')
+sha256sums=('168098365e71f9830c3aa34f4319f04eca78211d17cbf728de6cca6df3251d26')
