@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=assaultcube-reloaded
-pkgver=2.18.2 # renovate: datasource=github-tags depName=actf/acr
+pkgver=2.18.3 # renovate: datasource=github-tags depName=actf/acr
 pkgrel=1
 pkgdesc='AssaultCube Reloaded'
 arch=('i686' 'x86_64')
