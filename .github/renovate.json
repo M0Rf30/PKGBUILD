@@ -1,17 +1,19 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    "config:recommended",
+    ":ignoreModulesAndTests",
     ":rebaseStalePrs",
+    ":semanticCommitScope(deps)",
     ":semanticCommits",
-    ":semanticCommitScope(deps)"
+    ":semanticPrefixFixDepsChoreOthers",
+    "mergeConfidence:age-confidence-badges",
+    "replacements:all",
+    "workarounds:all"
   ],
   "customManagers": [
     {
       "customType": "regex",
-      "fileMatch": [
-        "(^|/)PKGBUILD$"
-      ],
+      "fileMatch": ["(^|/)PKGBUILD$"],
       "matchStrings": [
         "pkgver=(?<currentValue>.*) # renovate: datasource=(?<datasource>.*) depName=(?<depName>.*)"
       ],
