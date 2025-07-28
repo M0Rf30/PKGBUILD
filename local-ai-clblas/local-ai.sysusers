@@ -1,3 +1,0 @@
-u local-ai - "local-ai" /var/lib/local-ai /bin/sh
-g local-ai - -
-
