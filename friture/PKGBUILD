@@ -3,7 +3,7 @@
 # Contributor: speps <speps at aur dot archlinux dot org>
 
 pkgname=friture
-pkgver=0.51 # renovate: datasource=github-tags depName=tlecomte/friture
+pkgver=0.52 # renovate: datasource=github-tags depName=tlecomte/friture
 pkgrel=1
 pkgdesc="An application to visualize and analyze live audio data in real-time."
 arch=(i686 x86_64)
