@@ -1,21 +1,17 @@
 # Maintainer: robertfoster
-_pkgname=LocalAI
 pkgname=local-ai
-pkgver=3.4.0 # renovate: datasource=github-tags depName=mudler/LocalAI
+pkgver=3.5.0 # renovate: datasource=github-tags depName=mudler/LocalAI
 pkgrel=1
 pkgdesc="Free, Open Source OpenAI alternative. Self-hosted, community-driven and local-first"
 arch=('x86_64')
 url="https://github.com/mudler/LocalAI"
 license=('MIT')
 backup=("etc/${pkgname}/${pkgname}.conf")
-depends=('openblas')
 makedepends=(
   'go'
   'make'
-  'protoc-gen-go'
-  'protoc-gen-go-grpc'
 )
-source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz"
+source=("${pkgname}-${pkgver}::git+${url}.git#tag=v${pkgver}"
   "${pkgname}.conf"
   "${pkgname}.tmpfiles"
   "${pkgname}.sysusers"
@@ -23,27 +19,23 @@ source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/v${pkgver}.tar.gz
 )
 
 build() {
-  cd "${srcdir}/${_pkgname}-${pkgver}"
+  cd "${srcdir}/${pkgname}-${pkgver}"
+  export GOPATH="${srcdir}"
+  export PATH="${GOPATH}/bin:${PATH}"
 
-  commit=$(git ls-remote --tags https://github.com/mudler/LocalAI.git refs/tags/v${pkgver} | cut -f1)
-
-  make protogen-go
-  CGO_ENABLED=0 \
-    go build \
-    -ldflags "-s -w -X github.com/mudler/LocalAI/internal.Version=v${pkgver} \
-    -X github.com/mudler/LocalAI/internal.Commit=${commit}" \
-    -o local-ai \
-    .
+  make build
 }
 
 package() {
-  cd "${srcdir}/${_pkgname}-${pkgver}"
+  cd "${srcdir}/${pkgname}-${pkgver}"
   install -Dm775 "${pkgname}" -t "${pkgdir}/usr/bin/"
   install -Dm644 LICENSE \
     -t "${pkgdir}/usr/share/licenses/${pkgname}"
 
   install -D -m644 "${srcdir}/${pkgname}.conf" \
     "${pkgdir}/etc/${pkgname}/${pkgname}.conf"
+
+  install -d "${pkgdir}/usr/share/${pkgname}/backends"
 
   # systemd
   install -D -m644 "${srcdir}/${pkgname}.service" \
@@ -54,8 +46,10 @@ package() {
     "${pkgdir}/usr/lib/tmpfiles.d/${pkgname}.conf"
 }
 
-sha256sums=('a3393c91b777c93bfcbe04557e823a4d52dc130669e505c2dba2633db37adef0'
-            'ad8459c708f6e4413d4d2d0c5dda71dc9a13860c1a8641d72f49cf9cf259768e'
-            '90e042d0f5885b63a6aa4db7f87d6b931956f6c9b022407593466f61f6973312'
-            '97ba21355c50ec658e220bc0558f506227b3dc77cc51f343b6f5657b0d77a19b'
-            'bd420ec530cbfdb7f29b309e3c0c8cd72de6346b7c8e9882e917a071c65b344c')
+sha256sums=(
+  'SKIP'
+  '8153bc015f138655e08a49183c36d00f7fb661a2b9367110f44af844eab815ae'
+  'dd51cf954b60d75e0521a6e58188bcb06981e87d7ca8ac22d7dc4d46a362a671'
+  '97ba21355c50ec658e220bc0558f506227b3dc77cc51f343b6f5657b0d77a19b'
+  '6e4c0e2a2694867a5c27e21855e530a9327ae3658dbaa9b18fe028ab96df915a'
+)
