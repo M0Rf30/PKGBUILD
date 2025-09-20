@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=shimmy-bin
-pkgver=1.5.1 # renovate: datasource=github-tags depName=Michael-A-Kuykendall/shimmy
+pkgver=1.5.4 # renovate: datasource=github-tags depName=Michael-A-Kuykendall/shimmy
 pkgrel=1
 pkgdesc="Lightweight 5MB Ollama alternative with native SafeTensors support. No Python dependencies, 2x faster loading."
 arch=('x86_64' 'aarch64')
