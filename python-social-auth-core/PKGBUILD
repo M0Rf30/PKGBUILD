@@ -17,7 +17,7 @@ makedepends=(
   'python-wheel'
 )
 source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/${pkgver}.tar.gz")
-sha256sums=('b31568e0a8ce8bc0d5653c83d360b71d8f8889d13b31ec2d896285c15ab9a826')
+sha256sums=('fd4f5ea0173d4908c8583d9dd68b7ecfd158d6208316a2efea85a3994c4484aa')
 
 build() {
   cd social-core-"${pkgver}"
