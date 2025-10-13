@@ -2,7 +2,7 @@
 
 _pkgname=fabric
 pkgname="hyperledger-${_pkgname}"
-pkgver=3.1.1 # renovate: datasource=github-tags depName=hyperledger/fabric
+pkgver=3.1.2 # renovate: datasource=github-tags depName=hyperledger/fabric
 pkgrel=1
 pkgdesc="A platform for distributed ledger solutions, underpinned by a modular architecture delivering high degrees of confidentiality, resiliency, flexibility and scalability"
 arch=(armv6h armv7h arm aarch64 i686 x86_64)
