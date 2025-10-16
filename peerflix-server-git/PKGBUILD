@@ -50,5 +50,5 @@ pkgver() {
   echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 sha256sums=('SKIP'
-            '7a8842bd27a40b84d7f3ce76f873fd49105fa51739dc0a805f1afc69b5ba4258'
-            'b756e991d0176ce9e021541556890450fdbd83a94a37bda1ba3d1ed9c3f39f9a')
+  '7a8842bd27a40b84d7f3ce76f873fd49105fa51739dc0a805f1afc69b5ba4258'
+  'b756e991d0176ce9e021541556890450fdbd83a94a37bda1ba3d1ed9c3f39f9a')

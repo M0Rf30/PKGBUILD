@@ -25,4 +25,4 @@ pkgver() {
 }
 
 sha256sums=('SKIP'
-            '794aeddfb2f651133518679a0ac7d05112c1ba916449ccf4e92f3a3b670e9c38')
+  '794aeddfb2f651133518679a0ac7d05112c1ba916449ccf4e92f3a3b670e9c38')

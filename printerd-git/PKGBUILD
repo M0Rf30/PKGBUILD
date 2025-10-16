@@ -11,16 +11,15 @@ depends=('gnome-common' 'gobject-introspection')
 makedepends=('git' 'intltool' 'gtk-doc')
 source=('printerd::git+https://github.com/hughsie/printerd.git')
 
-
 build() {
   cd printerd
   ./autogen.sh
   ./configure --prefix=/usr --sysconfdir=/etc --localstatedir=/var
   make
-} 
+}
 
 package() {
-  cd printerd 
+  cd printerd
   make DESTDIR=$pkgdir install
 }
 

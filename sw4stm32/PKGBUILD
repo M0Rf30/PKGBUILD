@@ -11,7 +11,7 @@ url="http://www.openstm32.org/System+Workbench+for+STM32"
 license=('CUSTOM')
 depends=("java-environment=8")
 options=(!emptydirs !strip)
-source=( 
+source=(
   "http://www.ac6-tools.com/downloads/SW4STM32/install_sw4stm32_linux_64bits-v$pkgver.run"
   $pkgname
   $pkgname.png
@@ -61,7 +61,7 @@ package() {
 }
 
 sha256sums=('SKIP'
-            'b2fe312a41c77ab68bcbc0287998a32c66a72ca3a479d21e1ce563b05be9f781'
-            '91b0300e815029c7f3fbb9ba5641804a140623865c21cfa703451697fd877076'
-            'df786691de3e76d0ae66a74727ba3022c2bce76e8cfcb651418a1ae9e233c919'
-            'f421475096cd4e1191b19c59f183776874379d7b73c8a399996c7a8a130d32f8')
+  'b2fe312a41c77ab68bcbc0287998a32c66a72ca3a479d21e1ce563b05be9f781'
+  '91b0300e815029c7f3fbb9ba5641804a140623865c21cfa703451697fd877076'
+  'df786691de3e76d0ae66a74727ba3022c2bce76e8cfcb651418a1ae9e233c919'
+  'f421475096cd4e1191b19c59f183776874379d7b73c8a399996c7a8a130d32f8')

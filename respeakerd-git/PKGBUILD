@@ -18,9 +18,9 @@ source=("${pkgname%-git}::git+https://github.com/respeaker/respeakerd"
   "respeakerd.service"
 )
 sha256sums=('SKIP'
-            'c06f8f09a00e3f84889517268c74e121031a652f6526c21645481517fb707559'
-            '66d7de73eadb3b5cde6197170b1ba53a6f8bee8789eb8605c0c9ce0fa3b9ac45'
-            '8477af3b4e3f9329e033f5018f1ef312880e16a21ba83caf375efead15271ee8')
+  'c06f8f09a00e3f84889517268c74e121031a652f6526c21645481517fb707559'
+  '66d7de73eadb3b5cde6197170b1ba53a6f8bee8789eb8605c0c9ce0fa3b9ac45'
+  '8477af3b4e3f9329e033f5018f1ef312880e16a21ba83caf375efead15271ee8')
 
 prepare() {
   cd "$srcdir/${pkgname%-git}"

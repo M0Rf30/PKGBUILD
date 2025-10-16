@@ -19,8 +19,8 @@ source=("${_name}::git+https://github.com/intel/${_name}.git"
   "sgx_main.patch"
 )
 sha256sums=('SKIP'
-            '317e476c57e891eecd6c6b57eceb3ed7ab7ffbf3ba0a40362e08b5d35f23fe6f'
-            'b84b8ef9e12baff3618845ff9f14d1bf325b298f8e22e2048eac75cb84f46844')
+  '317e476c57e891eecd6c6b57eceb3ed7ab7ffbf3ba0a40362e08b5d35f23fe6f'
+  'b84b8ef9e12baff3618845ff9f14d1bf325b298f8e22e2048eac75cb84f46844')
 
 pkgver() {
   cd "${_name}"
