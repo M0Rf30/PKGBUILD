@@ -28,4 +28,4 @@ package() {
   #    "${pkgdir}/usr/include/libndpi"
 }
 
-sha256sums=('954135ee14ad6bd74a78a10db560b534b8f2083ad0615f5c1a2c376fff0301e0')
+sha256sums=('8b0d3dc0c8a6a68578e09a18c922021ef6458d4aca1c7a20ce04efc267aa9ea5')
