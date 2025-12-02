@@ -2,7 +2,7 @@
 # Contributor: tuxsavvy
 
 pkgname=realrtcw
-pkgver=5.2 # renovate: datasource=github-tags depName=wolfetplayer/RealRTCW
+pkgver=5.3 # renovate: datasource=github-tags depName=wolfetplayer/RealRTCW
 pkgrel=1
 pkgdesc="An overhaul mod for critically acclaimed Return To Castle Wolfenstein."
 arch=('i686' 'x86_64')
