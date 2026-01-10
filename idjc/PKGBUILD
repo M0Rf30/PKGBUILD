@@ -53,4 +53,4 @@ package() {
     "${pkgdir}/usr/share/applications/${pkgname}.desktop"
 }
 
-sha256sums=('be76278bf3be9214bb2878e0548926f1d025fa1cd2a184e3303447a8760bba38')
+sha256sums=('1c9e63285345efbdab0eae5930be9ecccf300fa133a71c079549dc6c1c0aec26')
