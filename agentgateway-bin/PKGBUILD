@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=agentgateway-bin
-pkgver=0.11.2 # renovate: datasource=github-releases depName=agentgateway/agentgateway
+pkgver=0.11.3 # renovate: datasource=github-releases depName=agentgateway/agentgateway
 pkgrel=1
 pkgdesc="Next Generation Agentic Proxy for AI Agents and MCP servers"
 arch=('x86_64' 'aarch64')
