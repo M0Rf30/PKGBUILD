@@ -1,5 +1,5 @@
 [Unit]
-Description=rmpd - Music Player Daemon (Rust implementation)
+Description=Rust music player daemon
 Documentation=https://github.com/M0Rf30/rmpd
 After=network.target sound.target
 
