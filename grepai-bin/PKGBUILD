@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=grepai-bin
-pkgver=0.32.1 # renovate: datasource=github-releases depName=yoanbernabeu/grepai
+pkgver=0.33.0 # renovate: datasource=github-releases depName=yoanbernabeu/grepai
 pkgrel=1
 pkgdesc="Privacy-first CLI tool for semantic code search using vector embeddings"
 arch=('x86_64' 'aarch64')
