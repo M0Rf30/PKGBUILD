@@ -18,4 +18,4 @@ package() {
   python setup.py install --root="$pkgdir" --optimize=1
 }
 
-sha256sums=('5633ddc3a7146b0555f5f6323d03e7334c2b89ec0ae7e18f378337a8c72b97fc')
+sha256sums=('3bd520c43158a2269e42042f409be455c545a0154a1bd06d6afda517bc7cf901')
