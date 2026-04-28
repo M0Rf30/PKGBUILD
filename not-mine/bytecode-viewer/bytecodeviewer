@@ -1,4 +1,0 @@
-#!/bin/sh
-exec /usr/bin/java -Dswing.crossplatformlaf=com.sun.java.swing.plaf.gtk.GTKLookAndFeel \
-  -Dawt.useSystemAAFontSettings=on -Dswing.aatext=true \
-  -jar '/usr/share/java/bytecodeviewer/bytecodeviewer.jar' "$@"
