@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=mediaflow-proxy-light-bin
-pkgver=1.0.6 # renovate: datasource=github-releases depName=mhdzumair/mediaflow-proxy-light
+pkgver=1.0.7 # renovate: datasource=github-releases depName=mhdzumair/mediaflow-proxy-light
 pkgrel=1
 pkgdesc="High-performance Rust streaming proxy: HLS/DASH/Xtream/Acestream/Telegram, drop-in MediaFlow Proxy reimplementation"
 arch=('x86_64' 'aarch64')
