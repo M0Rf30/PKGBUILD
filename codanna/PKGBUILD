@@ -10,7 +10,7 @@ depends=('openssl')
 makedepends=('rust' 'cargo' 'pkg-config')
 options=(!lto)
 source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
-sha256sums=('7eccc35f184e90fc1b48f390ba4f817fd86164ac6f5e7084b23764eef62268ac')
+sha256sums=('4e22f05b3586fefcde74b3c24f77e51c3b501c4db9f324cf7abde99fc38e06bb')
 
 prepare() {
   cd "${pkgname}-${pkgver}"
