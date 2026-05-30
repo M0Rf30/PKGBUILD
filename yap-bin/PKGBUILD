@@ -19,8 +19,8 @@ options=('!strip')
 source_x86_64=("${pkgname%-bin}-${pkgver}-x86_64.tar.gz::${url}/releases/download/v${pkgver}/yap_Linux_x86_64.tar.gz")
 source_aarch64=("${pkgname%-bin}-${pkgver}-aarch64.tar.gz::${url}/releases/download/v${pkgver}/yap_Linux_arm64.tar.gz")
 
-sha256sums_x86_64=('2be4663cc9ce42babcbddf73168d53365d8d15f5ddd24d47ef736a92af79a319')
-sha256sums_aarch64=('0f3aee9cf2ef94dfe49688c1a2ea79ae01efa12afe39fc0b1a823e1467802f39')
+sha256sums_x86_64=('731aa4573dfeaeeec8db64d99a9a20fad6b46e8b933748eb33c8b016d603a175')
+sha256sums_aarch64=('5b428f3a7607874e6b4ed747b566bf5ac8d703ce6058f41d94128e638f375a63')
 
 package() {
   install -Dm755 "${srcdir}/${pkgname%-bin}" \
