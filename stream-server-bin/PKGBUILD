@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=stream-server-bin
-pkgver=0.1.7.1 # renovate: datasource=github-releases depName=perpetus/stream-server
+pkgver=0.1.8 # renovate: datasource=github-releases depName=perpetus/stream-server
 pkgrel=1
 pkgdesc="High-performance, open-source torrent streaming engine - a drop-in alternative to Stremio's server.js"
 arch=('x86_64')
