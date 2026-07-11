@@ -16,9 +16,9 @@ optdepends=(
 provides=('rmpd')
 conflicts=('rmpd')
 source=("${pkgname}::git+https://github.com/M0Rf30/rmpd.git"
-        "rmpd.service")
+  "rmpd.service")
 sha256sums=('SKIP'
-            'SKIP')
+  'SKIP')
 
 pkgver() {
   cd "${srcdir}/${pkgname}"

@@ -14,7 +14,7 @@ sha256sums=('3db9391082f372a2e4365a59afdf58959092cf4095e360291e0f07aba0d53b41')
 prepare() {
   cd "${srcdir}/OpenSpec-${pkgver}"
   # Allow esbuild's postinstall script to download platform binary
-  cat > pnpm-workspace.yaml << 'EOF'
+  cat >pnpm-workspace.yaml <<'EOF'
 packages:
   - "."
 allowBuilds:
