@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=cosmic-ext-quake-terminal
-pkgver=0.1.0 # renovate: datasource=github-tags depName=m0rf30/cosmic-ext-quake-terminal
+pkgver=0.2.0 # renovate: datasource=github-tags depName=m0rf30/cosmic-ext-quake-terminal
 pkgrel=1
 pkgdesc='Quake-style dropdown terminal for COSMIC Desktop'
 arch=(aarch64 x86_64)
