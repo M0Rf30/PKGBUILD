@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=yap-bin
-pkgver=2.4.4 # renovate: datasource=github-releases depName=M0Rf30/yap
+pkgver=2.5.0 # renovate: datasource=github-releases depName=M0Rf30/yap
 pkgrel=1
 pkgdesc="Package software with ease"
 arch=('x86_64' 'aarch64')
@@ -19,8 +19,8 @@ options=('!strip')
 source_x86_64=("${pkgname%-bin}-${pkgver}-x86_64.tar.gz::${url}/releases/download/v${pkgver}/yap_Linux_x86_64.tar.gz")
 source_aarch64=("${pkgname%-bin}-${pkgver}-aarch64.tar.gz::${url}/releases/download/v${pkgver}/yap_Linux_arm64.tar.gz")
 
-sha256sums_x86_64=('655997503d849bb5a3eccddacabfcf2bfd13dbbf6ac5cbf0b857802f4376b66d')
-sha256sums_aarch64=('c7f6a41a628a13f045cd6ba982aa119c27d5309aa606f54df6a3354c47d4b51d')
+sha256sums_x86_64=('49906bb5f5f4268c72fc0dc96b32eb1c2f20767524e28bd02c8073e13b2a8382')
+sha256sums_aarch64=('994cb886277828c0030144255db9464e2617031e2ec276d065750f5660bfee56')
 
 package() {
   install -Dm755 "${srcdir}/${pkgname%-bin}" \
