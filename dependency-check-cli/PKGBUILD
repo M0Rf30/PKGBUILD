@@ -23,4 +23,4 @@ package() {
     "${pkgdir}"/usr/bin/dependency-check
 }
 
-sha256sums=('bf07fefd81af3094c5f6850423b014df44db62ce2dbad0f79079a90df675e44a')
+sha256sums=('44d920d1ec03e948df862a253f0912782a31b9beee8a7c8895b9cb95760176ed')
