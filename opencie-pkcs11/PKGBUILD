@@ -15,7 +15,7 @@ depends=('openssl' 'pcsclite' 'curl' 'libxml2' 'fontconfig'
 makedepends=('meson' 'ninja' 'cmake' 'git')
 source=("$pkgname-$pkgver.tar.gz::https://github.com/M0Rf30/opencie-pkcs11/archive/refs/tags/$pkgver.tar.gz"
   "podofo-$_podofover.tar.gz::https://github.com/podofo/podofo/archive/refs/tags/$_podofover.tar.gz")
-sha256sums=('299f925446be8c1dbd6b24c49f08b2330778327a837f7a093ed34c277e1292c2'
+sha256sums=('0d2ccfcb19a0c8653391c3098c648e07fce6c31c61170d5abe74437770a1a9c5'
             '16943528b37798d8663ffedc97190803e525d0a1dcb021fdbf9d35242831890a')
 
 prepare() {
