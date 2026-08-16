@@ -9,7 +9,7 @@ license=('MIT')
 depends=('glibc')
 makedepends=('go')
 source=("https://codeberg.org/goern/forgejo-mcp/archive/v${pkgver}.tar.gz")
-sha256sums=('76d1c3c1a9586217ecb24efb1144eb3a8d9307cd85ce99a2bd4434b1a29215fb')
+sha256sums=('1c90f41127de942a34ef7b8adaf9896afbda837f5eb8238bf4e52ebe4b8ebbd6')
 
 prepare() {
   cd "${pkgname}"
