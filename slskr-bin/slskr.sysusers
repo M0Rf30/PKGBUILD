@@ -1,0 +1,2 @@
+# Create slskr system user
+u slskr - "slskr Soulseek daemon user" /var/lib/slskr /usr/bin/nologin

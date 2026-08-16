@@ -1,0 +1,2 @@
+# Persistent state directory
+d /var/lib/slskr 0750 slskr slskr -

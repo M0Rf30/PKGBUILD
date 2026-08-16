@@ -1,0 +1,35 @@
+[Unit]
+Description=slskr - self-hosted Soulseek daemon and web UI
+Documentation=https://github.com/snapetech/slskr
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=slskr
+Group=slskr
+Environment=HOME=/var/lib/slskr
+Environment=SLSKR_CONFIG=/etc/slskr/config.toml
+Environment=SLSKR_STATE_DIR=/var/lib/slskr
+ExecStart=/usr/bin/slskr serve
+WorkingDirectory=/var/lib/slskr
+Restart=always
+RestartSec=3
+StandardOutput=journal
+StandardError=journal
+
+# Security hardening
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+RestrictSUIDSGID=true
+RestrictRealtime=true
+LockPersonality=true
+ReadWritePaths=/var/lib/slskr
+
+[Install]
+WantedBy=multi-user.target
