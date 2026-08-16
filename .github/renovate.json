@@ -15,9 +15,9 @@
       "customType": "regex",
       "fileMatch": ["(^|/)PKGBUILD$"],
       "matchStrings": [
-        "pkgver=(?<currentValue>.*) # renovate: datasource=(?<datasource>.*) depName=(?<depName>.*)"
+        "pkgver=(?<currentValue>\\S+) # renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: extractVersion=(?<extractVersion>\\S+))?(?: registryUrl=(?<registryUrl>\\S+))?"
       ],
-      "extractVersionTemplate": "^v?(?<version>.*)$"
+      "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^v?(?<version>.*)${{/if}}"
     }
   ],
   "rebaseWhen": "behind-base-branch",
