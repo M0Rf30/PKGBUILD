@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=slskr-bin
-pkgver=0.2.27 # renovate: datasource=github-releases depName=snapetech/slskr extractVersion=^release-v(?<version>.*)$
+pkgver=0.2.32 # renovate: datasource=github-releases depName=snapetech/slskr extractVersion=^release-v(?<version>.*)$
 pkgrel=1
 pkgdesc="Self-hosted Soulseek daemon, HTTP API, and browser UI written in Rust"
 arch=('x86_64' 'aarch64')
