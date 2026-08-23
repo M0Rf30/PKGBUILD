@@ -23,8 +23,8 @@ source_aarch64=("${pkgname%-bin}-${pkgver}-aarch64.tar.gz::${url}/releases/downl
 sha256sums=('57e8f77f67dcf1d855da491bdde48d1a051bb6c6e6c45995c5bf4b09523646b2'
             'c2c6a83256474f0a31d3b985289e32e1b4b37f267ea99ef000116f22227d7ed5'
             '12f8e1730347aa3d0542b3b7ab7781a9e0c6f5c60840b59b1bb614d58a661e3b')
-sha256sums_x86_64=('19a9af493536bb91be2b1d7c0ff288d86aa593bf101c4215d2b650266d3de335')
-sha256sums_aarch64=('4d652669944f156610237544e8708bc1ca5926297444d6431128dfd822af0576')
+sha256sums_x86_64=('0f581f93655725f66a302891947760d84973461322e1dc3d523a5dbb9edc325f')
+sha256sums_aarch64=('30187b45b8606fdb4a018174cdf510238adedc23058be53a7217f25ae1fbf651')
 
 package() {
   local _dir="${srcdir}/slskr-v${pkgver}-${CARCH}-unknown-linux-gnu"
