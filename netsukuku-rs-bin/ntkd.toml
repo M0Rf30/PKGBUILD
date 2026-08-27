@@ -7,8 +7,11 @@
 # deployment before joining a real mesh.
 gsizes = [4, 2, 2, 2]
 
-# Network interfaces ntkd monitors for neighbours and binds RPC traffic to. Replace with the
-# NIC(s) this node should mesh over.
+# Network interfaces ntkd monitors for neighbours and binds RPC traffic to. `eth0` below is a
+# placeholder example, not a working default: ntkd calls SO_BINDTODEVICE on every name listed
+# here and exits at startup ("No such device") if one doesn't exist on this host. List what
+# actually exists with `ls /sys/class/net` (no `ip`/`iptables` needed) and replace `eth0` with
+# the real NIC(s) this node should mesh over BEFORE enabling the service.
 nics = ["eth0"]
 
 # TCP/UDP port every RPC transport (unicast TcpServer, broadcast UdpBroadcaster) binds to. 269 is
