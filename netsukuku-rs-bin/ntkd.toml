@@ -7,12 +7,23 @@
 # deployment before joining a real mesh.
 gsizes = [4, 2, 2, 2]
 
-# Network interfaces ntkd monitors for neighbours and binds RPC traffic to. `eth0` below is a
-# placeholder example, not a working default: ntkd calls SO_BINDTODEVICE on every name listed
-# here and exits at startup ("No such device") if one doesn't exist on this host. List what
-# actually exists with `ls /sys/class/net` (no `ip`/`iptables` needed) and replace `eth0` with
-# the real NIC(s) this node should mesh over BEFORE enabling the service.
-nics = ["eth0"]
+# Network interfaces ntkd monitors for neighbours and binds RPC traffic to.
+#
+# MANDATORY, and deliberately left unset: there is no safe default. ntkd is an L3 routing daemon
+# — it programs real kernel routes and claims 10.0.0.0/8 — so a default that happened to name an
+# interface you actually use would quietly start meshing over your uplink. `eth0` is the worst
+# case precisely because it often exists: on a container, or any host booted with
+# net.ifnames=0, eth0 IS the primary interface.
+#
+# Until you set it, ntkd refuses to start and names this file:
+#   failed to load config /etc/ntkd/ntkd.toml: ... missing field `nics`
+# An empty list is accepted by the parser but is a silent no-op — the daemon starts and meshes
+# over nothing — so it is not a shortcut.
+#
+# List the candidates with `ls /sys/class/net`. Pick the interface(s) facing your mesh peers, not
+# your internet uplink. Skip loopback, and skip point-to-point tunnels (wg*, tailscale*, tun*):
+# neighbour discovery is UDP broadcast, which they do not carry.
+#nics = ["eth0"]
 
 # TCP/UDP port every RPC transport (unicast TcpServer, broadcast UdpBroadcaster) binds to. 269 is
 # this project's conventional default, used throughout its own config examples and test suite.
