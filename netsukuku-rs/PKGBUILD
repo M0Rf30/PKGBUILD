@@ -12,9 +12,9 @@ options=(!lto)
 source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz"
   ntkd.service
   ntkd.toml)
-sha256sums=('8f9602ae576d40de3d91d20697d061f9799fe2a0da4fb42bbd4d5064258611fa'
-  '7f770bece8fdd52a7761951de92c2b5ff45ada09e24d194b2f4cb3b76198c660'
-  '6e1802220b9724a2f8fcc33de69732a55d5e3b67f7d74578835bc0e4cfad9330')
+sha256sums=('8d3b7fb40363ae802b61a479170d95ff9efa0a849f44e9973dbac5bb2c1a762a'
+            '7f770bece8fdd52a7761951de92c2b5ff45ada09e24d194b2f4cb3b76198c660'
+            '6e1802220b9724a2f8fcc33de69732a55d5e3b67f7d74578835bc0e4cfad9330')
 
 prepare() {
   cd "${pkgname}-${pkgver}"
