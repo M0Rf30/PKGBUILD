@@ -14,7 +14,7 @@ backup=('etc/ntkd/ntkd.toml')
 source=(ntkd.service
   ntkd.toml)
 sha256sums=('7f770bece8fdd52a7761951de92c2b5ff45ada09e24d194b2f4cb3b76198c660'
-  'b16a6805a87698c43a8fdf7bba699ebccf495aa24d110a49a6291bea335e76c0')
+  '6e1802220b9724a2f8fcc33de69732a55d5e3b67f7d74578835bc0e4cfad9330')
 
 package() {
   install -Dm0755 "$srcdir/ntkd" \
@@ -34,3 +34,4 @@ source_aarch64=("ntkd-${pkgver}-aarch64-unknown-linux-musl.tar.gz::${url}/releas
 
 sha256sums_x86_64=('7b9f86f989f1dc525e7099bd06ff04f36a779b0bf21ae405f564af722a5608c5')
 sha256sums_aarch64=('ad3c4097c4e24d0703f146ee6390a6c3d6bcde113b03e5212a3e01525ab174f5')
+

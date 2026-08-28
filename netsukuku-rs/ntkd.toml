@@ -26,6 +26,13 @@ port = 269
 # Path to this node's persisted RPC-identity ed25519 signing-key seed, used to sign outbound
 # calls. Deliberately a different key from andna_key_path: rotating a compromised transport key
 # must not forfeit hostnames this node already registered under its ANDNA key.
+#
+# REQUIRED to register an ANDNA hostname on another node. ANDNA registration and its anti-Sybil
+# counter reservation always demand a verified origin, regardless of require_auth below, because
+# the counter caps per requester and an unattributable request makes that cap meaningless.
+# Resolution needs no key. Vanilla enforces the same way (it signs a registration and the counter
+# check, never a lookup), and unlike require_auth this costs no interoperability: upstream Vala
+# has no ANDNA at all.
 #node_key_path = "/var/lib/ntkd/node.key"
 
 # Reject inbound RPCs lacking a valid ntk_proto::auth block. Must stay false to interoperate with
