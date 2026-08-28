@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 pkgname=netsukuku-rs
-pkgver=0.1.2 # renovate: datasource=github-tags depName=M0Rf30/netsukuku-rs
-pkgrel=2
+pkgver=0.1.3 # renovate: datasource=github-tags depName=M0Rf30/netsukuku-rs
+pkgrel=1
 pkgdesc="Rust reimplementation of the Netsukuku mesh routing protocol: QSPN v2, Hooking, Coordinator, PeerServices, ANDNA"
 arch=('x86_64' 'aarch64')
 url="https://github.com/M0Rf30/netsukuku-rs"
@@ -12,8 +12,8 @@ options=(!lto)
 source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz"
   ntkd.service
   ntkd.toml)
-sha256sums=('918d430453130b50a1d8d97edd404e019900df8c12ff1b3fa40b4313d9f1ceba'
-  '0535fc523edaaaa8ce23888d4c3db13500a94988fdb20a5826d59f6da6698810'
+sha256sums=('8f9602ae576d40de3d91d20697d061f9799fe2a0da4fb42bbd4d5064258611fa'
+  '7f770bece8fdd52a7761951de92c2b5ff45ada09e24d194b2f4cb3b76198c660'
   'b16a6805a87698c43a8fdf7bba699ebccf495aa24d110a49a6291bea335e76c0')
 
 prepare() {
