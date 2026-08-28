@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=netsukuku-rs
-pkgver=0.1.3 # renovate: datasource=github-tags depName=M0Rf30/netsukuku-rs
+pkgver=0.1.4 # renovate: datasource=github-tags depName=M0Rf30/netsukuku-rs
 pkgrel=1
 pkgdesc="Rust reimplementation of the Netsukuku mesh routing protocol: QSPN v2, Hooking, Coordinator, PeerServices, ANDNA"
 arch=('x86_64' 'aarch64')
