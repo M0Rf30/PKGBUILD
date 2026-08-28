@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=netsukuku-rs
-pkgver=0.1.4 # renovate: datasource=github-tags depName=M0Rf30/netsukuku-rs
+pkgver=0.1.5 # renovate: datasource=github-tags depName=M0Rf30/netsukuku-rs
 pkgrel=1
 pkgdesc="Rust reimplementation of the Netsukuku mesh routing protocol: QSPN v2, Hooking, Coordinator, PeerServices, ANDNA"
 arch=('x86_64' 'aarch64')
@@ -9,12 +9,11 @@ license=('GPL-3.0-or-later')
 makedepends=('rust' 'cargo')
 backup=('etc/ntkd/ntkd.toml')
 options=(!lto)
-source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz"
-  ntkd.service
-  ntkd.toml)
-sha256sums=('8d3b7fb40363ae802b61a479170d95ff9efa0a849f44e9973dbac5bb2c1a762a'
-  '7f770bece8fdd52a7761951de92c2b5ff45ada09e24d194b2f4cb3b76198c660'
-  '92e4e2fa58defd6f809bdda8df063e5dc947cb9d71a7df538a06586608b38fb1')
+# The unit and default config ship inside the tarball, at contrib/systemd/ — upstream keeps them
+# beside the code that decides what they must contain (capability set, config error text), so this
+# package installs those rather than carrying copies that can drift.
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/v${pkgver}.tar.gz")
+sha256sums=('07c68279102355c5c7931983068800fc17393220b5be739d35d066b91c2a0bcb')
 
 prepare() {
   cd "${pkgname}-${pkgver}"
@@ -38,8 +37,8 @@ package() {
     "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
   install -Dm644 README.md \
     "$pkgdir/usr/share/doc/$pkgname/README.md"
-  install -Dm644 "$srcdir/ntkd.service" \
+  install -Dm644 contrib/systemd/ntkd.service \
     "$pkgdir/usr/lib/systemd/system/ntkd.service"
-  install -Dm644 "$srcdir/ntkd.toml" \
+  install -Dm644 contrib/systemd/ntkd.toml \
     "$pkgdir/etc/ntkd/ntkd.toml"
 }
