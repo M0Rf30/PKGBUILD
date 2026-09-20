@@ -14,7 +14,7 @@ optdepends=(
 )
 options=('!strip')
 source=("${_addonid}-${pkgver}.zip::${url}/releases/download/v${pkgver}/${_addonid}-${pkgver}.zip")
-sha256sums=('ffc6d5777f84bf287eef7048c404e412cac25787a8b63df7b1e2f2ce0ffcfd39')
+sha256sums=('fc8ab83bfd41b6a5402e465c51ff910d887a790ca5bae3c7947fc124268da24e')
 
 package() {
   install -dm755 "${pkgdir}/usr/share/kodi/addons"
