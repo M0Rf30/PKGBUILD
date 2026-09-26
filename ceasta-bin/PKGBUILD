@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 pkgname=ceasta-bin
 _pkgname="${pkgname%-bin}"
-pkgver=0.11.0 # renovate: datasource=github-releases depName=ngwg/ceasta
+pkgver=0.12.0 # renovate: datasource=github-releases depName=ngwg/ceasta
 pkgrel=1
 pkgdesc="Disassembler, decompiler and ptrace debugger with a built-in MCP server (CLI)"
 arch=('x86_64')
