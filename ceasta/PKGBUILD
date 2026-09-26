@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=ceasta
-pkgver=0.11.0 # renovate: datasource=github-tags depName=ngwg/ceasta
+pkgver=0.12.0 # renovate: datasource=github-tags depName=ngwg/ceasta
 pkgrel=1
 pkgdesc="Disassembler, decompiler and debugger with a built-in MCP server (experimental glfw GUI + CLI)"
 arch=('x86_64')
