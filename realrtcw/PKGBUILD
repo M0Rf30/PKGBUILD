@@ -3,7 +3,7 @@
 
 pkgname=realrtcw
 pkgver=5.44c # renovate: datasource=github-tags depName=wolfetplayer/RealRTCW
-pkgrel=2
+pkgrel=1
 pkgdesc="An overhaul mod for critically acclaimed Return To Castle Wolfenstein."
 arch=('aarch64' 'i686' 'x86_64')
 url="http://www.moddb.com/mods/realrtcw-realism-mod"
@@ -15,8 +15,6 @@ source=(
   "${pkgname}.png"
   "${pkgname}.launcher"
   "${pkgname}.desktop"
-  "${pkgname}-sp.launcher"
-  "${pkgname}-sp.desktop"
 )
 
 package() {
@@ -79,7 +77,7 @@ package() {
       ;;
   esac
   sed -i "s:ARCH:${TARGET}:" \
-    "${srcdir}"/realrtcw.* "${srcdir}"/realrtcw-sp.launcher
+    "${srcdir}"/realrtcw.*
 
   # Install Launcher Script (Single Player Client)
   install -D -m 755 "${srcdir}/realrtcw.launcher" \
@@ -89,13 +87,9 @@ package() {
   install -D -m 644 "${srcdir}/realrtcw.desktop" \
     "${pkgdir}/usr/share/applications/realrtcw.desktop"
 
-  # Install Launcher Script (Single Player standalone binary)
-  install -D -m 755 "${srcdir}/realrtcw-sp.launcher" \
-    "${pkgdir}/usr/bin/realrtcw-sp"
-
-  # Install Desktop File (Single Player standalone)
-  install -D -m 644 "${srcdir}/realrtcw-sp.desktop" \
-    "${pkgdir}/usr/share/applications/realrtcw-sp.desktop"
+  # Install Icon File (Single Player)
+  install -Dm 644 "${srcdir}/realrtcw.png" \
+    "${pkgdir}/usr/share/icons/hicolor/512x512/apps/realrtcw.png"
 }
 
 sha256sums=(
@@ -103,6 +97,4 @@ sha256sums=(
   '643bd2a56b06fbdf9790b3bb7557c7f6663cc3e86295431f6470b347e37b4bb2'
   'e68d6f400342e36d3db94e519978da0afa2d74f3368b1fe88014c4bdb26b193e'
   '43501d60c80ae4a2837295fb5faf01d42e31f31371fcd6cecc8054eed965b8f6'
-  'e68d6f400342e36d3db94e519978da0afa2d74f3368b1fe88014c4bdb26b193e'
-  '5fd5e69636f77ae618f46ce53ef1049b6022e7cd39f4d08901dea6f7797f2457'
 )
