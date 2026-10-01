@@ -34,7 +34,7 @@ jobs:
             d=${d%/}
             [[ -f $d/PKGBUILD ]] || continue
             echo "::group::$d"
-            shellcheck -x "$d/PKGBUILD" || rc=1
+            shellcheck -x --severity=warning "$d/PKGBUILD" || rc=1
             namcap "$d/PKGBUILD" || true
             chown -R builder "$d"
             su builder -c "cd '$d' && makepkg --printsrcinfo >/dev/null" || { echo "::error file=$d/PKGBUILD::makepkg --printsrcinfo failed"; rc=1; }

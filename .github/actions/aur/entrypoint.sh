@@ -14,6 +14,8 @@ echo "::group::Updating system"
 sudo pacman -Syu --noconfirm --needed archlinux-keyring
 echo "::endgroup::"
 
+# GitHub mounts HOME=/github/home (root-owned); use the builder's own home
+export HOME=/home/builder
 git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
 pkgver_of() { sed -n 's/^pkgver=\([^ #]*\).*/\1/p' | head -1; }
