@@ -1,0 +1,43 @@
+name: lint
+
+on:
+  pull_request:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on: ubuntu-latest
+    container: docker.io/library/archlinux:base-devel
+    steps:
+      - name: Install tools
+        run: pacman -Syu --needed --noconfirm git namcap shellcheck pacman-contrib
+
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Lint changed PKGBUILDs
+        run: |
+          set -euo pipefail
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          useradd -m builder
+          if [[ -n "${GITHUB_BASE_REF:-}" ]]; then
+            dirs=$(git diff --name-only "origin/${GITHUB_BASE_REF}...HEAD" | cut -d/ -f1 | sort -u)
+          else
+            dirs=$(ls -d -- */)
+          fi
+          rc=0
+          for d in $dirs; do
+            d=${d%/}
+            [[ -f $d/PKGBUILD ]] || continue
+            echo "::group::$d"
+            shellcheck -x "$d/PKGBUILD" || rc=1
+            namcap "$d/PKGBUILD" || true
+            chown -R builder "$d"
+            su builder -c "cd '$d' && makepkg --printsrcinfo >/dev/null" || { echo "::error file=$d/PKGBUILD::makepkg --printsrcinfo failed"; rc=1; }
+            echo "::endgroup::"
+          done
+          exit $rc

@@ -1,46 +1,51 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-echo "::group::Updating"
-sudo pacman -Syu --noconfirm
+ACTION=${INPUT_ACTION:-${1:-updpkgsums}}
+PKGNAMES=${INPUT_PKGNAME:-${2:-}}
+BASE=${INPUT_BASE:-${3:-}}
+
+if [[ $ACTION != updpkgsums ]]; then
+  echo "::error::Unsupported action '$ACTION'"
+  exit 1
+fi
+
+echo "::group::Updating system"
+sudo pacman -Syu --noconfirm --needed archlinux-keyring
 echo "::endgroup::"
 
-# Set path
-WORKPATH=$GITHUB_WORKSPACE/$INPUT_PKGNAME
-HOME=/home/builder
-echo "::group::Copying files from $WORKPATH to $HOME/gh-action"
-# Set path permision
-cd $HOME
-mkdir gh-action
-cd gh-action
-cp -rfv "$GITHUB_WORKSPACE"/.git ./
-cp -fv "$WORKPATH"/* .
-echo "::endgroup::"
+git config --global --add safe.directory "$GITHUB_WORKSPACE"
 
-echo "::group::Updating archlinux-keyring"
-sudo pacman -S --noconfirm archlinux-keyring
-echo "::endgroup::"
+pkgver_of() { sed -n 's/^pkgver=\([^ #]*\).*/\1/p' | head -1; }
 
-echo "::group::Updating checksums on PKGBUILD"
-updpkgsums
-git diff PKGBUILD
-echo "::endgroup::"
+rc=0
+for pkg in $PKGNAMES; do
+  src=$GITHUB_WORKSPACE/$pkg
+  work=$(mktemp -d)
+  echo "::group::$pkg"
+  cp -a "$src"/. "$work"/
+  cd "$work"
 
-# echo "::group::Installing depends using paru"
-# source PKGBUILD
-# paru -Syu --removemake --needed --noconfirm "${depends[@]}" "${makedepends[@]}"
-# echo "::endgroup::"
+  # Renovate bumps pkgver but cannot reset pkgrel
+  if [[ -n $BASE ]]; then
+    old=$(git -C "$GITHUB_WORKSPACE" show "$BASE:$pkg/PKGBUILD" 2>/dev/null | pkgver_of || true)
+    new=$(pkgver_of <PKGBUILD)
+    if [[ -n $old && $old != "$new" ]]; then
+      echo "pkgver $old -> $new: resetting pkgrel to 1"
+      sed -i 's/^pkgrel=.*/pkgrel=1/' PKGBUILD
+    fi
+  fi
 
-# echo "::group::Running makepkg"
-# makepkg
-# echo "::endgroup::"
-
-echo "::group::Generating new .SRCINFO based on PKGBUILD"
-makepkg --printsrcinfo >.SRCINFO
-git diff .SRCINFO
-echo "::endgroup::"
-
-echo "::group::Copying files from $HOME/gh-action to $WORKPATH"
-sudo cp -fv PKGBUILD "$WORKPATH"/PKGBUILD
-sudo cp -fv .SRCINFO "$WORKPATH"/.SRCINFO
-echo "::endgroup::"
+  if updpkgsums && makepkg --printsrcinfo >/dev/null; then
+    namcap PKGBUILD || true
+    sudo cp -f PKGBUILD "$src"/PKGBUILD
+    git -C "$GITHUB_WORKSPACE" --no-pager diff -- "$pkg/PKGBUILD" || true
+  else
+    echo "::error::$pkg: updpkgsums/printsrcinfo failed"
+    rc=1
+  fi
+  cd /
+  rm -rf "$work"
+  echo "::endgroup::"
+done
+exit $rc

@@ -16,24 +16,28 @@ jobs:
         uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
-          ref: ${{ github.ref }}
+          ref: ${{ github.head_ref }}
+          # A PAT/App token makes the auto-commit re-trigger required checks
+          token: ${{ secrets.RENOVATE_TOKEN || github.token }}
 
-      - name: Find updated package
+      - name: Find updated packages
         run: |
-          #!/usr/bin/env bash
-          set -euxo pipefail
+          set -euo pipefail
+          pkgs=$(git diff --name-only "origin/${GITHUB_BASE_REF}...HEAD" | cut -d/ -f1 | sort -u |
+            while read -r d; do [[ -f $d/PKGBUILD ]] && echo "$d"; done | xargs)
+          echo "Packages: ${pkgs:-<none>}"
+          echo "pkgbuilds=$pkgs" >>"$GITHUB_ENV"
 
-          echo "pkgbuild=$(git diff --name-only origin/main origin/${GITHUB_HEAD_REF} "*PKGBUILD" | head -1 | xargs dirname)" >> $GITHUB_ENV
-
-      - name: Validate package
-        if: ${{ env.pkgbuild != '' }}
+      - name: Update checksums
+        if: ${{ env.pkgbuilds != '' }}
         uses: ./.github/actions/aur
         with:
           action: "updpkgsums"
-          pkgname: ${{ env.pkgbuild }}
+          pkgname: ${{ env.pkgbuilds }}
+          base: origin/${{ github.base_ref }}
 
       - name: Commit
-        if: ${{ env.pkgbuild != '' }}
+        if: ${{ env.pkgbuilds != '' }}
         uses: stefanzweifel/git-auto-commit-action@v7.2.0
         with:
           commit_user_name: Renovate Bot

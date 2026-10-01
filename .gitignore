@@ -27,6 +27,7 @@ pkg/*
 # VCS and other subfolders
 */**/
 !.github/
+!.github/**/
 */.git*
 
 # mkpkg status files

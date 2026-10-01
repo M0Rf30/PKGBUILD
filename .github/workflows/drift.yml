@@ -1,0 +1,37 @@
+name: aur-drift
+
+on:
+  schedule:
+    - cron: "30 5 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  drift:
+    runs-on: ubuntu-latest
+    container: docker.io/library/archlinux:base-devel
+    steps:
+      - name: Install tools
+        run: pacman -Syu --needed --noconfirm git python github-cli
+
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Compare with AUR
+        env:
+          GH_TOKEN: ${{ github.token }}
+          AUR_USER: ${{ secrets.AUR_USERNAME }}
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          useradd -m builder && chown -R builder .
+          su builder -c "python .github/scripts/aur-drift.py" > report.md
+          cat report.md
+          if [ -s report.md ]; then
+            num=$(gh issue list --label aur-drift --state open --json number -q '.[0].number')
+            if [ -n "$num" ]; then gh issue edit "$num" --body-file report.md
+            else gh issue create --title "AUR drift report" --label aur-drift --body-file report.md || \
+                 gh issue create --title "AUR drift report" --body-file report.md; fi
+          fi
