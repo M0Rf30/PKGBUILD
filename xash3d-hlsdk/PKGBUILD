@@ -6,7 +6,7 @@ pkgrel=1
 pkgdesc="Half-Life SDK from original Xash3D engine"
 arch=('x86_64')
 url="http://xash.su/"
-license=('GPL3')
+license=('GPL-3.0-or-later')
 makedepends=('cmake' 'git')
 source=("${pkgname}::git+https://github.com/FWGS/hlsdk-portable")
 

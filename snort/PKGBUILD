@@ -11,7 +11,7 @@ pkgname=snort
 _pkgname=snort3
 _openappid=33380
 pkgver=3.12.2.0 # renovate: datasource=github-releases depName=snort3/snort3
-pkgrel=1
+pkgrel=2
 pkgdesc='A lightweight network IDS /IPS with OpenAppID support.'
 arch=('i686' 'x86_64' 'armv6h' 'armv7h' 'aarch64' 'arm')
 url='https://www.snort.org'
@@ -32,6 +32,7 @@ source=("${_pkgname}-${pkgver}.tar.gz::https://github.com/snort3/snort3/archive/
   "snort-openappid-${_openappid}.tar.gz::https://snort.org/downloads/openappid/${_openappid}"
   'tcmjem.patch'
   'cstdint.patch'
+  'cmake.patch'
   'local.lua'
   'snort.logrotate'
   'snort.sysusers'
@@ -42,6 +43,7 @@ prepare() {
   cd "${srcdir}/${_pkgname}-${pkgver}"
   patch -p0 <"${srcdir}"/tcmjem.patch
   patch -p0 <"${srcdir}"/cstdint.patch
+  patch -p0 <"${srcdir}"/cmake.patch
   # Workaround https://github.com/intel/hyperscan/issues/388
   sed -i '/HAVE_HS_COMPILE_LIT/d' config.cmake.h.in cmake/sanity_checks.cmake
 }
@@ -92,6 +94,7 @@ sha256sums=(
   '43000d6b0e0307bc1a735874d00deb61e8b6a96d074f8cc9b2fe2cde0058720b'
   '3046c5af1dd81a104f13d8e895226ef64bca7fa358238fb5f29c659081eaee2a'
   'b7797a2479798c7c055173bb606fb537fb53f5c867f967d47477211193ffe86d'
+  '3f87841d4e04715878adc716eff75e542792e462ffda81538ebf195a69744606'
   '1b21659bbf12389c8d322d939b6c849406c0845d98d771b6e295715a0042ceec'
   'b61d6492f86c7d79c1a76d1394d099403981aac7f371b1fe22ddd8a4bb15c87c'
   'a8a7684a676da5cd55c2b5ab012dac3d14c5a6c62f6e37c4913ba1dbe506088e'

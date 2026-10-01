@@ -4,9 +4,9 @@ pkgname=apache-mime4j
 pkgver=0.8.12
 pkgrel=1
 pkgdesc="Apache JAMES Mime4j"
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url="http://james.apache.org/"
-license=("Apache")
+license=('Apache-2.0')
 depends=('java-runtime')
 source=("https://www.apache.org/dyn/closer.lua/james/mime4j/${pkgver}/${pkgname}-core-${pkgver}.jar")
 

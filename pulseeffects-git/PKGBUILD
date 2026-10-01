@@ -8,9 +8,9 @@ pkgname=("${pkgbase}" "gst-plugins-${pkgbase}")
 pkgver=5.0.3.r4.ge321795c
 pkgrel=1
 pkgdesc='Audio Effects for Pipewire applications'
-arch=(x86_64 i686 arm armv6h armv7h aarch64)
+arch=(x86_64 arm armv6h armv7h aarch64)
 url='https://github.com/wwmm/pulseeffects'
-license=('GPL3')
+license=('GPL-3.0-or-later')
 depends=('boost-libs' 'calf' 'glibmm' 'gst-plugin-gtk' 'gst-plugin-pipewire'
   'gst-plugins-bad' 'gst-plugins-base' 'gstreamer' 'gstreamer' 'gtk3'
   'gtkmm3' 'libebur128' 'libsamplerate' 'libsigc++' 'libsndfile' 'lilv'

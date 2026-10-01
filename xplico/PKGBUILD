@@ -2,10 +2,10 @@
 pkgname=xplico
 pkgver=1.2.2
 pkgrel=3
-arch=('i686' 'x86_64')
+arch=('x86_64')
 pkgdesc="Internet Traffic Decoder. Network Forensic Analysis Tool (NFAT)"
 url="http://www.xplico.org/"
-license=('GPL')
+license=('GPL-2.0-or-later')
 depends=(
   apache
   json-c
@@ -37,7 +37,7 @@ source=("https://github.com/xplico/xplico/archive/v.${pkgver}.tar.gz"
 install=xplico.install
 
 prepare() {
-  cd ${pkgname}-v.${pkgver}
+  cd "${pkgname}-v.${pkgver}"
   patch -Np1 -i ../init-detection.patch
   patch -Np1 -i ../json-c.patch
 }

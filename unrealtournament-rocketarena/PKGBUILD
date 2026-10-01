@@ -17,7 +17,7 @@ source=(rocketarena-$pkgver.zip::'http://www.ut-files.com/index.php?dir=GameType
 md5sums=('66569b63e630690e9ca5b22722b4a548'
   'dfb1f79f67027be07df189d41e3a2422')
 
-build() {
+package() {
   cd "$srcdir"
 
   install --mode=0644 -D RocketArenaReadme.txt \

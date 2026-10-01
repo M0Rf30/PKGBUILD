@@ -4,15 +4,15 @@ pkgname=cursynth
 pkgver=1.5
 pkgrel=2
 pkgdesc='A polyphonic music synthesizer that runs graphically inside your terminal'
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url='http://www.gnu.org/software/cursynth/'
-license=('GPL3')
+license=('GPL-3.0-or-later')
 depends=('ncurses' 'alsa-lib' 'pulseaudio' 'jack')
 source=(ftp://ftp.gnu.org/gnu/cursynth/cursynth-latest.tar.gz
   patch)
 
 build() {
-  cd $pkgname-$pkgver
+  cd "$pkgname-$pkgver"
   patch -Np1 -i ../patch
   autoreconf -i
   ./configure --prefix=/usr --with-pulse --with-jack --with-alsa
@@ -20,7 +20,7 @@ build() {
 }
 
 package() {
-  cd $pkgname-$pkgver
+  cd "$pkgname-$pkgver"
   make DESTDIR="$pkgdir" install
 }
 

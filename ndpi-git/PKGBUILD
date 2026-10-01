@@ -5,9 +5,9 @@ pkgname=ndpi-git
 pkgver=r3017.0f8a9948
 pkgrel=1
 pkgdesc="Open and Extensible GPLv3 Deep Packet Inspection Library"
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url="http://www.ntop.org/products/ndpi/"
-license=('GPL3')
+license=('GPL-3.0-or-later')
 provides=('ndpi')
 conflicts=('ndpi')
 source=("${pkgname%-git}::git+https://github.com/ntop/nDPI.git#branch=dev")

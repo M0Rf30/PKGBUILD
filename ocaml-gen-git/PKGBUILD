@@ -3,13 +3,15 @@ pkgname=ocaml-gen-git
 pkgver=r141.7eb42b1
 pkgrel=1
 pkgdesc='Iterators for OCaml'
-license=('BSD')
-arch=('i686' 'x86_64')
+license=('BSD-2-Clause')
+arch=('x86_64')
 url='https://github.com/c-cube/gen/'
 depends=('ocaml')
 makedepends=('ocaml-findlib' 'dune')
 source=("$pkgname::git+https://github.com/c-cube/gen")
 options=(!strip !makeflags)
+provides=("${pkgname%-git}")
+conflicts=("${pkgname%-git}")
 
 pkgver() {
   cd "${srcdir}/${pkgname}"
@@ -26,7 +28,7 @@ package() {
   cd "${srcdir}/${pkgname}"
 
   export OCAML_STDLIB_DIR="$(ocamlfind printconf destdir)"
-  dune install --prefix=$pkgdir/usr --libdir=$pkgdir$OCAML_STDLIB_DIR --verbose
+  dune install --prefix="$pkgdir/usr" --libdir="$pkgdir$OCAML_STDLIB_DIR" --verbose
   install -Dm644 "${srcdir}/${pkgname}"/LICENSE "$pkgdir/usr/share/licenses/$pkgname/LICENSE"
 }
 

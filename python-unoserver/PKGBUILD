@@ -3,7 +3,7 @@
 _name=unoserver
 pkgname="python-${_name}"
 pkgver=3.7 # renovate: datasource=github-tags depName=unoconv/unoserver
-pkgrel=1
+pkgrel=2
 pkgdesc="Using LibreOffice as a server for converting documents"
 arch=('any')
 depends=('python')
@@ -11,7 +11,13 @@ makedepends=(python-build python-installer python-setuptools python-wheel)
 url="https://github.com/unoconv/unoserver"
 license=('MIT')
 options=(!emptydirs)
-source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/$pkgver.tar.gz")
+source=("${pkgname}-${pkgver}.tar.gz::${url}/archive/refs/tags/$pkgver.tar.gz"
+  disable-user-installation.patch)
+
+prepare() {
+  cd $_name-$pkgver
+  patch -Np1 -i "${srcdir}/disable-user-installation.patch"
+}
 
 build() {
   cd $_name-$pkgver
@@ -23,4 +29,5 @@ package() {
   python -m installer --destdir="$pkgdir" dist/*.whl
 }
 
-sha256sums=('c68b6a0d901fabb0c51375f119565c189e6651b46ed3a7dbf8e0231f6e4fd415')
+sha256sums=('c68b6a0d901fabb0c51375f119565c189e6651b46ed3a7dbf8e0231f6e4fd415'
+  'f5d0bd0eecd98a6159abe56cf943ebf3837d0d58eab56c912e00e6bd3887bfbf')

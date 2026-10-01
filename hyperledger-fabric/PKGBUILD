@@ -5,9 +5,9 @@ pkgname="hyperledger-${_pkgname}"
 pkgver=3.1.5 # renovate: datasource=github-tags depName=hyperledger/fabric
 pkgrel=1
 pkgdesc="A platform for distributed ledger solutions, underpinned by a modular architecture delivering high degrees of confidentiality, resiliency, flexibility and scalability"
-arch=(armv6h armv7h arm aarch64 i686 x86_64)
+arch=(armv6h armv7h arm aarch64 x86_64)
 url="https://github.com/hyperledger/fabric"
-license=('APACHE')
+license=('Apache-2.0')
 groups=('hyperledger')
 depends=('go')
 makedepends=('git' 'docker')

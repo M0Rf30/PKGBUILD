@@ -2,7 +2,7 @@
 pkgname=collaboraoffice-lokit
 pkgver=21.06.9
 _rel=1
-pkgrel=1
+pkgrel=2
 arch=('x86_64')
 license=('GPL3')
 url="https://www.collaboraoffice.com/solutions/collabora-office/"
@@ -35,8 +35,7 @@ source=("https://github.com/LibreOffice/core/archive/refs/tags/cp-${pkgver}-${_r
   "${_additional_source_url}/dtoa-20180411.tgz"
   "${_additional_source_url}/skia-m88-59bafeeaa7de9eb753e3778c414e01dcf013dcd8.tar.xz"
   "${_additional_source_url}/libcmis-0.5.2.tar.xz"
-  make-pyuno-work-with-system-wide-module-install.diff
-  cmis.patch)
+  make-pyuno-work-with-system-wide-module-install.diff)
 
 # 	"${_additional_source_url}/35c94d2df8893241173de1d16b6034c0-swingExSrc.zip"
 #	"${_additional_source_url}/798b2ffdc8bcfe7bca2cf92b62caf685-rhino1_5R5.zip"
@@ -57,8 +56,7 @@ sha256sums=('8cc728f11dd047949f5a5c10fba32dd9ff90070a147719e9fa992e69a4126259'
   '0082d0684f7db6f62361b76c4b7faba19e0c7ce5cb8e36c4b65fea8281e711b4'
   'f293656a15342a53bb407b932fc907c6894178a162f09728bd383e24d84b1301'
   'd7b18d9602190e10d437f8a964a32e983afd57e2db316a07d87477a79f5000a2'
-  'c463654a73ecfbc242ff109726fb4faecdbfb3d91affafe919b24bea65afb563'
-  'f38cfd045c6ff1885c64260149b1a7db7459d4199603b2c4465039367a5cec27')
+  'c463654a73ecfbc242ff109726fb4faecdbfb3d91affafe919b24bea65afb563')
 
 _gitsubmodules=('dictionaries' 'help' 'translations')
 noextract=(
@@ -85,7 +83,6 @@ prepare() {
 
   # fix not upstreamable pyuno paths - FS#54250
   patch -Np1 -i "${srcdir}"/make-pyuno-work-with-system-wide-module-install.diff
-  patch -Np1 -i "${srcdir}"/cmis.patch
   # move external sources into place
   if [ ! -d "${srcdir}/ext_sources" ]; then
     mkdir "${srcdir}/ext_sources"

@@ -4,9 +4,9 @@ pkgname=ocaml-portaudio
 pkgver=0.2.3 # renovate: datasource=github-tags depName=savonet/ocaml-portaudio
 pkgrel=1
 pkgdesc="OCaml bindings for portaudio"
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url="https://github.com/savonet/ocaml-portaudio"
-license=('LGPL2.1')
+license=('LGPL-2.1-or-later')
 depends=('ocaml' 'portaudio')
 makedepends=('dune' 'ocaml-findlib')
 options=('!strip')
