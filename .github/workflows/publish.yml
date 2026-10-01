@@ -40,7 +40,7 @@ jobs:
             fi
             dirs=$(git diff --name-only "$base" HEAD | cut -d/ -f1 | sort -u)
           fi
-          pkgs=$(for d in $dirs; do [[ -f $d/PKGBUILD ]] && echo "$d"; done | jq -Rnc '[inputs | select(length > 0)]')
+          pkgs=$(for d in $dirs; do if [[ -f $d/PKGBUILD ]]; then echo "$d"; fi; done | jq -Rnc '[inputs | select(length > 0)]')
           echo "Packages: $pkgs"
           echo "pkgs=$pkgs" >>"$GITHUB_OUTPUT"
 

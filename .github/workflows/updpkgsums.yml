@@ -24,7 +24,7 @@ jobs:
         run: |
           set -euo pipefail
           pkgs=$(git diff --name-only "origin/${GITHUB_BASE_REF}...HEAD" | cut -d/ -f1 | sort -u |
-            while read -r d; do [[ -f $d/PKGBUILD ]] && echo "$d"; done | xargs)
+            while read -r d; do if [[ -f $d/PKGBUILD ]]; then echo "$d"; fi; done | xargs)
           echo "Packages: ${pkgs:-<none>}"
           echo "pkgbuilds=$pkgs" >>"$GITHUB_ENV"
 
