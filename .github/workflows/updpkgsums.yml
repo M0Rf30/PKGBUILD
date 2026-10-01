@@ -38,9 +38,23 @@ jobs:
 
       - name: Commit
         if: ${{ env.pkgbuilds != '' }}
-        uses: stefanzweifel/git-auto-commit-action@v7.2.0
-        with:
-          commit_user_name: Renovate Bot
-          commit_user_email: renovate@whitesourcesoftware.com
-          commit_author: Renovate Bot <renovate@whitesourcesoftware.com>
-          file_pattern: "*/PKGBUILD"
+        env:
+          BOT_EMAIL: renovate@whitesourcesoftware.com
+        run: |
+          set -euo pipefail
+          git add -- '*/PKGBUILD'
+          if git diff --cached --quiet; then
+            echo "Checksums already up to date"
+            exit 0
+          fi
+          git config user.name "Renovate Bot"
+          git config user.email "$BOT_EMAIL"
+          # Fold the checksum fix into Renovate's own update commit, so each
+          # update is a single commit. Never rewrite commits made by people.
+          if [[ "$(git log -1 --format=%ae)" == "$BOT_EMAIL" ]]; then
+            git commit --amend --no-edit
+            git push --force-with-lease origin "HEAD:${GITHUB_HEAD_REF}"
+          else
+            git commit -m "chore: update checksums"
+            git push origin "HEAD:${GITHUB_HEAD_REF}"
+          fi

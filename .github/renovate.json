@@ -1,7 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-schema.json",
   "extends": [
-    ":ignoreModulesAndTests",
     ":rebaseStalePrs",
     ":semanticCommitScope(deps)",
     ":semanticCommits",
@@ -10,16 +9,35 @@
     "replacements:all",
     "workarounds:all"
   ],
+  "ignorePaths": [
+    "**/node_modules/**",
+    "abandoned/**",
+    "not-mine/**",
+    "not-on-aur/**"
+  ],
+  "prHourlyLimit": 0,
+  "prConcurrentLimit": 0,
+  "branchConcurrentLimit": 0,
   "customManagers": [
     {
       "customType": "regex",
-      "managerFilePatterns": ["/(^|/)PKGBUILD$/"],
+      "managerFilePatterns": [
+        "/(^|/)PKGBUILD$/"
+      ],
       "matchStrings": [
         "(?:pkgver|_\\w+)=(?<currentValue>[^\\s#]+) # renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: extractVersion=(?<extractVersion>\\S+))?(?: registryUrl=(?<registryUrl>\\S+))?"
       ],
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^v?(?<version>.*)${{/if}}"
     }
   ],
+  "customDatasources": {
+    "snapcraft": {
+      "defaultRegistryUrlTemplate": "https://api.snapcraft.io/v2/snaps/info/{{packageName}}",
+      "transformTemplates": [
+        "{\"releases\": [$distinct($.\"channel-map\"[channel.name = \"stable\"].version).{\"version\": $}]}"
+      ]
+    }
+  },
   "rebaseWhen": "behind-base-branch",
   "timezone": "Etc/UTC"
 }
