@@ -4,7 +4,7 @@
 [![renovate](https://github.com/M0Rf30/PKGBUILD/actions/workflows/renovate.yml/badge.svg)](https://github.com/M0Rf30/PKGBUILD/actions/workflows/renovate.yml)
 
 Source of truth for the [AUR](https://aur.archlinux.org/packages?K=robertfoster&SeB=m) packages
-maintained by **robertfoster** (Gianluca Boiano, [@M0Rf30](https://github.com/M0Rf30)).
+maintained by **robertfoster**.
 
 Every top-level directory is one AUR package base. Merging to `main` publishes it to the AUR
 automatically. Upstream updates are tracked by Renovate.
