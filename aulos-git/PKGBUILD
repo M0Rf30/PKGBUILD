@@ -1,17 +1,18 @@
 # Maintainer: robertfoster
-pkgname=lyra-git
+pkgname=aulos-git
 pkgver=0.1.0.r31.gcc3793e
 pkgrel=1
 pkgdesc='A modern music player for the COSMIC desktop'
 arch=(aarch64 x86_64)
-url=https://github.com/m0rf30/lyra
+url=https://github.com/M0Rf30/aulos
 license=(GPL-3.0-only)
 provides=("${pkgname%%-git}")
-conflicts=("${pkgname%%-git}")
+conflicts=("${pkgname%%-git}" lyra-git)
+replaces=(lyra-git)
 depends=(
   cosmic-icon-theme
-  gcc-libs
   glibc
+  libgcc
   libgl
   libxkbcommon
   wayland
