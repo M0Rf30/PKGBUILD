@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname='python-flask-themes2'
-pkgver=1.0.1 # renovate: datasource=pypi depName=Flask-Themes2
+pkgver=2.0.0 # renovate: datasource=pypi depName=Flask-Themes2
 pkgrel=1
 pkgdesc="Easily theme your Flask app"
 url="https://github.com/sysr-q/flask-themes2"
