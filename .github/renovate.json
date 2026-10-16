@@ -18,6 +18,16 @@
   "prHourlyLimit": 0,
   "prConcurrentLimit": 0,
   "branchConcurrentLimit": 0,
+  "packageRules": [
+    {
+      "description": "PKGBUILD bumps merge themselves once the required lint and updpkgsums checks pass",
+      "matchManagers": ["custom.regex"],
+      "automerge": true,
+      "automergeType": "pr",
+      "platformAutomerge": true,
+      "automergeStrategy": "squash"
+    }
+  ],
   "customManagers": [
     {
       "customType": "regex",

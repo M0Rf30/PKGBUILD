@@ -43,8 +43,15 @@ software itself upstream.
 ## Automation
 
 ```
-upstream release ──► Renovate PR ──► updpkgsums (+ pkgrel reset) ──► lint ──► merge ──► publish to AUR
+upstream release ──► Renovate PR ──► updpkgsums (+ pkgrel reset) ──► lint ──► auto-merge ──► publish to AUR
 ```
+
+Renovate enables GitHub auto-merge (squash) on every PKGBUILD update PR. The `main` ruleset
+requires the `lint` and `updpkgsums` checks, so a PR merges itself only once both pass on its
+latest commit, including the checksum commit `updpkgsums` pushes. A failing check leaves the PR
+open for manual fixing. Renovate PRs for GitHub Actions bumps are not auto-merged: CI doesn't
+exercise workflow changes. Repository admins bypass the ruleset, so direct pushes to `main`
+still work.
 
 | Workflow | Trigger | What it does |
 | --- | --- | --- |
