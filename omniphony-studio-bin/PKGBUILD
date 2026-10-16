@@ -2,7 +2,7 @@
 pkgname=omniphony-studio-bin
 _pkgname="${pkgname%-bin}"
 _appname="Omniphony Studio"
-pkgver=0.6.0 # renovate: datasource=github-releases depName=mgth/Omniphony extractVersion=^v(?<version>\d.+)$
+pkgver=0.7.0 # renovate: datasource=github-releases depName=mgth/Omniphony extractVersion=^v(?<version>\d.+)$
 pkgrel=1
 pkgdesc="Omniphony Studio (Tauri) control and 3D visualization UI for the orender spatial audio engine (binary release)"
 arch=('x86_64')
