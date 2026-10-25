@@ -1,7 +1,7 @@
 # Maintainer: robertfoster
 
 pkgname=overte-server-bin
-_date=2026.04.1 # renovate: datasource=github-releases depName=overte-org/overte
+_date=2026.10.1 # renovate: datasource=github-releases depName=overte-org/overte
 # Build hash is part of the RPM name and can't be derived from the tag; a Renovate
 # bump of _date will fail updpkgsums until this is updated by hand.
 _hash=f91d15a
