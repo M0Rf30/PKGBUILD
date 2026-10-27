@@ -44,6 +44,8 @@ optdepends=(
   'mda.lv2: bass loudness'
   'x42-plugins-lv2: autotune'
   'libdeep_filter_ladspa: deep noise remover'
+  'hush-mic: DPDFNet noise remover'
+  'rakarrack-plus: harmonizer'
 )
 conflicts=("${pkgname%%-git}")
 provides=("${pkgname%%-git}=${pkgver%%.r*}")
