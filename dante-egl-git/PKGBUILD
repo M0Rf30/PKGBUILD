@@ -4,9 +4,9 @@ pkgname=dante-egl-git
 pkgver=127.e4da33b
 pkgrel=1
 pkgdesc="idTech4 ES2.0, aka Oliver's Doom, aka omcfadde's Doom (EGL rendering version)"
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url="http://omcfadde.blogspot.fi/"
-license=('GPL3')
+license=('GPL-3.0-or-later')
 depends=('doom3-data' 'libjpeg' 'libogg' 'libvorbis' 'openal' 'sdl' 'libgl')
 makedepends=('scons' 'git')
 install=dante.install
@@ -30,39 +30,38 @@ build() {
 package() {
   cd dante/neo
   # Create Destination Directories
-  install -d $pkgdir/opt/dante/{base,d3xp}
+  install -d "$pkgdir/opt/dante/"{base,d3xp}
 
   # Install Game Binaries
-  install -m 755 build/release/core/sys/scons/dante $pkgdir/opt/dante/dante
-  install -m 755 build/release/dedicated/sys/scons/dante $pkgdir/opt/dante/dante-dedicated
+  install -m 755 build/release/core/sys/scons/dante "$pkgdir/opt/dante/dante"
+  install -m 755 build/release/dedicated/sys/scons/dante "$pkgdir/opt/dante/dante-dedicated"
 
   # Install Game Launcher (Client)
-  install -D -m 755 $srcdir/dante.launcher \
-    $pkgdir/usr/bin/dante
+  install -D -m 755 "$srcdir/dante.launcher" \
+    "$pkgdir/usr/bin/dante"
 
   # Install Game Launcher (Server)
-  install -D -m 755 $srcdir/dante-dedicated.launcher \
-    $pkgdir/usr/bin/dante-dedicated
+  install -D -m 755 "$srcdir/dante-dedicated.launcher" \
+    "$pkgdir/usr/bin/dante-dedicated"
 
   # Install Game Files
-  install -m 644 ../README.txt $pkgdir/opt/dante
+  install -m 644 ../README.txt "$pkgdir/opt/dante"
   install -m 644 game01-base.pk4 \
-    $pkgdir/opt/dante/base/game01.pk4
+    "$pkgdir/opt/dante/base/game01.pk4"
   install -m 644 game01-d3xp.pk4 \
-    $pkgdir/opt/dante/d3xp/game01.pk4
+    "$pkgdir/opt/dante/d3xp/game01.pk4"
   #   install -m 644 ../base/default.cfg $pkgdir/opt/dante/base
 
-  # Install License (DOOM 3)
   install -D -m 644 ../COPYING.txt \
-    $pkgdir/usr/share/licenses/dante/license.txt
+    "$pkgdir/usr/share/licenses/dante/license.txt"
 
   # Install Icon
-  install -D -m 644 $srcdir/dante.png \
-    $pkgdir/usr/share/pixmaps/dante.png
+  install -D -m 644 "$srcdir/dante.png" \
+    "$pkgdir/usr/share/pixmaps/dante.png"
 
   # Install Desktop File
-  install -D -m 644 $srcdir/dante.desktop \
-    $pkgdir/usr/share/applications/dante.desktop
+  install -D -m 644 "$srcdir/dante.desktop" \
+    "$pkgdir/usr/share/applications/dante.desktop"
 }
 
 pkgver() {

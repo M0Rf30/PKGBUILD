@@ -1,0 +1,44 @@
+# Maintainer: robertfoster
+
+pkgname=yap-bin
+pkgver=2.6.3 # renovate: datasource=github-releases depName=M0Rf30/yap
+pkgrel=1
+pkgdesc="Package software with ease"
+arch=('x86_64' 'aarch64')
+url="https://github.com/M0Rf30/yap"
+license=('GPL-3.0-only')
+depends=('glibc')
+optdepends=(
+  'apk-tools: for alpine experimenting on native host'
+  'pacman: for arch experimenting on native host'
+)
+provides=("${pkgname%-bin}")
+conflicts=("${pkgname%-bin}")
+options=('!strip')
+
+source_x86_64=("${pkgname%-bin}-${pkgver}-x86_64.tar.gz::${url}/releases/download/v${pkgver}/yap_Linux_x86_64.tar.gz")
+source_aarch64=("${pkgname%-bin}-${pkgver}-aarch64.tar.gz::${url}/releases/download/v${pkgver}/yap_Linux_arm64.tar.gz")
+
+sha256sums_x86_64=('163df7037a4c49491f487f682e859aa042acaa03566ed120bc5650d708720918')
+sha256sums_aarch64=('4bc620f695f22f88e7cae0faed3587242c48e1c76f6967eeabf4ffe00c703d21')
+
+package() {
+  install -Dm755 "${srcdir}/${pkgname%-bin}" \
+    "${pkgdir}/usr/bin/${pkgname%-bin}"
+
+  mkdir -p "${pkgdir}/usr/share/bash-completion/completions/"
+  mkdir -p "${pkgdir}/usr/share/zsh/site-functions/"
+  mkdir -p "${pkgdir}/usr/share/fish/vendor_completions.d/"
+
+  "${srcdir}/${pkgname%-bin}" completion bash > \
+    "${pkgdir}/usr/share/bash-completion/completions/${pkgname%-bin}"
+  "${srcdir}/${pkgname%-bin}" completion zsh > \
+    "${pkgdir}/usr/share/zsh/site-functions/_${pkgname%-bin}"
+  "${srcdir}/${pkgname%-bin}" completion fish > \
+    "${pkgdir}/usr/share/fish/vendor_completions.d/${pkgname%-bin}.fish"
+
+  install -Dm644 -t \
+    "${pkgdir}/usr/share/licenses/${pkgname%-bin}" "${srcdir}/LICENSE.md"
+  install -Dm644 -t \
+    "${pkgdir}/usr/share/doc/${pkgname%-bin}" "${srcdir}/README.md"
+}

@@ -1,6 +1,6 @@
 # Maintainer: robertfoster
 pkgname=local-ai
-pkgver=4.1.3 # renovate: datasource=github-tags depName=mudler/LocalAI
+pkgver=4.12.1 # renovate: datasource=github-tags depName=mudler/LocalAI
 pkgrel=1
 pkgdesc="Free, Open Source OpenAI alternative. Self-hosted, community-driven and local-first"
 arch=('x86_64')
@@ -8,11 +8,14 @@ url="https://github.com/mudler/LocalAI"
 license=('MIT')
 backup=("etc/${pkgname}/${pkgname}.conf")
 makedepends=(
+  'git'
   'go'
   'make'
+  'nodejs'
+  'npm'
   'unzip'
 )
-source=("${pkgname}-${pkgver}::git+${url}.git#tag=v${pkgver}"
+source=("${pkgname}::git+${url}.git#tag=v${pkgver}"
   "${pkgname}.conf"
   "${pkgname}.tmpfiles"
   "${pkgname}.sysusers"
@@ -20,7 +23,7 @@ source=("${pkgname}-${pkgver}::git+${url}.git#tag=v${pkgver}"
 )
 
 build() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
+  cd "${srcdir}/${pkgname}"
   export GOPATH="${srcdir}"
   export PATH="${GOPATH}/bin:${PATH}"
 
@@ -28,7 +31,7 @@ build() {
 }
 
 package() {
-  cd "${srcdir}/${pkgname}-${pkgver}"
+  cd "${srcdir}/${pkgname}"
   install -Dm775 "${pkgname}" -t "${pkgdir}/usr/bin/"
   install -Dm644 LICENSE \
     -t "${pkgdir}/usr/share/licenses/${pkgname}"
@@ -47,8 +50,8 @@ package() {
     "${pkgdir}/usr/lib/tmpfiles.d/${pkgname}.conf"
 }
 
-sha256sums=('1f3d1688680069afb4ef96a3774c0d67b0524e3fb90c95d43e919c6a41f23b55'
-            '8153bc015f138655e08a49183c36d00f7fb661a2b9367110f44af844eab815ae'
-            'dd51cf954b60d75e0521a6e58188bcb06981e87d7ca8ac22d7dc4d46a362a671'
+sha256sums=('ae0b3254929664c84daa6454c5839ab16bf60a2b76d30b3571ef906b497a3b27'
+            '9d22535eaf1f2f9d3c65c4afcda492f5f3c69d04098344ec6e32b67077791321'
+            'd7e620a65a98e6341c1e16e731ebd1aec636b229e81e043d44caf6607cba0147'
             '97ba21355c50ec658e220bc0558f506227b3dc77cc51f343b6f5657b0d77a19b'
             '6e4c0e2a2694867a5c27e21855e530a9327ae3658dbaa9b18fe028ab96df915a')

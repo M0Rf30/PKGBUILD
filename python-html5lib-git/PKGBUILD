@@ -16,17 +16,16 @@ checkdepends=('python-six' 'python-pytest' 'python-lxml' 'python-mock')
 source=("${pkgname}::git+https://github.com/html5lib/html5lib-python.git"
   LICENSE
 )
-
 package() {
-  cd ${srcdir}/${pkgname}
+  cd "${srcdir}/${pkgname}"
 
-  python3 setup.py install --root=${pkgdir}
+  python3 setup.py install --root="${pkgdir}"
   install -Dm755 "${srcdir}/LICENSE" \
     "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
 }
 
 pkgver() {
-  cd ${srcdir}/${pkgname}
+  cd "${srcdir}/${pkgname}"
   git describe --long --tags | sed 's/\([^-]*-g\)/r\1/;s/-/./g'
 }
 

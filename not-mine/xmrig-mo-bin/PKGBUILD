@@ -1,0 +1,27 @@
+# Maintainer: robertfoster
+pkgname=xmrig-mo-bin
+_pkgname=xmrig
+pkgver=6.26.0_mo5 # renovate: datasource=github-releases depName=MoneroOcean/xmrig extractVersion=^v(?<version>.+)$
+_tag="v${pkgver/_/-}"
+pkgrel=1
+pkgdesc="MoneroOcean fork of XMRig, high performance CPU/GPU miner with algo switching support (prebuilt)"
+arch=('x86_64')
+url="https://github.com/MoneroOcean/xmrig"
+license=('GPL-3.0-or-later')
+depends=('glibc' 'hwloc' 'openssl')
+provides=("${_pkgname}" "xmrig-mo")
+conflicts=("${_pkgname}" "xmrig-mo")
+options=('!debug' '!strip')
+source=("LICENSE-${pkgver}::https://raw.githubusercontent.com/MoneroOcean/xmrig/${_tag}/LICENSE")
+source_x86_64=("${url}/releases/download/${_tag}/xmrig-${_tag}-lin.tar.gz")
+
+package() {
+  install -Dm755 -t "${pkgdir}/usr/bin" "${srcdir}/xmrig"
+  install -Dm644 "${srcdir}/config.json" \
+    "${pkgdir}/usr/share/doc/${pkgname}/config.json.example"
+  install -Dm644 "${srcdir}/LICENSE-${pkgver}" \
+    "${pkgdir}/usr/share/licenses/${pkgname}/LICENSE"
+}
+
+sha256sums=('589ed823e9a84c56feb95ac58e7cf384626b9cbf4fda2a907bc36e103de1bad2')
+sha256sums_x86_64=('f239de5dc1f659a3215eaab42d3c22ecdcc9b3584a0e27692e82dd96f7ab38fa')

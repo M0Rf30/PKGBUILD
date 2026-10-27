@@ -1,16 +1,20 @@
 name: "Arch Linux User Repository (AUR) GitHub Action"
-description: ""
+description: "Update checksums (and reset pkgrel on version bumps) for one or more PKGBUILD directories"
 branding:
   icon: "package"
   color: "blue"
 
 inputs:
   action:
-    description: "Which action to take. Can be 'updpkgsums' or 'publish'"
+    description: "Which action to take. Currently only 'updpkgsums'"
     required: true
   pkgname:
-    description: ""
+    description: "Space-separated list of package directories"
     required: true
+  base:
+    description: "Git ref to compare pkgver against; pkgrel is reset to 1 when pkgver changed"
+    required: false
+    default: ""
 
 runs:
   using: docker
@@ -18,3 +22,4 @@ runs:
   args:
     - ${{ inputs.action }}
     - ${{ inputs.pkgname }}
+    - ${{ inputs.base }}

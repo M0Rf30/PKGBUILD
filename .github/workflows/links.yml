@@ -1,0 +1,41 @@
+name: dead-links
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  links:
+    runs-on: ubuntu-latest
+    container: docker.io/library/archlinux:base-devel
+    steps:
+      - name: Install tools
+        run: pacman -Syu --needed --noconfirm git github-cli lychee
+
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Check url= and source= links
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+          useradd -m builder && chown -R builder .
+          rc=0
+          su builder -c "GITHUB_TOKEN=$GITHUB_TOKEN OUT=report.md .github/scripts/check-urls.sh" || rc=$?
+          cat report.md
+          num=$(gh issue list --label dead-links --state open --json number -q '.[0].number')
+          gh label create dead-links --color B60205 --force >/dev/null || true
+          if [ "$rc" -ne 0 ]; then
+            if [ -n "$num" ]; then gh issue edit "$num" --body-file report.md
+            else gh issue create --title "Dead links report" --label dead-links --body-file report.md || \
+                 gh issue create --title "Dead links report" --body-file report.md; fi
+          elif [ -n "$num" ]; then
+            gh issue close "$num" --comment "All links OK."
+          fi

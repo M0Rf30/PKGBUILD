@@ -10,14 +10,14 @@ arch=('x86_64')
 source=("$pkgname::git+https://github.com/FWGS/vgui-dev")
 
 pkgver() {
-  cd $srcdir/$pkgname
+  cd "$srcdir/$pkgname"
   git log | head -n 1 | cut -c 8-15
 }
 
 package() {
-  cd $srcdir/$pkgname/
-  install -Dm755 lib/vgui.so $pkgdir/usr/lib32/vgui.so
-  mkdir $pkgdir/usr/include/
+  cd "$srcdir/$pkgname/"
+  install -Dm755 lib/vgui.so "$pkgdir/usr/lib32/vgui.so"
+  mkdir "$pkgdir/usr/include/"
   cp -r include "$pkgdir/usr/"
 }
 

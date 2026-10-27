@@ -5,30 +5,106 @@ on:
     branches:
       - main
     paths:
-      - "*/PKGBUILD"
+      - "*/**"
+      - "!.github/**"
+  workflow_dispatch:
+    inputs:
+      packages:
+        description: "Space-separated package directories to (re)publish"
+        required: false
 
 jobs:
-  publish:
+  changes:
     runs-on: ubuntu-latest
+    outputs:
+      pkgs: ${{ steps.diff.outputs.pkgs }}
+      base: ${{ steps.diff.outputs.base }}
     steps:
       - name: Checkout
-        uses: actions/checkout@v6.0.2
+        uses: actions/checkout@v7.0.1
         with:
           fetch-depth: 0
 
-      - name: Find updated package
+      - name: Find changed packages
+        id: diff
+        env:
+          BEFORE: ${{ github.event.before }}
+          MANUAL: ${{ inputs.packages }}
         run: |
-          #!/usr/bin/env bash
-          set -euxo pipefail
+          set -euo pipefail
+          if [[ -n "${MANUAL:-}" ]]; then
+            dirs=$MANUAL
+          else
+            base=${BEFORE:-}
+            if [[ -z $base || $base =~ ^0+$ ]] || ! git cat-file -e "$base^{commit}" 2>/dev/null; then
+              base=HEAD~1
+            fi
+            dirs=$(git diff --name-only "$base" HEAD | cut -d/ -f1 | sort -u)
+          fi
+          pkgs=$(for d in $dirs; do if [[ -f $d/PKGBUILD ]]; then echo "$d"; fi; done | jq -Rnc '[inputs | select(length > 0)]')
+          echo "Packages: $pkgs"
+          echo "pkgs=$pkgs" >>"$GITHUB_OUTPUT"
+          echo "base=${base:-}" >>"$GITHUB_OUTPUT"
 
-          echo "pkgbuild=$(git diff --name-only HEAD HEAD~1 "*/PKGBUILD" | head -1 | xargs dirname)" >> $GITHUB_ENV
+  publish:
+    needs: changes
+    if: needs.changes.outputs.pkgs != '[]'
+    runs-on: ubuntu-latest
+    concurrency: aur-${{ matrix.pkg }}
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        pkg: ${{ fromJSON(needs.changes.outputs.pkgs) }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+        with:
+          fetch-depth: 0
+
+      - name: Resolve pkgbase
+        id: meta
+        run: |
+          set -euo pipefail
+          base=$(sed -n 's/^pkgbase=\(["'\'']\?\)\([^"'\'' #$]*\)\1.*/\2/p' "${{ matrix.pkg }}/PKGBUILD" | head -1)
+          echo "pkgbase=${base:-${{ matrix.pkg }}}" >>"$GITHUB_OUTPUT"
+
+      - name: Build commit message
+        id: msg
+        env:
+          PKG: ${{ matrix.pkg }}
+          BASE: ${{ needs.changes.outputs.base }}
+          SRC: ${{ github.server_url }}/${{ github.repository }}/commit/${{ github.sha }}
+        run: |
+          set -euo pipefail
+          ver() { git show "$1:$PKG/PKGBUILD" 2>/dev/null | bash -c 'source /dev/stdin >/dev/null 2>&1; [[ -n ${pkgver:-} ]] && echo "${epoch:+$epoch:}$pkgver-$pkgrel"' || true; }
+          if [[ -n ${BASE:-} ]]; then range="$BASE..HEAD"; else range="-1"; fi
+          mapfile -t subjects < <(git log --no-merges --format=%s $range -- "$PKG")
+          new=$(ver HEAD); old=${BASE:+$(ver "$BASE")}
+          if [[ -n $new && $new != "${old:-}" ]]; then
+            subject="Update to $new"
+          elif (( ${#subjects[@]} )); then
+            subject=${subjects[0]#"$PKG: "}
+          else
+            subject="Update packaging"
+          fi
+          {
+            echo "message<<EOF_MSG"
+            echo "$subject"
+            echo
+            for s in "${subjects[@]}"; do echo "- $s"; done
+            (( ${#subjects[@]} )) && echo
+            echo "Source: $SRC"
+            echo "EOF_MSG"
+          } >>"$GITHUB_OUTPUT"
+          sed -n '/^message<</,/^EOF_MSG/p' "$GITHUB_OUTPUT"
 
       - name: Publish package
-        uses: KSXGitHub/github-actions-deploy-aur@v4.1.3
-        if: ${{ env.pkgbuild != '' }}
+        uses: KSXGitHub/github-actions-deploy-aur@v4.2.0
         with:
-          pkgname: ${{ env.pkgbuild }}
-          pkgbuild: ${{ env.pkgbuild }}/PKGBUILD
+          pkgname: ${{ steps.meta.outputs.pkgbase }}
+          asset_dir: ${{ matrix.pkg }}
+          commit_message: ${{ steps.msg.outputs.message }}
           commit_username: ${{ secrets.AUR_USERNAME }}
           commit_email: ${{ secrets.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}

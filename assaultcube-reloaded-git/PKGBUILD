@@ -4,11 +4,12 @@ pkgname=assaultcube-reloaded-git
 pkgver=760.6cffc51
 pkgrel=1
 pkgdesc='AssaultCube Reloaded (Development)'
-arch=('i686' 'x86_64')
+arch=('x86_64')
 url='http://acr.victorz.ca'
-license=('ZLIB')
+license=('Zlib')
 depends=('curl' 'gcc-libs' 'libgl' 'libvorbis' 'libx11' 'openal' 'sdl' 'sdl_image' 'zlib')
 makedepends=('git')
+provides=('assaultcube-reloaded')
 conflicts=('assaultcube-reloaded')
 replaces=('assaultcube-reloaded')
 source=("git+https://github.com/acreloaded/acr.git"
@@ -18,27 +19,27 @@ source=("git+https://github.com/acreloaded/acr.git"
   'acreloaded.svg'
 )
 pkgver() {
-  cd $srcdir/acr
+  cd "$srcdir/acr"
   echo $(git rev-list --count master).$(git rev-parse --short master)
 }
 
 package() {
   install -d "${pkgdir}"/usr/bin
   install -d "${pkgdir}"/usr/share/acreloaded
-  cd $srcdir/acr
+  cd "$srcdir/acr"
   cd source/src
 
-  make DESTDIR=$pkgdir install
+  make DESTDIR="$pkgdir" install
   cd ../..
 
-  cp -rf bot config packages acr/packages ${pkgdir}/usr/share/acreloaded
+  cp -rf bot config packages acr/packages "${pkgdir}/usr/share/acreloaded"
 
-  install -Dm755 bin_unix/native_client ${pkgdir}/usr/share/acreloaded/native_client
-  install -Dm755 bin_unix/native_server ${pkgdir}/usr/share/acreloaded/native_server
-  install -Dm644 ${srcdir}/acreloaded.svg ${pkgdir}/usr/share/pixmaps/acreloaded.svg
-  install -Dm644 ${srcdir}/acreloaded.desktop ${pkgdir}/usr/share/applications/acreloaded.desktop
-  install -Dm755 ${srcdir}/acreloaded ${pkgdir}/usr/bin/acreloaded
-  install -Dm755 ${srcdir}/acreloaded-server ${pkgdir}/usr/bin/acreloaded-server
+  install -Dm755 bin_unix/native_client "${pkgdir}/usr/share/acreloaded/native_client"
+  install -Dm755 bin_unix/native_server "${pkgdir}/usr/share/acreloaded/native_server"
+  install -Dm644 "${srcdir}/acreloaded.svg" "${pkgdir}/usr/share/pixmaps/acreloaded.svg"
+  install -Dm644 "${srcdir}/acreloaded.desktop" "${pkgdir}/usr/share/applications/acreloaded.desktop"
+  install -Dm755 "${srcdir}/acreloaded" "${pkgdir}/usr/bin/acreloaded"
+  install -Dm755 "${srcdir}/acreloaded-server" "${pkgdir}/usr/bin/acreloaded-server"
 }
 
 sha256sums=('SKIP'

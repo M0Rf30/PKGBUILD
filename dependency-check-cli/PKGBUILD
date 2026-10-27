@@ -2,13 +2,13 @@
 # Contributor: François-Xavier Bru <francoisxavier.bru at orange dot com>
 
 pkgname=dependency-check-cli
-pkgver=12.2.1 # renovate: datasource=github-tags depName=dependency-check/DependencyCheck
+pkgver=13.0.0 # renovate: datasource=github-tags depName=dependency-check/DependencyCheck
 pkgrel=1
 pkgdesc="Dependency-Check is a Software Composition Analysis (SCA) tool that attempts to detect publicly disclosed vulnerabilities contained within a project's dependencies."
 arch=('any')
 depends=('java-runtime')
 url="https://github.com/dependency-check/DependencyCheck"
-license=('Apache')
+license=('Apache-2.0')
 source=("${url}/releases/download/v${pkgver}/${pkgname%%-cli}-${pkgver}-release.zip")
 install=${pkgname}.install
 
@@ -18,9 +18,9 @@ package() {
 
   cp -r "${srcdir}/${pkgname%%-cli}/"* \
     "${pkgdir}/opt/${pkgname%%-cli}"
-  chmod +x ${pkgdir}/opt/${pkgname%%-cli}/bin/dependency-check.sh
+  chmod +x "${pkgdir}/opt/${pkgname%%-cli}/bin/dependency-check.sh"
   ln -s /opt/${pkgname%%-cli}/bin/dependency-check.sh \
     "${pkgdir}"/usr/bin/dependency-check
 }
 
-sha256sums=('260ffdabd666de3d82c4aa0c3c7b8395ad4d2c3670b53b561bf39387c39a1fbd')
+sha256sums=('44d920d1ec03e948df862a253f0912782a31b9beee8a7c8895b9cb95760176ed')

@@ -4,7 +4,7 @@
 # Contributor: farnsworth517
 
 pkgname=soulseekqt
-pkgver=20240630
+pkgver=20240630 # renovate: datasource=github-tags depName=M0Rf30/soulseekqt-binaries
 _pkgver=2024-6-30
 _appimage="SoulseekQt-${_pkgver}-64bit.AppImage"
 pkgrel=1
