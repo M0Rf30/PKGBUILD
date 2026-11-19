@@ -12,9 +12,13 @@ PUSH=0; [[ ${1:-} == --push ]] && { PUSH=1; shift; }
 for d in "$@"; do
   base=$(sed -n 's/^pkgbase=\(["'\'']\?\)\([^"'\'' #$]*\)\1.*/\2/p' "$REPO/$d/PKGBUILD" | head -1)
   base=${base:-$d}
-  if ! remote=$(osc api "/source/$PRJ/$base" 2>/dev/null); then
-    echo "== $d: no OBS package $PRJ/$base, skipping"
-    continue
+  if ! remote=$(osc api "/source/$PRJ/$base" 2>&1); then
+    if [[ $remote == *"HTTP Error 404"* ]]; then
+      echo "== $d: no OBS package $PRJ/$base, skipping"
+      continue
+    fi
+    echo "$remote" >&2
+    exit 1
   fi
   echo "== $d ($PRJ/$base)"
 
