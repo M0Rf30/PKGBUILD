@@ -35,7 +35,8 @@
         "/(^|/)PKGBUILD$/"
       ],
       "matchStrings": [
-        "(?:pkgver|_\\w+)=(?<currentValue>[^\\s#]+) # renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: extractVersion=(?<extractVersion>\\S+))?(?: registryUrl=(?<registryUrl>\\S+))?"
+        "(?:pkgver|_\\w+)=(?<currentValue>[^\\s#]+) # renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: extractVersion=(?<extractVersion>\\S+))?(?: registryUrl=(?<registryUrl>\\S+))?",
+        "(?:^|\\n)# renovate: datasource=(?<datasource>\\S+) depName=(?<depName>\\S+)(?: extractVersion=(?<extractVersion>\\S+))?(?: registryUrl=(?<registryUrl>\\S+))?\\n(?:pkgver|_\\w+)=(?<currentValue>[^\\s#]+)"
       ],
       "extractVersionTemplate": "{{#if extractVersion}}{{{extractVersion}}}{{else}}^v?(?<version>.*)${{/if}}"
     }

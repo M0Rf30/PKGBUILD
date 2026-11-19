@@ -108,3 +108,34 @@ jobs:
           commit_username: ${{ secrets.AUR_USERNAME }}
           commit_email: ${{ secrets.AUR_EMAIL }}
           ssh_private_key: ${{ secrets.AUR_SSH_PRIVATE_KEY }}
+
+  obs:
+    needs: changes
+    if: needs.changes.outputs.pkgs != '[]'
+    runs-on: ubuntu-latest
+    concurrency: obs
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7.0.1
+
+      - name: Install osc
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq osc
+
+      - name: Configure osc
+        env:
+          OBS_USERNAME: ${{ secrets.OBS_USERNAME }}
+          OBS_PASSWORD: ${{ secrets.OBS_PASSWORD }}
+        run: |
+          set -euo pipefail
+          mkdir -p ~/.config/osc
+          install -m600 /dev/null ~/.config/osc/oscrc
+          printf '[general]\napiurl = https://api.opensuse.org\n\n[https://api.opensuse.org]\nuser = %s\npass = %s\n' \
+            "$OBS_USERNAME" "$OBS_PASSWORD" >~/.config/osc/oscrc
+
+      # Only packages that already exist in the OBS project are synced
+      - name: Sync to OBS
+        env:
+          PKGS: ${{ needs.changes.outputs.pkgs }}
+        run: |
+          mapfile -t pkgs < <(jq -r '.[]' <<<"$PKGS")
+          .github/scripts/obs-publish.sh --push "${pkgs[@]}"
